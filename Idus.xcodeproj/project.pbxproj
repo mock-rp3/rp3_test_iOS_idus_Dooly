@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,12 @@
 		F0E6C3B726C7ED95007B7272 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E6C3B526C7ED95007B7272 /* LaunchScreen.storyboard */; };
 		F0E6C3C226C7ED95007B7272 /* IdusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E6C3C126C7ED95007B7272 /* IdusTests.swift */; };
 		F0E6C3CD26C7ED95007B7272 /* IdusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E6C3CC26C7ED95007B7272 /* IdusUITests.swift */; };
+		F0E6C3DB26C84572007B7272 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E6C3DA26C84572007B7272 /* TodayViewController.swift */; };
+		F0E6C3DD26C84594007B7272 /* CurrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E6C3DC26C84594007B7272 /* CurrentViewController.swift */; };
+		F0E6C3DF26C8459E007B7272 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E6C3DE26C8459E007B7272 /* NewViewController.swift */; };
+		F0E6C3E926C85259007B7272 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E6C3E826C85259007B7272 /* MenuCell.swift */; };
+		F0E6C3EB26C852F2007B7272 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0E6C3EA26C852F2007B7272 /* MenuCell.xib */; };
+		F0E6C3ED26C853C1007B7272 /* FocusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0E6C3EC26C853C1007B7272 /* FocusView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +69,12 @@
 		F0E6C3C826C7ED95007B7272 /* IdusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IdusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E6C3CC26C7ED95007B7272 /* IdusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdusUITests.swift; sourceTree = "<group>"; };
 		F0E6C3CE26C7ED95007B7272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0E6C3DA26C84572007B7272 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		F0E6C3DC26C84594007B7272 /* CurrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewController.swift; sourceTree = "<group>"; };
+		F0E6C3DE26C8459E007B7272 /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
+		F0E6C3E826C85259007B7272 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		F0E6C3EA26C852F2007B7272 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		F0E6C3EC26C853C1007B7272 /* FocusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FocusView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +125,6 @@
 				1DBFA31E5FDD22E275A6AA10 /* Pods-IdusTests.debug.xcconfig */,
 				130F9C88C53D017960A4C431 /* Pods-IdusTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -145,11 +156,17 @@
 				F0E6C3A726C7ED94007B7272 /* AppDelegate.swift */,
 				F0E6C3A926C7ED94007B7272 /* SceneDelegate.swift */,
 				F0E6C3AB26C7ED94007B7272 /* ViewController.swift */,
+				F0E6C3EC26C853C1007B7272 /* FocusView.xib */,
+				F0E6C3E826C85259007B7272 /* MenuCell.swift */,
+				F0E6C3EA26C852F2007B7272 /* MenuCell.xib */,
 				F0E6C3AD26C7ED94007B7272 /* Main.storyboard */,
 				F0E6C3B326C7ED95007B7272 /* Assets.xcassets */,
 				F0E6C3B526C7ED95007B7272 /* LaunchScreen.storyboard */,
 				F0E6C3B826C7ED95007B7272 /* Info.plist */,
 				F0E6C3B026C7ED94007B7272 /* Idus.xcdatamodeld */,
+				F0E6C3DA26C84572007B7272 /* TodayViewController.swift */,
+				F0E6C3DC26C84594007B7272 /* CurrentViewController.swift */,
+				F0E6C3DE26C8459E007B7272 /* NewViewController.swift */,
 			);
 			path = Idus;
 			sourceTree = "<group>";
@@ -282,6 +299,8 @@
 			files = (
 				F0E6C3B726C7ED95007B7272 /* LaunchScreen.storyboard in Resources */,
 				F0E6C3B426C7ED95007B7272 /* Assets.xcassets in Resources */,
+				F0E6C3EB26C852F2007B7272 /* MenuCell.xib in Resources */,
+				F0E6C3ED26C853C1007B7272 /* FocusView.xib in Resources */,
 				F0E6C3AF26C7ED94007B7272 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,7 +431,11 @@
 			files = (
 				F0E6C3AC26C7ED94007B7272 /* ViewController.swift in Sources */,
 				F0E6C3A826C7ED94007B7272 /* AppDelegate.swift in Sources */,
+				F0E6C3DF26C8459E007B7272 /* NewViewController.swift in Sources */,
+				F0E6C3DB26C84572007B7272 /* TodayViewController.swift in Sources */,
 				F0E6C3B226C7ED94007B7272 /* Idus.xcdatamodeld in Sources */,
+				F0E6C3DD26C84594007B7272 /* CurrentViewController.swift in Sources */,
+				F0E6C3E926C85259007B7272 /* MenuCell.swift in Sources */,
 				F0E6C3AA26C7ED94007B7272 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
