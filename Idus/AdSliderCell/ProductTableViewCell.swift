@@ -25,12 +25,13 @@ class ProductTableViewCell: UITableViewCell {
         
         itemCollectionView.delegate = self
         itemCollectionView.dataSource = self
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
+    
     @IBAction func onClickSeeMore(_ sender: Any) {
     }
     
@@ -47,7 +48,7 @@ extension ProductTableViewCell: UICollectionViewDelegate, UICollectionViewDataSo
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as? ProductCollectionViewCell else{
             return UICollectionViewCell()
         }
-        
+                
         cell.productName.text = produts?.products?[indexPath.row].name
         cell.img.image = UIImage(named: produts?.products?[indexPath.row].imageName ?? "")
         return cell

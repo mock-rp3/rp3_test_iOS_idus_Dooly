@@ -41,6 +41,7 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
         loadJson()
         tableView.delegate = self
         tableView.dataSource = self
+    
         startTimer()
         
         
@@ -144,8 +145,7 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print((productData?.response!.count)!)
-        return (productData?.response!.count)!
+        return productData?.response!.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

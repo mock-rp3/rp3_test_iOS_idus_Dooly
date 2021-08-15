@@ -12,10 +12,8 @@ struct ProductModel: Codable{
 }
 
 struct Product: Codable{
-    
     var categoryName : String?
     var products: [ProductDetails]?
-    
 }
 
 struct ProductDetails : Codable {

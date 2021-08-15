@@ -1,66 +1,56 @@
 {
-    "response" : [
-        {
-            "category_name" : "내가 본 작품의 연관작품",
-            "products" : [
-                {
-                    "name":"동물농장 쉐이커 키링&그립 스마트톡",
-                    "image_name":"item_thumb1",
-                    "price" : "10000",
-                    "description" : "sdfsdfsdfsdfsdffffffff"
-            
-                },
-                {
-                    "name":"(신상할인)파스텔 곰돌이 쉐이커 스마트톡/키링",
-                    "image_name":"item_thumb2",
-                    "price" : "10000",
-                    "description" : "sdfsdfsdfsdfsdffffffff"
-            
-                },
-                {
-                    "name":"인기 !! 고양이 궤이커 키링 그립 스마트 톡",
-                    "image_name":"item_thumb3",
-                    "price" : "10000",
-                    "description" : "sdfsdfsdfsdfsdffffffff"
-            
-                },
-                {
-                    "name":"Nike",
-                    "image_name":"item_thumb1",
-                    "price" : "10000",
-                    "description" : "sdfsdfsdfsdfsdffffffff"
-            
-                }
-                
-            ]
-        },
-        {
-            "category_name" : "오늘의 작품",
-            "products" : [
-                {
-                    "name":"Nike",
-                    "image_name":"item_thumb1",
-                    "price" : "10000",
-                    "description" : "sdfsdfsdfsdfsdffffffff"
-            
-                },
-                {
-                    "name":"Nike",
-                    "image_name":"item_thumb1",
-                    "price" : "10000",
-                    "description" : "sdfsdfsdfsdfsdffffffff"
-            
-                },
-                {
-                    "name":"Nike",
-                    "image_name":"item_thumb1",
-                    "price" : "10000",
-                    "description" : "sdfsdfsdfsdfsdffffffff"
-            
-                }
-                
-            ]
-        }
-
-    ]
+   "response":[
+      {
+         "category_name":"내가 본 작품의 연관작품",
+         "products":[
+            {
+               "name":"동물농장 쉐이커 키링&그립 스마트톡",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"(신상할인)파스텔 곰돌이 쉐이커 스마트톡/키링",
+               "image_name":"item_thumb2",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"인기 !! 고양이 궤이커 키링 그립 스마트 톡",
+               "image_name":"item_thumb3",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"Nike",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            }
+         ]
+      },
+      {
+         "category_name":"오늘의 작품",
+         "products":[
+            {
+               "name":"Nike",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"Nike",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"Nike",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            }
+         ]
+      }
+   ]
 }
