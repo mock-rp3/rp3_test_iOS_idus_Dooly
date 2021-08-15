@@ -21,7 +21,15 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
     var timer : Timer?
     var currentIndex = 0
 
+    var productData: ProductModel?
+
+    
+    @IBOutlet var tableView: UITableView!
+
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
     
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(TodayViewController.respondToSwipeGesture(_:)))
@@ -29,12 +37,35 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
         swipeRight.direction = UISwipeGestureRecognizer.Direction.down
         self.view.addGestureRecognizer(swipeRight)
         
+        
+        loadJson()
+        tableView.delegate = self
+        tableView.dataSource = self
         startTimer()
+        
         
     }
     
     func startTimer(){
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timerAction), userInfo: nil ,  repeats: true)
+    }
+    
+    func loadJson(){
+        if let path = Bundle.main.path(forResource: "productName", ofType:"json"){
+            do{
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                let jsonData = try JSONSerialization.data(withJSONObject: jsonResult, options: .prettyPrinted)
+                let jsonDecoder = JSONDecoder()
+                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                productData = try jsonDecoder.decode(ProductModel.self, from: jsonData)
+            }catch{
+                print(error)
+            }
+        }
+        
+        
     }
     
     @objc func timerAction(){
@@ -57,13 +88,6 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     
-
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-
 
 }
 
@@ -116,3 +140,22 @@ extension TodayViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
 }
 
+extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
+
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print((productData?.response!.count)!)
+        return (productData?.response!.count)!
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell") as? ProductTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.produts = productData?.response?[indexPath.row]
+        return cell
+    }
+
+
+}
