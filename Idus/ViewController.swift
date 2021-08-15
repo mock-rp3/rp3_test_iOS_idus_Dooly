@@ -20,16 +20,15 @@ class ViewController: UIViewController{
             vc.view.backgroundColor = color
             return vc
         }
-//
+
     
-//    var dataSource = [(menuTitle: "test1", vc: viewController(.red)), (menuTitle: "test2", vc: viewController(.blue)), (menuTitle: "test3", vc: viewController(.yellow))]
     var dataSource = [(menu:String, content: UIViewController)]() {
         didSet{
             menuViewController.reloadData()
             contentViewController.reloadData()
         }
     }
-//
+    
     lazy var firstLoad: (() -> Void)? = {[weak self, menuViewController, contentViewController] in
 
         menuViewController!.reloadData()
@@ -40,7 +39,7 @@ class ViewController: UIViewController{
     }
     
     fileprivate func makeDataSource() -> [(menu:String, content: UIViewController)]{
-        let myMenuArray = ["투데이", "실시간","NEW"]
+        let myMenuArray = ["투데이", "실시간", "NEW"]
         return myMenuArray.map{
             let title = $0
 
@@ -71,19 +70,16 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         
                 menuViewController.register(nib: UINib(nibName: "MenuCell", bundle: nil), forCellWithReuseIdentifier: "MenuCell")
-//                menuViewController.register(type: TitleLabelMenuViewCell.self, forCellWithReuseIdentifier:"identifier")
 
                 menuViewController.registerFocusView(nib: UINib(nibName: "FocusView", bundle: nil))
-//                menuViewController.registerFocusView(view: UnderlineFocusView())
 
                 
                 menuViewController.cellAlignment = .center
                 
-//                    menuViewController.reloadData()
-//                    contentViewController.reloadData()
-
                 
                 dataSource = makeDataSource()
+        
+            
     }
 
     
@@ -142,7 +138,7 @@ extension ViewController: PagingContentViewControllerDataSource {
 
 extension ViewController: PagingMenuViewControllerDelegate {
     func menuViewController(viewController: PagingMenuViewController, didSelect page: Int, previousPage: Int) {
-        
+
         contentViewController.scroll(to: page, animated: true)
     }
 }
