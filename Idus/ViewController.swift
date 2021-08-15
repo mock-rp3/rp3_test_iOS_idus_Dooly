@@ -76,7 +76,7 @@ class ViewController: UIViewController{
                 
                 menuViewController.cellAlignment = .center
                 
-                
+                menuViewController.cellSpacing = 55
                 dataSource = makeDataSource()
         
             
