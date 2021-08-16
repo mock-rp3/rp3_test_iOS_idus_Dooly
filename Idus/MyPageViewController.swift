@@ -9,21 +9,40 @@ import UIKit
 
 class MyPageViewController: UIViewController {
 
+    @IBOutlet var platform: UILabel!
+    @IBOutlet var email: UILabel!
+    @IBOutlet var name: UILabel!
+    @IBOutlet var password: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UserDefaults.standard.value(forKey: "email") != nil  && UserDefaults.standard.value(forKey: "password") != nil {
+            email.text = (UserDefaults.standard.value(forKey: "email") as! String)
+            name.text = (UserDefaults.standard.value(forKey: "name") as! String)
+            password.text = (UserDefaults.standard.value(forKey: "password") as! String)
+            platform.text = (UserDefaults.standard.value(forKey: "platform") as! String)
+           
+        }
 
-        // Do any additional setup after loading the view.
     }
     
+    
+    
+    @IBAction func btnLogout(_ sender: Any) {
+  
+        UserDefaults.standard.removeObject(forKey: "email")
+        UserDefaults.standard.removeObject(forKey: "password")
+        UserDefaults.standard.removeObject(forKey: "name")
+        UserDefaults.standard.removeObject(forKey: "platform")
+        
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LogInViewController")
+        navigationController?.pushViewController(vc, animated: true)
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
     }
-    */
+    
 
 }

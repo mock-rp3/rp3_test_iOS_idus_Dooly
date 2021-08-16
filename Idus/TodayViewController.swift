@@ -9,7 +9,7 @@ import UIKit
 
 class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
 
-    @IBOutlet var adView: UIView!
+//    @IBOutlet var adView: UIView!
     
     @IBOutlet var addCollectionView: UICollectionView!
     @IBOutlet var subCategoryCollectionView: UICollectionView!

@@ -29,9 +29,12 @@ class LogInViewController: UIViewController {
     var backgroundArr = [UIImage(named: "login_image1"),UIImage(named: "login_image2"), UIImage(named: "login_image3"), UIImage(named: "login_image4"),UIImage(named: "login_image5"),UIImage(named: "login_image6"),UIImage(named: "login_image7"),UIImage(named: "login_image8") ]
     var index = 0
     
+    let email = "1111"
+    let password = "2222"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        checkUser()
         localLogin.layer.cornerRadius = 22.0
         naverLogin.layer.cornerRadius = 22.0
 
@@ -39,6 +42,13 @@ class LogInViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil ,  repeats: true)
 
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    
     
     @objc func changeImage() {
          
@@ -66,6 +76,32 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func btnSubmit(_ sender: Any) {
+        
+        // api 통신 후 서버가 로그인 성공하면 유저 데이터를 쏴줄거임 ! 그걸 저장해야해 ( JWT 포함 )
+        // if 문에 서버의 isSuceess 가 true 일때라고 해줘야함
+        if email == inputEmail.text! && password == inputPassword.text! {
+            
+            logInView.isHidden = true
+
+            //서버가 주는 값들을 저장해야해
+            UserDefaults.standard.set(email, forKey: "email")
+            UserDefaults.standard.set(password, forKey: "password")
+            UserDefaults.standard.set("김희진", forKey: "name")
+            UserDefaults.standard.set("local", forKey: "platform")
+
+            
+            print("!1")
+            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
+            navigationController?.pushViewController(vc, animated: true)
+
+            
+        }else{
+            let alert = UIAlertController(title: "alert", message: "없는 회원입니다", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     
