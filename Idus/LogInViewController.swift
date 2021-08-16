@@ -18,6 +18,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
 
     @IBOutlet var backgroundImage: UIImageView!
+    @IBOutlet var loginPageImage: UIImageView!
     
     @IBOutlet var localLogin: UIButton!
     @IBOutlet var naverLogin: UIButton!
@@ -26,6 +27,12 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     @IBOutlet var logInView: UIView!
     @IBOutlet var inputEmail: UITextField!
     @IBOutlet var inputPassword: UITextField!
+    
+    @IBOutlet var joinEmail: UITextField!
+    @IBOutlet var joinName: UITextField!
+    @IBOutlet var joinPassword: UITextField!
+    @IBOutlet var joinPassword2: UITextField!
+    @IBOutlet var joinPhone: UITextField!
     
     var UserData : GetUserLoginRes? = nil
 
@@ -71,8 +78,34 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     
     
+    @IBAction func localJoin(_ sender: Any) {
+        joinEmail.isHidden = false
+        joinName.isHidden = false
+        joinPassword.isHidden = false
+        joinPassword2.isHidden = false
+        joinPhone.isHidden = false
+
+        inputEmail.isHidden = true
+        inputPassword.isHidden = true
+        loginPageImage.image = UIImage(named: "joinPageImage")
+        logInView.isHidden = false
+
+    }
+    
+    
     @IBAction func localLogIn(_ sender: Any) {
-       
+        
+        joinEmail.isHidden = true
+        joinName.isHidden = true
+        joinPassword.isHidden = true
+        joinPassword2.isHidden = true
+        joinPhone.isHidden = true
+        
+        inputEmail.isHidden = false
+        inputPassword.isHidden = false
+
+
+        loginPageImage.image = UIImage(named: "logInPageImage")
         logInView.isHidden = false
         
     }

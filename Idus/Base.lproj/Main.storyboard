@@ -398,6 +398,9 @@
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="localJoin:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="B0o-09-WIE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHW-tS-yVG">
                                 <rect key="frame" x="55" y="669" width="305" height="44"/>
@@ -422,7 +425,7 @@
                                 <rect key="frame" x="-2" y="0.0" width="419" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logInPageImage" translatesAutoresizingMaskIntoConstraints="NO" id="5Kw-nw-hab">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joinPageImage" translatesAutoresizingMaskIntoConstraints="NO" id="5Kw-nw-hab">
                                         <rect key="frame" x="2" y="0.0" width="414" height="896"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -458,6 +461,46 @@
                                             <action selector="btnSubmit:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="tAg-q6-LAd"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tQc-nB-ADX">
+                                        <rect key="frame" x="34" y="166" width="351" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YVR-VB-axW">
+                                        <rect key="frame" x="34" y="211" width="351" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 (영문 + 숫자 + 특수문자 8자 이상)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wUn-jk-h5P">
+                                        <rect key="frame" x="34" y="255" width="351" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 확인" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71s-OX-0zW">
+                                        <rect key="frame" x="34" y="300" width="351" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="전화번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4t5-Y1-4CU">
+                                        <rect key="frame" x="34" y="344" width="351" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -470,8 +513,14 @@
                         <outlet property="backgroundImage" destination="FQC-ou-h6d" id="RuB-Vo-WiA"/>
                         <outlet property="inputEmail" destination="m46-Y8-06H" id="p6D-Ix-wmB"/>
                         <outlet property="inputPassword" destination="b55-Wt-L0J" id="GqB-Pz-MNt"/>
+                        <outlet property="joinEmail" destination="tQc-nB-ADX" id="GTN-XA-3AU"/>
+                        <outlet property="joinName" destination="YVR-VB-axW" id="tAN-MZ-EFz"/>
+                        <outlet property="joinPassword" destination="wUn-jk-h5P" id="Su7-ZP-jZO"/>
+                        <outlet property="joinPassword2" destination="71s-OX-0zW" id="7eW-ud-JO2"/>
+                        <outlet property="joinPhone" destination="4t5-Y1-4CU" id="ve3-0q-u64"/>
                         <outlet property="localLogin" destination="gHW-tS-yVG" id="p9a-Oo-eoY"/>
                         <outlet property="logInView" destination="jGF-Ud-qkn" id="WJg-SK-HLG"/>
+                        <outlet property="loginPageImage" destination="5Kw-nw-hab" id="3QV-JL-ojB"/>
                         <outlet property="naverLogin" destination="tw4-d9-Ubo" id="2vb-H8-H4B"/>
                     </connections>
                 </viewController>
@@ -646,7 +695,7 @@
         <image name="button_x" width="56" height="48"/>
         <image name="cart" width="44" height="40"/>
         <image name="item_thumb2" width="262" height="262"/>
-        <image name="logInPageImage" width="462" height="1005"/>
+        <image name="joinPageImage" width="924" height="2010"/>
         <image name="login_image1" width="414" height="896"/>
         <image name="logo" width="176" height="80"/>
         <image name="searchbar" width="726" height="72"/>
@@ -655,6 +704,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
