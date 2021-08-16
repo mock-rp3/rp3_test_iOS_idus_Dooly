@@ -20,6 +20,7 @@ class LogInViewController: UIViewController {
     @IBOutlet var localLogin: UIButton!
     @IBOutlet var naverLogin: UIButton!
     
+    
     @IBOutlet var logInView: UIView!
     @IBOutlet var inputEmail: UITextField!
     @IBOutlet var inputPassword: UITextField!
@@ -90,7 +91,6 @@ class LogInViewController: UIViewController {
             UserDefaults.standard.set("local", forKey: "platform")
 
             
-            print("!1")
             let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
             navigationController?.pushViewController(vc, animated: true)
 
@@ -105,6 +105,10 @@ class LogInViewController: UIViewController {
     }
     
     
+    @IBAction func noLogin(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     @IBAction func kakaoLogin(_ sender: Any) {

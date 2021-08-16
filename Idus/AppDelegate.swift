@@ -29,21 +29,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        checkUser()
         
         KakaoSDKCommon.initSDK(appKey: "c3506e5d851d7fda3a4c2db3b77fea56")
+
         return true
     }
     
+    func checkUser() {
+        // 추후 jwt 로 수정필요
+        print("11")
+        if UserDefaults.standard.value(forKey: "email") != nil {
+            
+            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
+
+            
+            let nav = UINavigationController(rootViewController: vc)
+            let share = UIApplication.shared.delegate as? AppDelegate
+            share?.window?.rootViewController = nav
+            share?.window?.rootViewController = vc
+
+        }else {
+            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LogInViewController")
+
+            window?.rootViewController = vc
+
+        }
+    }
+
     
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
@@ -52,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
+
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -81,6 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data Saving support
 
     func saveContext () {
+
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
