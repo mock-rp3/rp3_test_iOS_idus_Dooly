@@ -25,13 +25,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return AuthController.handleOpenUrl(url: url)
         }
 
-            return false
+        return false
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         checkUser()
         
         KakaoSDKCommon.initSDK(appKey: "c3506e5d851d7fda3a4c2db3b77fea56")
+        
+        
+        let instance = NaverThirdPartyLoginConnection.getSharedInstance()
+                
+                // 네이버 앱으로 인증하는 방식 활성화
+                instance?.isNaverAppOauthEnable = false
+                
+                // SafariViewController에서 인증하는 방식 활성화
+                instance?.isInAppOauthEnable = true
+                
+                // 인증 화면을 아이폰의 세로모드에서만 적용
+                instance?.isOnlyPortraitSupportedInIphone()
+                
+                instance?.serviceUrlScheme = kServiceAppUrlScheme // 앱을 등록할 때 입력한 URL Scheme
+                instance?.consumerKey = kConsumerKey // 상수 - client id
+                instance?.consumerSecret = kConsumerSecret // pw
+                instance?.appName = kServiceAppName // app name
 
         return true
     }

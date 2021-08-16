@@ -14,6 +14,7 @@ class MyPageViewController: UIViewController {
     @IBOutlet var name: UILabel!
     @IBOutlet var password: UILabel!
     
+    @IBOutlet var button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,8 @@ class MyPageViewController: UIViewController {
             password.text = (UserDefaults.standard.value(forKey: "password") as! String)
             platform.text = (UserDefaults.standard.value(forKey: "platform") as! String)
            
+        }else {
+            button.setTitle("로그인하러가기", for: .normal)
         }
 
     }

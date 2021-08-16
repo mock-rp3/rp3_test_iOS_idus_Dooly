@@ -22,3 +22,4 @@ struct ProductDetails : Codable {
     var price : String?
     var description : String?
 }
+

@@ -387,6 +387,9 @@
                                 <state key="normal" title="네이버 아이디로 로그인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="naverLogin:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="r8x-fI-dgE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhv-8X-gnn">
                                 <rect key="frame" x="55" y="600" width="305" height="29"/>
@@ -597,6 +600,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="내정보" id="FA9-BN-ihx"/>
                     <connections>
+                        <outlet property="button" destination="T8e-lx-O4q" id="b0V-Y5-49q"/>
                         <outlet property="email" destination="Wq9-0d-JYk" id="8Hz-SG-QQw"/>
                         <outlet property="name" destination="bcK-86-9PT" id="nCO-AG-4q9"/>
                         <outlet property="password" destination="j35-tO-ylr" id="6HD-9S-S7I"/>
