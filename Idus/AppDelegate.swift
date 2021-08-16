@@ -7,11 +7,31 @@
 
 import UIKit
 import CoreData
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
+import NaverThirdPartyLogin
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        
+        NaverThirdPartyLoginConnection.getSharedInstance()?.application(app, open: url, options: options)
+    
+        if (AuthApi.isKakaoTalkLoginUrl(url)) {
+            return AuthController.handleOpenUrl(url: url)
+        }
+
+            return false
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        KakaoSDKCommon.initSDK(appKey: "c3506e5d851d7fda3a4c2db3b77fea56")
+
         return true
     }
 

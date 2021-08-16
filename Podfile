@@ -7,6 +7,9 @@ target 'Idus' do
 
   pod 'Alamofire'
   pod 'PagingKit'
+  pod 'KakaoSDK'
+  pod 'KakaoSDKUser'
+  pod 'naveridlogin-sdk-ios'
   # Pods for Idus
 
   target 'IdusTests' do
