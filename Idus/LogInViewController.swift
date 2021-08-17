@@ -39,14 +39,15 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     @IBOutlet var alertText: UILabel!
     
     
-    
-    
     @IBOutlet var joinView: UIView!
     @IBOutlet var joinEmail: UITextField!
     @IBOutlet var joinName: UITextField!
     @IBOutlet var joinPassword: UITextField!
     @IBOutlet var joinPassword2: UITextField!
     @IBOutlet var joinPhone: UITextField!
+    @IBOutlet var joinFriend: UITextField!
+    @IBOutlet var btnJoin: UIButton!
+    
     
     var UserData : GetUserLoginRes? = nil
 
@@ -103,7 +104,19 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         
         logInView.isHidden = true
         
-        joinPageImage.image = UIImage(named: "join_background")
+        
+        joinEmail.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        joinName.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        joinPassword.attributedPlaceholder = NSAttributedString(string: "비밀번호 ( 영문 + 숫자 + 특수문자 8자 이상", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        joinPassword2.attributedPlaceholder = NSAttributedString(string: "비밀번호 확인", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        joinPhone.attributedPlaceholder = NSAttributedString(string: "전화번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        joinFriend.attributedPlaceholder = NSAttributedString(string: "추천인코드 (선택사항)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+
+
+        btnJoin.layer.cornerRadius = 22.0
+
+        
+        joinPageImage.image = UIImage(named: "join_background3")
         joinView.isHidden = false
 
     }
@@ -113,7 +126,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         
         joinView.isHidden = true
         
-        loginPageImage.image = UIImage(named: "login_background")
+        loginPageImage.image = UIImage(named: "join_background2")
         
         let text1 = "Apple 로그인 시 이용약관 및 "
         let text2 = "에 동의하는걸로 간주합니다"
