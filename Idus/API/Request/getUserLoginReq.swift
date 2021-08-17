@@ -71,7 +71,11 @@ class GetUserLoginReq {
                     }
 
                 case .failure(let error):
-                    print("!!!!!!!!!")
+                    let alert = UIAlertController(title: "서버점검 중입니다", message: "서버점검 중입니다", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(action)
+                    print("서버점검중입니다")
+//                    present(alert, animated: true, completion: nil)
 
                     print("DEBUG>> USER API Get Error : \(error.localizedDescription)")
 

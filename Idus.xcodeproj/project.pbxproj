@@ -203,6 +203,22 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		F0A26D9A26CC60530085806E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F0A26D9B26CC605D0085806E /* Auth */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F0A26D9B26CC605D0085806E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F066ABC226CA791000503ADA /* LogInViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		F0E6C39B26C7ED94007B7272 = {
 			isa = PBXGroup;
 			children = (
@@ -228,14 +244,15 @@
 		F0E6C3A626C7ED94007B7272 /* Idus */ = {
 			isa = PBXGroup;
 			children = (
+				F0A26D9A26CC60530085806E /* Controllers */,
 				F066ABC426CAFB0E00503ADA /* API */,
 				F066ABC126C9DB9800503ADA /* Models */,
 				F0E6C3F026C86FDF007B7272 /* UpperTabBar */,
 				F032B0B126C9901A0029A414 /* AdSliderCell */,
+				F0E6C3AD26C7ED94007B7272 /* Main.storyboard */,
 				F0E6C3A726C7ED94007B7272 /* AppDelegate.swift */,
 				F0E6C3A926C7ED94007B7272 /* SceneDelegate.swift */,
 				F0E6C3AB26C7ED94007B7272 /* ViewController.swift */,
-				F0E6C3AD26C7ED94007B7272 /* Main.storyboard */,
 				F0E6C3B326C7ED95007B7272 /* Assets.xcassets */,
 				F0E6C3B526C7ED95007B7272 /* LaunchScreen.storyboard */,
 				F0E6C3B826C7ED95007B7272 /* Info.plist */,
@@ -249,7 +266,6 @@
 				F0E6C3F526C88B0D007B7272 /* CategoryViewController.swift */,
 				F0E6C3F726C88B1A007B7272 /* MyPageViewController.swift */,
 				F032B0B626C9A7ED0029A414 /* productName.json */,
-				F066ABC226CA791000503ADA /* LogInViewController.swift */,
 			);
 			path = Idus;
 			sourceTree = "<group>";

@@ -421,7 +421,7 @@
                                     <action selector="noLogin:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="gsf-cq-m4t"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzd-Ir-f17">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzd-Ir-f17">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="join_background3" translatesAutoresizingMaskIntoConstraints="NO" id="b1X-no-2HO">
@@ -430,13 +430,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeJ-ga-QYA">
                                         <rect key="frame" x="31" y="150" width="352" height="359.5"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cxd-ev-JyI">
-                                                <rect key="frame" x="0.0" y="3.5" width="352" height="43.5"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="veu-PP-rCx">
                                                 <rect key="frame" x="0.0" y="47" width="352" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -472,6 +465,20 @@
                                                     <constraint firstAttribute="height" constant="1" identifier="1" id="Xn3-ls-Sil"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNq-kk-Qte">
+                                                <rect key="frame" x="0.0" y="266" width="352" height="1"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" identifier="1" id="WYr-LF-xPW"/>
+                                                </constraints>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cxd-ev-JyI">
+                                                <rect key="frame" x="0.0" y="3.5" width="352" height="43.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이름" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Np6-jq-zPu">
                                                 <rect key="frame" x="0.0" y="48" width="352" height="43"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -507,13 +514,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNq-kk-Qte">
-                                                <rect key="frame" x="0.0" y="266" width="352" height="1"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="1" identifier="1" id="WYr-LF-xPW"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="q3w-HX-JhN" firstAttribute="leading" secondItem="Cxd-ev-JyI" secondAttribute="leading" id="3sO-n8-nt9"/>
@@ -566,24 +566,6 @@
                                             <constraint firstItem="Np6-jq-zPu" firstAttribute="width" secondItem="Cxd-ev-JyI" secondAttribute="width" id="y6L-PQ-YD4"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68v-Fj-qfC">
-                                        <rect key="frame" x="31" y="510.5" width="352" height="169"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단, 14세 미만은 회원가입할 수 없습니다." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atn-sO-7Pf">
-                                        <rect key="frame" x="45.5" y="687.5" width="193" height="17.5"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3M0-Kk-7vB">
-                                        <rect key="frame" x="31" y="748.5" width="352" height="54"/>
-                                        <color key="backgroundColor" white="1" alpha="0.46385344449999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="동의하고 회원가입">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fj-SM-NwS">
                                         <rect key="frame" x="8" y="96" width="29" height="27"/>
                                         <state key="normal" image="button_x">
@@ -591,6 +573,69 @@
                                         </state>
                                         <connections>
                                             <action selector="btnX:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="uV7-fR-pQh"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68v-Fj-qfC">
+                                        <rect key="frame" x="31" y="472" width="352" height="169"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRB-HX-aSD">
+                                                <rect key="frame" x="8" y="29" width="106" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Buttonddd" image="checkmark.square" catalog="system">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="checkAllBtn:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="gQB-d1-7n3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBa-4c-iCb">
+                                                <rect key="frame" x="118" y="92" width="81" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button1" image="checkmark.square" catalog="system">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="checkAllBtn:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="11O-ob-5UO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWL-UE-6e0">
+                                                <rect key="frame" x="118" y="122" width="81" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button1" image="checkmark.square" catalog="system">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="checkAllBtn:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="MQJ-J5-ojw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQD-aJ-opr">
+                                                <rect key="frame" x="118" y="62" width="81" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button1" image="checkmark.square" catalog="system">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="checkAllBtn:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="q7P-iX-0A8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단, 14세 미만은 회원가입할 수 없습니다." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atn-sO-7Pf">
+                                        <rect key="frame" x="45.5" y="649" width="193" height="17.5"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3M0-Kk-7vB">
+                                        <rect key="frame" x="31" y="710" width="352" height="54"/>
+                                        <color key="backgroundColor" white="1" alpha="0.46385344449999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="동의하고 회원가입">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnJoinSubmit:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="vDO-Hf-w2C"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -602,7 +647,7 @@
                                     <constraint firstItem="68v-Fj-qfC" firstAttribute="centerX" secondItem="fzd-Ir-f17" secondAttribute="centerX" id="A6n-bk-Vg7"/>
                                     <constraint firstItem="5Fj-SM-NwS" firstAttribute="height" secondItem="b1X-no-2HO" secondAttribute="height" multiplier="0.03" id="Bjk-7k-8Gf"/>
                                     <constraint firstItem="b1X-no-2HO" firstAttribute="top" secondItem="fzd-Ir-f17" secondAttribute="top" id="FPx-ur-UwP"/>
-                                    <constraint firstItem="68v-Fj-qfC" firstAttribute="top" secondItem="HeJ-ga-QYA" secondAttribute="bottom" constant="1" id="LS1-lT-Y1d"/>
+                                    <constraint firstItem="68v-Fj-qfC" firstAttribute="top" secondItem="HeJ-ga-QYA" secondAttribute="bottom" constant="-37.5" id="LS1-lT-Y1d"/>
                                     <constraint firstItem="b1X-no-2HO" firstAttribute="leading" secondItem="fzd-Ir-f17" secondAttribute="leading" id="R49-Za-FNj"/>
                                     <constraint firstItem="HeJ-ga-QYA" firstAttribute="width" secondItem="b1X-no-2HO" secondAttribute="width" multiplier="0.85" id="Rec-MY-iS0"/>
                                     <constraint firstItem="atn-sO-7Pf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fzd-Ir-f17" secondAttribute="leading" constant="20" symbolic="YES" id="SD5-wp-vok"/>
@@ -610,7 +655,7 @@
                                     <constraint firstItem="HeJ-ga-QYA" firstAttribute="height" secondItem="b1X-no-2HO" secondAttribute="height" multiplier="0.4" constant="1" id="Svy-5b-bZT"/>
                                     <constraint firstItem="HeJ-ga-QYA" firstAttribute="top" secondItem="fzd-Ir-f17" secondAttribute="top" constant="150" id="Uez-6F-Tpy"/>
                                     <constraint firstItem="68v-Fj-qfC" firstAttribute="height" secondItem="b1X-no-2HO" secondAttribute="height" multiplier="0.188616" id="WGU-uK-1FA"/>
-                                    <constraint firstItem="3M0-Kk-7vB" firstAttribute="top" secondItem="68v-Fj-qfC" secondAttribute="bottom" multiplier="1.1" constant="1" id="XFP-WY-3cf"/>
+                                    <constraint firstItem="3M0-Kk-7vB" firstAttribute="top" secondItem="68v-Fj-qfC" secondAttribute="bottom" multiplier="1.1" constant="4.8999999999999773" id="XFP-WY-3cf"/>
                                     <constraint firstItem="5Fj-SM-NwS" firstAttribute="top" secondItem="fzd-Ir-f17" secondAttribute="topMargin" id="aCu-7f-pe4"/>
                                     <constraint firstItem="3M0-Kk-7vB" firstAttribute="width" secondItem="b1X-no-2HO" secondAttribute="width" multiplier="0.850242" id="dep-QL-Kxt"/>
                                     <constraint firstItem="3M0-Kk-7vB" firstAttribute="centerX" secondItem="fzd-Ir-f17" secondAttribute="centerX" id="duu-L1-icB"/>
@@ -619,7 +664,7 @@
                                     <constraint firstItem="HeJ-ga-QYA" firstAttribute="centerX" secondItem="fzd-Ir-f17" secondAttribute="centerX" id="lbh-uU-6kT"/>
                                     <constraint firstAttribute="bottom" secondItem="b1X-no-2HO" secondAttribute="bottom" id="p81-Ol-qnw"/>
                                     <constraint firstItem="3M0-Kk-7vB" firstAttribute="height" secondItem="b1X-no-2HO" secondAttribute="height" multiplier="0.0602679" id="sh4-jy-eWB"/>
-                                    <constraint firstItem="3M0-Kk-7vB" firstAttribute="top" secondItem="atn-sO-7Pf" secondAttribute="bottom" multiplier="1.06" constant="1" id="wId-K7-YWF"/>
+                                    <constraint firstItem="3M0-Kk-7vB" firstAttribute="top" secondItem="atn-sO-7Pf" secondAttribute="bottom" multiplier="1.06" constant="3.5099999999999909" id="wId-K7-YWF"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGF-Ud-qkn">
@@ -854,11 +899,6 @@
                             <constraint firstAttribute="trailing" secondItem="jGF-Ud-qkn" secondAttribute="trailing" id="lh4-bb-4Sh"/>
                             <constraint firstItem="jGF-Ud-qkn" firstAttribute="leading" secondItem="9z4-Pb-xUJ" secondAttribute="leading" id="n2h-74-GN3"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="jGF-Ud-qkn"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="mz0-x7-UVs"/>
                     <connections>
@@ -869,6 +909,10 @@
                         <outlet property="btn3" destination="HCw-9P-eg7" id="y9P-6A-aje"/>
                         <outlet property="btn4" destination="Mk2-Ec-AfE" id="LNe-fe-eS7"/>
                         <outlet property="btn5" destination="Mxw-Vh-qzZ" id="ZOp-Iw-0OM"/>
+                        <outlet property="btnCheck1" destination="DQD-aJ-opr" id="TN5-Rn-0Jx"/>
+                        <outlet property="btnCheck2" destination="lBa-4c-iCb" id="cYc-R6-OlR"/>
+                        <outlet property="btnCheck3" destination="nWL-UE-6e0" id="jjy-9z-rED"/>
+                        <outlet property="btnCheckAll" destination="DRB-HX-aSD" id="jMW-GZ-9ap"/>
                         <outlet property="btnJoin" destination="3M0-Kk-7vB" id="hmL-uc-KBU"/>
                         <outlet property="btnSubmit" destination="fQ7-n4-mkL" id="ohJ-6d-HQa"/>
                         <outlet property="emailText" destination="3Zx-eA-jnZ" id="BhV-Gc-g3u"/>
@@ -1059,6 +1103,7 @@
     <resources>
         <image name="button_x" width="56" height="48"/>
         <image name="cart" width="44" height="40"/>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="item_thumb2" width="262" height="262"/>
         <image name="join_background3" width="764" height="1340"/>
         <image name="login_background" width="1038" height="1806"/>

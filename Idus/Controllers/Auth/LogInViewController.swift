@@ -48,6 +48,16 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     @IBOutlet var joinFriend: UITextField!
     @IBOutlet var btnJoin: UIButton!
     
+    @IBOutlet var btnCheckAll: UIButton!
+    @IBOutlet var btnCheck1: UIButton!
+    @IBOutlet var btnCheck2: UIButton!
+    @IBOutlet var btnCheck3: UIButton!
+    var checkAll : Bool = false
+    var check1 : Bool = false
+    var check2 : Bool = false
+    var check3 : Bool = false
+
+    
     
     var UserData : GetUserLoginRes? = nil
 
@@ -62,11 +72,14 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loginInstance?.requestDeleteToken()
 
         localLogin.layer.cornerRadius = 22.0
         naverLogin.layer.cornerRadius = 22.0
 
+        
+        
 
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil ,  repeats: true)
 
@@ -103,6 +116,12 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     @IBAction func localJoin(_ sender: Any) {
         
         logInView.isHidden = true
+        
+        btnCheckAll.tag = 1
+        btnCheck1.tag = 10
+        btnCheck2.tag = 20
+        btnCheck3.tag = 30
+
         
         
         joinEmail.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
@@ -165,8 +184,95 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     }
     
     @IBAction func btnSubmit(_ sender: Any) {
+        if inputEmail.text == "" {
+            let alert = UIAlertController(title: "이메일을 입력하세요", message: "이메일을 입력하세요", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        }
+        else if inputPassword.text == "" {
+            let alert = UIAlertController(title: "비밀번호를 입력하세요", message: "비밀번호를 입력하세요", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+
+        }else {
+            GetUserLoginReq().getUserData(self, email: inputEmail.text!, password: inputPassword.text!)
+        }
+    }
+    
+    
+    @IBAction func checkAllBtn(_ sender: UIButton) {
         
-        GetUserLoginReq().getUserData(self, email: email, password: password)
+        if(sender.tag == 1){
+            checkAll = !checkAll
+            
+            if (checkAll == true ) {
+                btnCheckAll.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+                btnCheck1.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+                btnCheck2.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+                btnCheck3.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+                check1 = true
+                check2 = true
+                check3 = true
+            } else {
+                btnCheckAll.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                btnCheck1.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                btnCheck2.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                btnCheck3.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                check1 = false
+                check2 = false
+                check3 = false
+            }
+        }
+        else {
+            if(sender.tag == 10) {
+                check1 = !check1
+                if(check1 == true){
+                    btnCheck1.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+                }else{
+                    btnCheck1.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                }
+            }else if(sender.tag == 20) {
+                check2 = !check2
+                if(check2 == true){
+                    btnCheck2.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+                } else{
+                    btnCheck2.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                }
+            } else {
+                check3 = !check3
+                if(check3 == true){
+                    btnCheck3.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+                }else{
+                    btnCheck3.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                }
+            }
+            
+            if (check1 && check2 && check3) {
+                checkAll = true
+                btnCheckAll.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+            }
+            else  {
+                checkAll = false
+                btnCheckAll.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+            }
+        }
+    }
+    
+    
+    @IBAction func btnJoinSubmit(_ sender: Any) {
+        //joinPassword != joinPassword2
+        //각 값이 안들어가있을때 입력 알람창 띄우기
+        print(joinEmail.text!)
+        print(joinName.text!)
+        print(joinPassword.text!)
+        print(joinPassword2.text!)
+        print(joinPhone.text!)
+        print(joinFriend.text!)
+        print(check1, check2, check3)
+
+        
 
     }
     
