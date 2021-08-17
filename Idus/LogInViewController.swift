@@ -19,15 +19,29 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
 
     @IBOutlet var backgroundImage: UIImageView!
     @IBOutlet var loginPageImage: UIImageView!
+    @IBOutlet var joinPageImage: UIImageView!
     
     @IBOutlet var localLogin: UIButton!
     @IBOutlet var naverLogin: UIButton!
     
     
     @IBOutlet var logInView: UIView!
+    @IBOutlet var loginText: UILabel!
+    @IBOutlet var btn1: UIButton!
+    @IBOutlet var btn2: UIButton!
+    @IBOutlet var btn3: UIButton!
+    @IBOutlet var btn4: UIButton!
+    @IBOutlet var btn5: UIButton!
+    @IBOutlet var emailText: UILabel!
     @IBOutlet var inputEmail: UITextField!
     @IBOutlet var inputPassword: UITextField!
+    @IBOutlet var btnSubmit: UIButton!
+    @IBOutlet var alertText: UILabel!
     
+    
+    
+    
+    @IBOutlet var joinView: UIView!
     @IBOutlet var joinEmail: UITextField!
     @IBOutlet var joinName: UITextField!
     @IBOutlet var joinPassword: UITextField!
@@ -47,7 +61,6 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        checkUser()
         loginInstance?.requestDeleteToken()
 
         localLogin.layer.cornerRadius = 22.0
@@ -61,16 +74,10 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
-        if UserDefaults.standard.value(forKey: "email") != nil {
+        if UserDefaults.standard.value(forKey: "jwt") != nil {
 
             let vc = storyboard?.instantiateViewController(withIdentifier: "TabBarController")
             navigationController?.pushViewController(vc!, animated: true)
-
-            
-            
-//            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
-//
-//            window?.rootViewController = vc
 
         }
 
@@ -93,70 +100,61 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     
     @IBAction func localJoin(_ sender: Any) {
-        joinEmail.isHidden = false
-        joinName.isHidden = false
-        joinPassword.isHidden = false
-        joinPassword2.isHidden = false
-        joinPhone.isHidden = false
-
-        inputEmail.isHidden = true
-        inputPassword.isHidden = true
-        loginPageImage.image = UIImage(named: "joinPageImage")
-        logInView.isHidden = false
+        
+        logInView.isHidden = true
+        
+        joinPageImage.image = UIImage(named: "join_background")
+        joinView.isHidden = false
 
     }
     
     
     @IBAction func localLogIn(_ sender: Any) {
         
-        joinEmail.isHidden = true
-        joinName.isHidden = true
-        joinPassword.isHidden = true
-        joinPassword2.isHidden = true
-        joinPhone.isHidden = true
+        joinView.isHidden = true
         
-        inputEmail.isHidden = false
-        inputPassword.isHidden = false
+        loginPageImage.image = UIImage(named: "login_background")
+        
+        let text1 = "Apple 로그인 시 이용약관 및 "
+        let text2 = "에 동의하는걸로 간주합니다"
+        var attributedString = NSMutableAttributedString.init(string: "\(text1)개인정보 처리방침\(text2)")
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: NSRange.init(location: text1.count, length: 9))
+        alertText.attributedText = attributedString
+        
+        
+       attributedString = NSMutableAttributedString.init(string: "SNS 로그인")
+       attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: NSRange.init(location: 0, length: 7))
+//       attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.Carort!, range: NSRange.init(location: text.count, length: 4))
+        loginText.attributedText = attributedString
 
+        attributedString = NSMutableAttributedString.init(string: "이메일 로그인")
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: NSRange.init(location: 0, length: 7))
+         emailText.attributedText = attributedString
 
-        loginPageImage.image = UIImage(named: "logInPageImage")
+        
+        btn1.layer.cornerRadius = 22.0
+        btn2.layer.cornerRadius = 22.0
+        btn3.layer.cornerRadius = 22.0
+        btn4.layer.cornerRadius = 22.0
+        btn5.layer.cornerRadius = 22.0
+        btnSubmit.layer.cornerRadius = 17.0
+
+        
         logInView.isHidden = false
+
         
     }
     
     @IBAction func btnX(_ sender: Any) {
         logInView.isHidden = true
+        joinView.isHidden = true
        
     }
     
     @IBAction func btnSubmit(_ sender: Any) {
         
-//        GetUserLoginReq().getUserData(self, email: email, password: password)
- 
-        
-        // api 통신 후 서버가 로그인 성공하면 유저 데이터를 쏴줄거임 ! 그걸 저장해야해 ( JWT 포함 )
-        // if 문에 서버의 isSuceess 가 true 일때라고 해줘야함
-        if email == inputEmail.text! && password == inputPassword.text! {
+        GetUserLoginReq().getUserData(self, email: email, password: password)
 
-            logInView.isHidden = true
-
-            //서버가 주는 값들을 저장해야해
-            UserDefaults.standard.set(email, forKey: "email")
-            UserDefaults.standard.set(password, forKey: "password")
-            UserDefaults.standard.set("김희진", forKey: "name")
-            UserDefaults.standard.set("local", forKey: "platform")
-
-
-            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
-            navigationController?.pushViewController(vc, animated: true)
-
-        }else{
-            let alert = UIAlertController(title: "alert", message: "없는 회원입니다", preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
-        }
-        
     }
     
     
@@ -403,33 +401,30 @@ extension LogInViewController {
     func didSuccess(_ response: GetUserLoginRes) {
         
         UserData = response
-        
         print(UserData as Any)
+
+        let userJwt = response.result?.jwt
+                
+        logInView.isHidden = true
+
+        UserDefaults.standard.set(inputEmail.text, forKey: "email")
+        UserDefaults.standard.set(inputPassword.text, forKey: "password")
+        UserDefaults.standard.set("김희진", forKey: "name")
+        UserDefaults.standard.set("local", forKey: "platform")
+        UserDefaults.standard.set(userJwt, forKey: "jwt")
+
         
-        // api 통신 후 서버가 로그인 성공하면 유저 데이터를 쏴줄거임 ! 그걸 저장해야해 ( JWT 포함 )
-        // if 문에 서버의 isSuceess 가 true 일때라고 해줘야함
-        if email == inputEmail.text! && password == inputPassword.text! {
-            
-            logInView.isHidden = true
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
+        navigationController?.pushViewController(vc, animated: true)
 
-            //서버가 주는 값들을 저장해야해
-            UserDefaults.standard.set(email, forKey: "email")
-            UserDefaults.standard.set(password, forKey: "password")
-            UserDefaults.standard.set("김희진", forKey: "name")
-            UserDefaults.standard.set("local", forKey: "platform")
-
-            
-            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
-            navigationController?.pushViewController(vc, animated: true)
-
-            
-        }else{
-            let alert = UIAlertController(title: "alert", message: "없는 회원입니다", preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
-        }
+    }
+    
+    func didFailure(_ message: String) {
         
+        let alert = UIAlertController(title: "alert", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
                      
     }
 }

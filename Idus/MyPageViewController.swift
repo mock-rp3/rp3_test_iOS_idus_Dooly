@@ -19,8 +19,7 @@ class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("!!")
-//        print(UserDefaults.standard.value(forKey: "name") as! String)
+        //  print(UserDefaults.standard.value(forKey: "name") as! String)
 
         if UserDefaults.standard.value(forKey: "email") != nil  && UserDefaults.standard.value(forKey: "password") != nil {
             email.text = (UserDefaults.standard.value(forKey: "email") as! String)
@@ -34,11 +33,6 @@ class MyPageViewController: UIViewController {
 
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("!!!!")
-
-    }
-    
     
     @IBAction func btnLogout(_ sender: Any) {
   
@@ -48,11 +42,9 @@ class MyPageViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "password")
         UserDefaults.standard.removeObject(forKey: "name")
         UserDefaults.standard.removeObject(forKey: "platform")
+        UserDefaults.standard.removeObject(forKey: "jwt")
         
-        
-        
-        
-        print("logout")
+        print("User logout")
         
 
         let vc = storyboard?.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController

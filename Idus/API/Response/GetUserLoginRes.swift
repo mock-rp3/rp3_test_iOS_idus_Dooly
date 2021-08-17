@@ -9,18 +9,15 @@ import Foundation
 
 
 struct GetUserLoginRes: Decodable{
-    var response: [Response]
-}
-
-struct Response: Decodable {
-    var isSuccess : String?
-    var code : String?
+    var isSuccess : Bool?
+    var code : Int?
     var message : String?
     var result : UserData?
+
 }
 
-struct UserData: Decodable {
-    var jwt : String?
-    var userIdx: String?
 
+struct UserData: Decodable{
+    var userIdx: Int?
+    var jwt : String?
 }
