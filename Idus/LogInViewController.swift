@@ -44,6 +44,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     let email = "1111"
     let password = "2222"
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        checkUser()
@@ -60,6 +61,19 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+        if UserDefaults.standard.value(forKey: "email") != nil {
+
+            let vc = storyboard?.instantiateViewController(withIdentifier: "TabBarController")
+            navigationController?.pushViewController(vc!, animated: true)
+
+            
+            
+//            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
+//
+//            window?.rootViewController = vc
+
+        }
+
     }
     
     

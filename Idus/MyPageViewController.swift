@@ -42,6 +42,7 @@ class MyPageViewController: UIViewController {
     
     @IBAction func btnLogout(_ sender: Any) {
   
+    
         
         UserDefaults.standard.removeObject(forKey: "email")
         UserDefaults.standard.removeObject(forKey: "password")
@@ -49,21 +50,15 @@ class MyPageViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "platform")
         
         
-//        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LogInViewController")
-
-//        navigationController?.pushViewController(vc, animated: true)
-
+        
+        
+        print("logout")
+        
 
         let vc = storyboard?.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController
 
-//        let nav = UINavigationController(rootViewController: vc!)
-//        let share = UIApplication.shared.delegate as? AppDelegate
-//        share?.window?.rootViewController = nav
-//        share?.window?.makeKeyAndVisible()
         navigationController?.pushViewController(vc!, animated: true)
 
-        
-        
     }
     
 

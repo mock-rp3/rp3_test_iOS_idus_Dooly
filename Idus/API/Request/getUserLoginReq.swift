@@ -15,7 +15,7 @@ class GetUserLoginReq {
     
     func getUserData(_ loginViewController: LogInViewController, email : String, password: String) {
 
-        let url = "https://dhlcutdus.site:9000/users/login"
+        let url = "https://dhlcutpdus.site:9000/users/login"
 
 
         let params: Parameters = [

@@ -29,9 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        checkUser()
-        
+                
         KakaoSDKCommon.initSDK(appKey: "c3506e5d851d7fda3a4c2db3b77fea56")
         
         
@@ -54,26 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func checkUser() {
-        // 추후 jwt 로 수정필요
-        print("11")
-        if UserDefaults.standard.value(forKey: "email") != nil {
-            
-            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
-
-            
-            let nav = UINavigationController(rootViewController: vc)
-            let share = UIApplication.shared.delegate as? AppDelegate
-            share?.window?.rootViewController = nav
-            share?.window?.rootViewController = vc
-
-        }else {
-            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LogInViewController")
-
-            window?.rootViewController = vc
-
-        }
-    }
 
     
     // MARK: UISceneSession Lifecycle
