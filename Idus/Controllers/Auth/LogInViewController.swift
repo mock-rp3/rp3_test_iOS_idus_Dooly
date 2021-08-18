@@ -67,25 +67,17 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     var backgroundArr = [UIImage(named: "login_image1"),UIImage(named: "login_image2"), UIImage(named: "login_image3"), UIImage(named: "login_image4"),UIImage(named: "login_image5"),UIImage(named: "login_image6"),UIImage(named: "login_image7"),UIImage(named: "login_image8") ]
     var index = 0
     
-    let email = "1111"
-    let password = "2222"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loginInstance?.requestDeleteToken()
-
+        //loginInstance?.requestDeleteToken()
         localLogin.layer.cornerRadius = 22.0
         naverLogin.layer.cornerRadius = 22.0
-
-        
-        
 
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil ,  repeats: true)
 
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
@@ -93,22 +85,18 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
 
             let vc = storyboard?.instantiateViewController(withIdentifier: "TabBarController")
             navigationController?.pushViewController(vc!, animated: true)
-
         }
-
     }
     
     
     
     @objc func changeImage() {
-         
         if ( index + 1 == backgroundArr.count){
             index = 0
         }else {
             index += 1
         }
         backgroundImage.image = backgroundArr[index]
-
     }
     
     
@@ -122,8 +110,6 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         btnCheck1.tag = 10
         btnCheck2.tag = 20
         btnCheck3.tag = 30
-
-        
         
         joinEmail.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         joinName.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
@@ -177,14 +163,12 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
 
         
         logInView.isHidden = false
-
-        
+   
     }
     
     @IBAction func btnX(_ sender: Any) {
         logInView.isHidden = true
         joinView.isHidden = true
-       
     }
     
     @IBAction func btnSubmit(_ sender: Any) {
@@ -266,20 +250,32 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     
     @IBAction func btnJoinSubmit(_ sender: Any) {
-        //joinPassword != joinPassword2
         //각 값이 안들어가있을때 입력 알람창 띄우기
-        //이걸 서버로 줘서 로그인
-        print(joinEmail.text!)
-        print(joinName.text!)
-        print(joinPassword.text!)
-        print(joinPassword2.text!)
-        print(joinPhone.text!)
-        print(joinFriend.text!)
-        print(check1, check2, check3)
+
+        if joinPassword.text! != joinPassword2.text! {
+            let alert = UIAlertController(title: "입력된 패스워드가 동일하지 않습니다", message: "입력된 패스워드가 동일하지 않습니다", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        
+        }else {
+            
+            //        print(joinPhone.text!)
+            //        print(joinFriend.text!)
+            //        print(check1, check2, check3)
+
+            GetUserLoginReq().postUserJoin(self, name: joinName.text!,  email : joinEmail.text!, password: joinPassword.text!, phone: joinPhone.text!  )
+            
+            let alert = UIAlertController(title: "회원가입 성공했습니다. 로그인해주세요!", message: "회원가입 성공했습니다. 로그인해주세요!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+
+            joinView.isHidden = true
+
+        }
 
     }
-    
-    
     
     
     @IBAction func noLogin(_ sender: Any) {
@@ -290,12 +286,11 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     @IBAction func naverLogin(_ sender: Any) {
         loginInstance?.delegate = self
-
         loginInstance?.requestThirdPartyLogin()
-
     }
     
     
+    // 네이버 로그인 프로토콜들
     // 로그인에 성공한 경우 호출
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         print("Success login")
@@ -309,7 +304,8 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     // 로그아웃
     func oauth20ConnectionDidFinishDeleteToken() {
-        print("log out")
+        loginInstance?.requestDeleteToken()
+        print("Naver log out")
     }
     
     // 모든 error
@@ -339,22 +335,20 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         guard let object = result["response"] as? [String: Any] else { return }
         guard let name = object["name"] as? String else { return }
         guard let email = object["email"] as? String else { return }
-        guard let id = object["id"] as? String else {return}
-        guard let mobile = object["mobile"] as? String else {return}
-        guard let profile_image = object["profile_image"] as? String else {return}
-        guard let gender = object["gender"] as? String else {return}
+        // guard let id = object["id"] as? String else {return}
+        // guard let mobile = object["mobile"] as? String else {return}
+        // guard let profile_image = object["profile_image"] as? String else {return}
+        // guard let gender = object["gender"] as? String else {return}
+        
+        UserDefaults.standard.set(email, forKey: "email")
+        UserDefaults.standard.set("", forKey: "password")
+        UserDefaults.standard.set(name, forKey: "name")
+        UserDefaults.standard.set("naver", forKey: "platform")
+        UserDefaults.standard.set("jwttokenexample", forKey: "jwt")
 
-         print(result)
-         
-         UserDefaults.standard.set(name, forKey: "name")
-         UserDefaults.standard.set(mobile, forKey: "mobile")
-         UserDefaults.standard.set(profile_image, forKey: "profile_image")
-         UserDefaults.standard.set(email, forKey: "email")
-         UserDefaults.standard.set(gender, forKey: "gender")
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
+        self.navigationController?.pushViewController(vc, animated: true)
 
-         
-        print(id,name,email)
-         
       }
     }
 
@@ -362,34 +356,6 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     
     @IBAction func kakaoLogin(_ sender: Any) {
-        
-        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-                if let error = error {
-                    print(error)
-                }
-                else {
-                    print("loginWithKakaoAccount() success.")
-
-                    //do something
-                    _ = oauthToken
-                }
-            }
-        
-        
-        // 기존 로그인 여부와 상관없이 로그인 요청 -> 일단 개발때는 만들어둔다
-        UserApi.shared.loginWithKakaoAccount(prompts:[.Login]) {(oauthToken, error) in
-            if let error = error {
-                print(error)
-            }
-            else {
-                print("loginWithKakaoAccount() success.")
-
-                //do something
-                _ = oauthToken
-
-            }
-        }
-        
         
         // 토큰 존재여부 확인하기
         if (AuthApi.hasToken()) {
@@ -419,13 +385,33 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
             }
             else {
                 print("accessTokenInfo() success.")
-
                 //do something
                 _ = accessTokenInfo
+                
             }
         }
         
-        
+        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("loginWithKakaoAccount() success.")
+                    //do something
+                    _ = oauthToken
+                    
+//                    if (UserDefaults.standard.value(forKey: "email") != nil){
+//                        print(UserDefaults.standard.value(forKey: "email"))
+//                    }
+//                    UserDefaults.standard.set(UserDefaults.standard.value(forKey: "email") as! String, forKey: "email")
+//                    UserDefaults.standard.set("", forKey: "password")
+//                    UserDefaults.standard.set(UserDefaults.standard.value(forKey: "name") as! String, forKey: "name")
+//                    UserDefaults.standard.set("kakao", forKey: "platform")
+//                    UserDefaults.standard.set("jwttokenexample", forKey: "jwt")
+//                    let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
+//                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+        }
         
         UserApi.shared.me() {(user, error) in
             if let error = error {
@@ -435,18 +421,32 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
                 print("me() success.")
 
                 _ = user
-                print(user as Any)
                 
+                UserDefaults.standard.set(user?.kakaoAccount?.email, forKey: "email")
+                UserDefaults.standard.set("", forKey: "password")
+                UserDefaults.standard.set(user?.kakaoAccount?.profile?.nickname, forKey: "name")
+                UserDefaults.standard.set("kakao", forKey: "platform")
+                UserDefaults.standard.set("jwttokenexample", forKey: "jwt")
 
-//                UserDefaults.standard.set(user?.kakaoAccount?.profile?.nickname, forKey: "name")
-//                UserDefaults.standard.set("010-9986-1675", forKey: "mobile")
-//                UserDefaults.standard.set(img, forKey: "profile_image")
-//                UserDefaults.standard.set("tktmzp0526@naver.com", forKey: "email")
-//                UserDefaults.standard.set("F", forKey: "gender")
+                let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
+                self.navigationController?.pushViewController(vc, animated: true)
+
 
             }
         }
         
+        
+        // 기존 로그인 여부와 상관없이 로그인 요청 -> 일단 개발때는 만들어둔다
+        //        UserApi.shared.loginWithKakaoAccount(prompts:[.Login]) {(oauthToken, error) in
+        //            if let error = error {
+        //                print(error)
+        //            }
+        //            else {
+        //                print("loginWithKakaoAccount() success.")
+        //                //do something
+        //                _ = oauthToken
+        //            }
+        //        }
         
         // 추가항목 동의 받기
         UserApi.shared.me() {(user, error) in
@@ -485,27 +485,15 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
                                     print("me() success.")
 
                                     _ = user
-                                    print(user as Any)
-//                                    self.oauthName.text = user?.kakaoAccount?.profile?.nickname
-//                                    self.ouathPlatform.text = "login as Kakao"
-
-                                    
-//                                    let img = (user?.properties!["thumbnail_image"]!)!
-//                                    UserDefaults.standard.set(user?.kakaoAccount?.profile?.nickname, forKey: "name")
-//                                    UserDefaults.standard.set("010-9986-1675", forKey: "mobile")
-//                                    UserDefaults.standard.set(img, forKey: "profile_image")
-//                                    UserDefaults.standard.set("tktmzp0526@naver.com", forKey: "email")
-//                                    UserDefaults.standard.set("F", forKey: "gender")
 //
 //                                    let url = URL(string : user?.kakaoAccount?.profile?.profileImageUrl); do {
 //                                            let data = try Data(contentsOf: url!)
 //                                        vc.test.image = UIImage(data: data)
-//                                    } catch{
-//
-//                                    }
+//                                    } catch{}
                                 }
 
-                            } //UserApi.shared.me()
+                            }
+                            
                         }
 
                     } //UserApi.shared.loginWithKakaoAccount(scopes:)

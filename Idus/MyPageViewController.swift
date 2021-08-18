@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import NaverThirdPartyLogin
+import KakaoSDKAuth
+import KakaoSDKUser
 
 class MyPageViewController: UIViewController {
+   
+    let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+
 
     @IBOutlet var platform: UILabel!
     @IBOutlet var email: UILabel!
@@ -35,21 +41,52 @@ class MyPageViewController: UIViewController {
     
     
     @IBAction func btnLogout(_ sender: Any) {
-  
-    
         
-        UserDefaults.standard.removeObject(forKey: "email")
-        UserDefaults.standard.removeObject(forKey: "password")
-        UserDefaults.standard.removeObject(forKey: "name")
-        UserDefaults.standard.removeObject(forKey: "platform")
-        UserDefaults.standard.removeObject(forKey: "jwt")
-        
-        print("User logout")
-        
+        if ((UserDefaults.standard.value(forKey: "jwt") as! String) != ""){
+            
+            if((UserDefaults.standard.value(forKey: "platform") as! String) == "local") {
+                print("local User logout")
+            }
+            else if ((UserDefaults.standard.value(forKey: "platform") as! String) == "naver") {
+                loginInstance?.requestDeleteToken()
+                print("Naver User log out")
+            }
+            else if ((UserDefaults.standard.value(forKey: "platform") as! String) == "kakao") {
+                //로그아웃
+                UserApi.shared.logout {(error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    else {
+                        print("logout() success.")
+                    }
+                }
+                //연결해제
+                UserApi.shared.unlink {(error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    else {
+                        print("unlink() success.")
+                    }
+                }
+                
+                print("Kakao User log out")
 
-        let vc = storyboard?.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController
+            }
+            
+            UserDefaults.standard.removeObject(forKey: "email")
+            UserDefaults.standard.removeObject(forKey: "password")
+            UserDefaults.standard.removeObject(forKey: "name")
+            UserDefaults.standard.removeObject(forKey: "platform")
+            UserDefaults.standard.removeObject(forKey: "jwt")
+            
 
-        navigationController?.pushViewController(vc!, animated: true)
+            let vc = storyboard?.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController
+
+            navigationController?.pushViewController(vc!, animated: true)
+            
+        }
 
     }
     
