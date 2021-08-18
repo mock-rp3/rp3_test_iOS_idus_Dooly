@@ -32,6 +32,7 @@ class MyPageViewController: UIViewController {
             name.text = (UserDefaults.standard.value(forKey: "name") as! String)
             password.text = (UserDefaults.standard.value(forKey: "password") as! String)
             platform.text = (UserDefaults.standard.value(forKey: "platform") as! String)
+            print((UserDefaults.standard.value(forKey: "jwt") as! String))
            
         }else {
             button.setTitle("로그인하러가기", for: .normal)
@@ -40,9 +41,9 @@ class MyPageViewController: UIViewController {
     }
     
     
-    @IBAction func btnLogout(_ sender: Any) {
+    @IBAction func btnLogout(_ sender: Any) {        
         
-        if ((UserDefaults.standard.value(forKey: "jwt") as! String) != ""){
+        if UserDefaults.standard.value(forKey: "jwt") != nil{
             
             if((UserDefaults.standard.value(forKey: "platform") as! String) == "local") {
                 print("local User logout")
@@ -81,12 +82,19 @@ class MyPageViewController: UIViewController {
             UserDefaults.standard.removeObject(forKey: "platform")
             UserDefaults.standard.removeObject(forKey: "jwt")
             
-
             let vc = storyboard?.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController
 
             navigationController?.pushViewController(vc!, animated: true)
+
+            
+        }else {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController
+
+            navigationController?.pushViewController(vc!, animated: true)
+
             
         }
+        
 
     }
     

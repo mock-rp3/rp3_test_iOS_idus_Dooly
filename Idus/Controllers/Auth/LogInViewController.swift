@@ -270,6 +270,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     
     @IBAction func noLogin(_ sender: Any) {
+//        UserDefaults.standard.set("emptyjwt", forKey: "jwt")
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
         navigationController?.pushViewController(vc, animated: true)
     }

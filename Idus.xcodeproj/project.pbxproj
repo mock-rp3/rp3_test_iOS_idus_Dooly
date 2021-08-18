@@ -14,10 +14,13 @@
 		F032B0B526C9A6C20029A414 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032B0B426C9A6C20029A414 /* ProductsModel.swift */; };
 		F032B0B726C9A7ED0029A414 /* productName.json in Resources */ = {isa = PBXBuildFile; fileRef = F032B0B626C9A7ED0029A414 /* productName.json */; };
 		F032B0B926C9B6420029A414 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032B0B826C9B6420029A414 /* ProductCollectionViewCell.swift */; };
+		F0449C7426CD685A0030A34B /* ItemDetailsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0449C7326CD685A0030A34B /* ItemDetailsTableCell.swift */; };
 		F066ABC326CA791000503ADA /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABC226CA791000503ADA /* LogInViewController.swift */; };
 		F066ABD126CAFF8200503ADA /* GetUserLoginReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */; };
 		F066ABD526CAFFC800503ADA /* GetUserLoginRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */; };
 		F066ABD726CB9DB800503ADA /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD626CB9DB800503ADA /* SignInRequest.swift */; };
+		F0A26D9F26CD52B60085806E /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A26D9E26CD52B60085806E /* ItemListViewController.swift */; };
+		F0A26DA126CD53280085806E /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A26DA026CD53280085806E /* ItemDetailViewController.swift */; };
 		F0E6C3A826C7ED94007B7272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E6C3A726C7ED94007B7272 /* AppDelegate.swift */; };
 		F0E6C3AA26C7ED94007B7272 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E6C3A926C7ED94007B7272 /* SceneDelegate.swift */; };
 		F0E6C3AC26C7ED94007B7272 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E6C3AB26C7ED94007B7272 /* ViewController.swift */; };
@@ -73,10 +76,13 @@
 		F032B0B426C9A6C20029A414 /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
 		F032B0B626C9A7ED0029A414 /* productName.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productName.json; sourceTree = "<group>"; };
 		F032B0B826C9B6420029A414 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		F0449C7326CD685A0030A34B /* ItemDetailsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsTableCell.swift; sourceTree = "<group>"; };
 		F066ABC226CA791000503ADA /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLoginReq.swift; sourceTree = "<group>"; };
 		F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLoginRes.swift; sourceTree = "<group>"; };
 		F066ABD626CB9DB800503ADA /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
+		F0A26D9E26CD52B60085806E /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
+		F0A26DA026CD53280085806E /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		F0E6C3A426C7ED94007B7272 /* Idus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Idus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E6C3A726C7ED94007B7272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0E6C3A926C7ED94007B7272 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +175,15 @@
 			path = AdSliderCell;
 			sourceTree = "<group>";
 		};
+		F0449C7526CD68740030A34B /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F0449C7326CD685A0030A34B /* ItemDetailsTableCell.swift */,
+				F0A26DA026CD53280085806E /* ItemDetailViewController.swift */,
+			);
+			path = ItemDetail;
+			sourceTree = "<group>";
+		};
 		F066ABC126C9DB9800503ADA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +221,7 @@
 		F0A26D9A26CC60530085806E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F0449C7526CD68740030A34B /* ItemDetail */,
 				F0A26D9B26CC605D0085806E /* Auth */,
 			);
 			path = Controllers;
@@ -266,6 +282,7 @@
 				F0E6C3F526C88B0D007B7272 /* CategoryViewController.swift */,
 				F0E6C3F726C88B1A007B7272 /* MyPageViewController.swift */,
 				F032B0B626C9A7ED0029A414 /* productName.json */,
+				F0A26D9E26CD52B60085806E /* ItemListViewController.swift */,
 			);
 			path = Idus;
 			sourceTree = "<group>";
@@ -541,9 +558,12 @@
 			files = (
 				F0E6C3AC26C7ED94007B7272 /* ViewController.swift in Sources */,
 				F0E6C3F426C88B01007B7272 /* SearchViewController.swift in Sources */,
+				F0A26DA126CD53280085806E /* ItemDetailViewController.swift in Sources */,
 				F066ABD526CAFFC800503ADA /* GetUserLoginRes.swift in Sources */,
 				F0E6C3F226C88AF3007B7272 /* ClassViewController.swift in Sources */,
+				F0449C7426CD685A0030A34B /* ItemDetailsTableCell.swift in Sources */,
 				F0E6C3A826C7ED94007B7272 /* AppDelegate.swift in Sources */,
+				F0A26D9F26CD52B60085806E /* ItemListViewController.swift in Sources */,
 				F0E6C3F626C88B0D007B7272 /* CategoryViewController.swift in Sources */,
 				F032B0B526C9A6C20029A414 /* ProductsModel.swift in Sources */,
 				F0E6C3EF26C86FC9007B7272 /* SwipingController.swift in Sources */,
