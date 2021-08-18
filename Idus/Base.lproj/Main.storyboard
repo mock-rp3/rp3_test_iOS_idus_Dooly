@@ -576,59 +576,114 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68v-Fj-qfC">
-                                        <rect key="frame" x="31" y="472" width="352" height="169"/>
+                                        <rect key="frame" x="31" y="459.5" width="352" height="152.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRB-HX-aSD">
-                                                <rect key="frame" x="8" y="29" width="106" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Buttonddd" image="checkmark.square" catalog="system">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRB-HX-aSD">
+                                                <rect key="frame" x="17" y="10" width="102.5" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title=" 모두 동의합니다." image="square" catalog="system">
+                                                    <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="checkAllBtn:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="gQB-d1-7n3"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBa-4c-iCb">
-                                                <rect key="frame" x="118" y="92" width="81" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button1" image="checkmark.square" catalog="system">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="checkAllBtn:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="11O-ob-5UO"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWL-UE-6e0">
-                                                <rect key="frame" x="118" y="122" width="81" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button1" image="checkmark.square" catalog="system">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="checkAllBtn:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="MQJ-J5-ojw"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQD-aJ-opr">
-                                                <rect key="frame" x="118" y="62" width="81" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button1" image="checkmark.square" catalog="system">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="checkAllBtn:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="q7P-iX-0A8"/>
-                                                </connections>
-                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewJ-vP-ynb">
+                                                <rect key="frame" x="17.5" y="39.5" width="317" height="1"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" identifier="0.8" id="Ibr-EC-ZTb"/>
+                                                </constraints>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="cCs-O5-Lsf">
+                                                <rect key="frame" x="27" y="48.5" width="143.5" height="77.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQD-aJ-opr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="18.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="이용약관 필수 동의" image="square" catalog="system">
+                                                            <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="checkAllBtn:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="q7P-iX-0A8"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBa-4c-iCb">
+                                                        <rect key="frame" x="0.0" y="29.5" width="143.5" height="18.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="개인정보 수집 및 이용 동의" image="square" catalog="system">
+                                                            <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="checkAllBtn:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="11O-ob-5UO"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWL-UE-6e0">
+                                                        <rect key="frame" x="0.0" y="59" width="143.5" height="18.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="쿠폰 / 이벤트 알림 선택 동의" image="square" catalog="system">
+                                                            <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="checkAllBtn:" destination="LCe-CQ-ZBm" eventType="touchUpInside" id="MQJ-J5-ojw"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS, 이메일을 통해 쿠폰 및 이벤트 정보를 받아보실 수 있습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vp6-mo-Alr">
+                                                <rect key="frame" x="27" y="126.5" width="237" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkx-eE-xU0">
+                                                <rect key="frame" x="295.5" y="48.5" width="38.5" height="18.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KP5-5K-wis">
+                                                <rect key="frame" x="295.5" y="80.5" width="38.5" height="13.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="DRB-HX-aSD" secondAttribute="bottom" multiplier="5" constant="1" id="0DU-d5-dTy"/>
+                                            <constraint firstItem="Fkx-eE-xU0" firstAttribute="top" secondItem="cCs-O5-Lsf" secondAttribute="top" id="2at-9d-gIQ"/>
+                                            <constraint firstItem="cCs-O5-Lsf" firstAttribute="leading" secondItem="68v-Fj-qfC" secondAttribute="leading" constant="27" id="3yu-U0-xux"/>
+                                            <constraint firstItem="ewJ-vP-ynb" firstAttribute="width" secondItem="68v-Fj-qfC" secondAttribute="width" multiplier="0.9" id="8XU-Xs-GoN"/>
+                                            <constraint firstItem="KP5-5K-wis" firstAttribute="centerY" secondItem="lBa-4c-iCb" secondAttribute="centerY" id="Clz-50-P41"/>
+                                            <constraint firstItem="Fkx-eE-xU0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cCs-O5-Lsf" secondAttribute="trailing" constant="8" symbolic="YES" id="His-KW-CZ1"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fkx-eE-xU0" secondAttribute="trailing" constant="18" id="Kvw-oE-RwG"/>
+                                            <constraint firstItem="KP5-5K-wis" firstAttribute="trailing" secondItem="Fkx-eE-xU0" secondAttribute="trailing" id="LUQ-dR-Ngd"/>
+                                            <constraint firstItem="DRB-HX-aSD" firstAttribute="leading" secondItem="68v-Fj-qfC" secondAttribute="leading" constant="17" id="MkE-8M-hat"/>
+                                            <constraint firstItem="Vp6-mo-Alr" firstAttribute="firstBaseline" secondItem="cCs-O5-Lsf" secondAttribute="baseline" constant="15" symbolType="layoutAnchor" id="TFc-RV-hmo"/>
+                                            <constraint firstItem="Fkx-eE-xU0" firstAttribute="centerY" secondItem="DQD-aJ-opr" secondAttribute="centerY" id="dev-VO-kpp"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DRB-HX-aSD" secondAttribute="trailing" constant="20" symbolic="YES" id="dsp-If-611"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vp6-mo-Alr" secondAttribute="bottom" multiplier="1.1" constant="1" id="fEq-bW-mzc"/>
+                                            <constraint firstItem="ewJ-vP-ynb" firstAttribute="centerX" secondItem="68v-Fj-qfC" secondAttribute="centerX" id="gMd-tG-rfg"/>
+                                            <constraint firstItem="ewJ-vP-ynb" firstAttribute="top" secondItem="DRB-HX-aSD" secondAttribute="bottom" constant="9.5" id="gQO-rl-YHY"/>
+                                            <constraint firstAttribute="trailing" secondItem="cCs-O5-Lsf" secondAttribute="trailing" constant="181.5" id="l7z-RP-6XT"/>
+                                            <constraint firstItem="cCs-O5-Lsf" firstAttribute="top" secondItem="ewJ-vP-ynb" secondAttribute="bottom" constant="8" symbolic="YES" id="lXq-gi-r03"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Vp6-mo-Alr" secondAttribute="trailing" constant="20" symbolic="YES" id="mrp-Dz-t7x"/>
+                                            <constraint firstItem="Vp6-mo-Alr" firstAttribute="leading" secondItem="cCs-O5-Lsf" secondAttribute="leading" id="s89-UZ-Vlt"/>
+                                            <constraint firstItem="DRB-HX-aSD" firstAttribute="top" secondItem="68v-Fj-qfC" secondAttribute="top" constant="10" id="tUb-hQ-YOg"/>
+                                            <constraint firstItem="KP5-5K-wis" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cCs-O5-Lsf" secondAttribute="trailing" constant="8" symbolic="YES" id="vPz-JS-dua"/>
+                                        </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단, 14세 미만은 회원가입할 수 없습니다." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atn-sO-7Pf">
-                                        <rect key="frame" x="45.5" y="649" width="193" height="17.5"/>
+                                        <rect key="frame" x="45.5" y="620" width="193" height="15"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3M0-Kk-7vB">
-                                        <rect key="frame" x="31" y="710" width="352" height="54"/>
+                                        <rect key="frame" x="31" y="674" width="352" height="54"/>
                                         <color key="backgroundColor" white="1" alpha="0.46385344449999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="동의하고 회원가입">
@@ -647,15 +702,15 @@
                                     <constraint firstItem="68v-Fj-qfC" firstAttribute="centerX" secondItem="fzd-Ir-f17" secondAttribute="centerX" id="A6n-bk-Vg7"/>
                                     <constraint firstItem="5Fj-SM-NwS" firstAttribute="height" secondItem="b1X-no-2HO" secondAttribute="height" multiplier="0.03" id="Bjk-7k-8Gf"/>
                                     <constraint firstItem="b1X-no-2HO" firstAttribute="top" secondItem="fzd-Ir-f17" secondAttribute="top" id="FPx-ur-UwP"/>
-                                    <constraint firstItem="68v-Fj-qfC" firstAttribute="top" secondItem="HeJ-ga-QYA" secondAttribute="bottom" constant="-37.5" id="LS1-lT-Y1d"/>
+                                    <constraint firstItem="68v-Fj-qfC" firstAttribute="top" secondItem="HeJ-ga-QYA" secondAttribute="bottom" multiplier="0.9" constant="1" id="LS1-lT-Y1d"/>
                                     <constraint firstItem="b1X-no-2HO" firstAttribute="leading" secondItem="fzd-Ir-f17" secondAttribute="leading" id="R49-Za-FNj"/>
                                     <constraint firstItem="HeJ-ga-QYA" firstAttribute="width" secondItem="b1X-no-2HO" secondAttribute="width" multiplier="0.85" id="Rec-MY-iS0"/>
                                     <constraint firstItem="atn-sO-7Pf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fzd-Ir-f17" secondAttribute="leading" constant="20" symbolic="YES" id="SD5-wp-vok"/>
                                     <constraint firstItem="68v-Fj-qfC" firstAttribute="width" secondItem="b1X-no-2HO" secondAttribute="width" multiplier="0.850242" id="Slu-0I-av4"/>
                                     <constraint firstItem="HeJ-ga-QYA" firstAttribute="height" secondItem="b1X-no-2HO" secondAttribute="height" multiplier="0.4" constant="1" id="Svy-5b-bZT"/>
                                     <constraint firstItem="HeJ-ga-QYA" firstAttribute="top" secondItem="fzd-Ir-f17" secondAttribute="top" constant="150" id="Uez-6F-Tpy"/>
-                                    <constraint firstItem="68v-Fj-qfC" firstAttribute="height" secondItem="b1X-no-2HO" secondAttribute="height" multiplier="0.188616" id="WGU-uK-1FA"/>
-                                    <constraint firstItem="3M0-Kk-7vB" firstAttribute="top" secondItem="68v-Fj-qfC" secondAttribute="bottom" multiplier="1.1" constant="4.8999999999999773" id="XFP-WY-3cf"/>
+                                    <constraint firstItem="68v-Fj-qfC" firstAttribute="height" secondItem="b1X-no-2HO" secondAttribute="height" multiplier="0.17" id="WGU-uK-1FA"/>
+                                    <constraint firstItem="3M0-Kk-7vB" firstAttribute="top" secondItem="68v-Fj-qfC" secondAttribute="bottom" multiplier="1.1" constant="1" id="XFP-WY-3cf"/>
                                     <constraint firstItem="5Fj-SM-NwS" firstAttribute="top" secondItem="fzd-Ir-f17" secondAttribute="topMargin" id="aCu-7f-pe4"/>
                                     <constraint firstItem="3M0-Kk-7vB" firstAttribute="width" secondItem="b1X-no-2HO" secondAttribute="width" multiplier="0.850242" id="dep-QL-Kxt"/>
                                     <constraint firstItem="3M0-Kk-7vB" firstAttribute="centerX" secondItem="fzd-Ir-f17" secondAttribute="centerX" id="duu-L1-icB"/>
@@ -664,7 +719,7 @@
                                     <constraint firstItem="HeJ-ga-QYA" firstAttribute="centerX" secondItem="fzd-Ir-f17" secondAttribute="centerX" id="lbh-uU-6kT"/>
                                     <constraint firstAttribute="bottom" secondItem="b1X-no-2HO" secondAttribute="bottom" id="p81-Ol-qnw"/>
                                     <constraint firstItem="3M0-Kk-7vB" firstAttribute="height" secondItem="b1X-no-2HO" secondAttribute="height" multiplier="0.0602679" id="sh4-jy-eWB"/>
-                                    <constraint firstItem="3M0-Kk-7vB" firstAttribute="top" secondItem="atn-sO-7Pf" secondAttribute="bottom" multiplier="1.06" constant="3.5099999999999909" id="wId-K7-YWF"/>
+                                    <constraint firstItem="3M0-Kk-7vB" firstAttribute="top" secondItem="atn-sO-7Pf" secondAttribute="bottom" multiplier="1.06" constant="1" id="wId-K7-YWF"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGF-Ud-qkn">
@@ -918,6 +973,7 @@
                         <outlet property="emailText" destination="3Zx-eA-jnZ" id="BhV-Gc-g3u"/>
                         <outlet property="inputEmail" destination="m46-Y8-06H" id="p6D-Ix-wmB"/>
                         <outlet property="inputPassword" destination="w75-Xa-1Z9" id="ogy-wQ-FB1"/>
+                        <outlet property="joinCheckBoxView" destination="68v-Fj-qfC" id="BgI-3L-Llt"/>
                         <outlet property="joinEmail" destination="Cxd-ev-JyI" id="osm-aT-NQC"/>
                         <outlet property="joinFriend" destination="v26-1W-eNo" id="JoT-I8-Vzf"/>
                         <outlet property="joinName" destination="Np6-jq-zPu" id="9L7-Cw-RsG"/>
@@ -1103,13 +1159,13 @@
     <resources>
         <image name="button_x" width="56" height="48"/>
         <image name="cart" width="44" height="40"/>
-        <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="item_thumb2" width="262" height="262"/>
         <image name="join_background3" width="764" height="1340"/>
         <image name="login_background" width="1038" height="1806"/>
         <image name="login_image1" width="414" height="896"/>
         <image name="logo" width="176" height="80"/>
         <image name="searchbar" width="726" height="72"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <systemColor name="placeholderTextColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -1127,6 +1183,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

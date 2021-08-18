@@ -40,6 +40,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     
     @IBOutlet var joinView: UIView!
+    @IBOutlet var joinCheckBoxView: UIView!
     @IBOutlet var joinEmail: UITextField!
     @IBOutlet var joinName: UITextField!
     @IBOutlet var joinPassword: UITextField!
@@ -130,9 +131,12 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         joinPassword2.attributedPlaceholder = NSAttributedString(string: "비밀번호 확인", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         joinPhone.attributedPlaceholder = NSAttributedString(string: "전화번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         joinFriend.attributedPlaceholder = NSAttributedString(string: "추천인코드 (선택사항)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        
+        joinCheckBoxView.layer.borderWidth = 1
+        joinCheckBoxView.layer.cornerRadius = 6
+        joinCheckBoxView.layer.borderColor = UIColor.white.cgColor
 
-
-        btnJoin.layer.cornerRadius = 22.0
+        btnJoin.layer.cornerRadius = 30.0
 
         
         joinPageImage.image = UIImage(named: "join_background3")
@@ -208,18 +212,18 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
             checkAll = !checkAll
             
             if (checkAll == true ) {
-                btnCheckAll.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-                btnCheck1.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-                btnCheck2.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-                btnCheck3.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-                check1 = true
-                check2 = true
-                check3 = true
-            } else {
                 btnCheckAll.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
                 btnCheck1.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
                 btnCheck2.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
                 btnCheck3.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                check1 = true
+                check2 = true
+                check3 = true
+            } else {
+                btnCheckAll.setImage(UIImage(systemName: "square"), for: .normal)
+                btnCheck1.setImage(UIImage(systemName: "square"), for: .normal)
+                btnCheck2.setImage(UIImage(systemName: "square"), for: .normal)
+                btnCheck3.setImage(UIImage(systemName: "square"), for: .normal)
                 check1 = false
                 check2 = false
                 check3 = false
@@ -229,33 +233,33 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
             if(sender.tag == 10) {
                 check1 = !check1
                 if(check1 == true){
-                    btnCheck1.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-                }else{
                     btnCheck1.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                }else{
+                    btnCheck1.setImage(UIImage(systemName: "square"), for: .normal)
                 }
             }else if(sender.tag == 20) {
                 check2 = !check2
                 if(check2 == true){
-                    btnCheck2.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-                } else{
                     btnCheck2.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                } else{
+                    btnCheck2.setImage(UIImage(systemName: "square"), for: .normal)
                 }
             } else {
                 check3 = !check3
                 if(check3 == true){
-                    btnCheck3.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-                }else{
                     btnCheck3.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                }else{
+                    btnCheck3.setImage(UIImage(systemName: "square"), for: .normal)
                 }
             }
             
             if (check1 && check2 && check3) {
                 checkAll = true
-                btnCheckAll.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+                btnCheckAll.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
             }
             else  {
                 checkAll = false
-                btnCheckAll.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+                btnCheckAll.setImage(UIImage(systemName: "square"), for: .normal)
             }
         }
     }
@@ -264,6 +268,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     @IBAction func btnJoinSubmit(_ sender: Any) {
         //joinPassword != joinPassword2
         //각 값이 안들어가있을때 입력 알람창 띄우기
+        //이걸 서버로 줘서 로그인
         print(joinEmail.text!)
         print(joinName.text!)
         print(joinPassword.text!)
@@ -271,8 +276,6 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         print(joinPhone.text!)
         print(joinFriend.text!)
         print(check1, check2, check3)
-
-        
 
     }
     
