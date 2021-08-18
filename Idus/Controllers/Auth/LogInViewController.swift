@@ -251,7 +251,6 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     @IBAction func btnJoinSubmit(_ sender: Any) {
         //각 값이 안들어가있을때 입력 알람창 띄우기
-
         if joinPassword.text! != joinPassword2.text! {
             let alert = UIAlertController(title: "입력된 패스워드가 동일하지 않습니다", message: "입력된 패스워드가 동일하지 않습니다", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -265,15 +264,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
             //        print(check1, check2, check3)
 
             GetUserLoginReq().postUserJoin(self, name: joinName.text!,  email : joinEmail.text!, password: joinPassword.text!, phone: joinPhone.text!  )
-            
-            let alert = UIAlertController(title: "회원가입 성공했습니다. 로그인해주세요!", message: "회원가입 성공했습니다. 로그인해주세요!", preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
-
-            joinView.isHidden = true
-
-        }
+            }
 
     }
     
@@ -530,6 +521,27 @@ extension LogInViewController {
     }
     
     func didFailure(_ message: String) {
+        
+        let alert = UIAlertController(title: "alert", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+                     
+    }
+    
+    func didSuccessJoin(_ response: GetUserLoginRes) {
+       
+        let alert = UIAlertController(title: "회원가입 성공했습니다. 로그인해주세요!", message: "회원가입 성공했습니다. 로그인해주세요!", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        
+                
+        joinView.isHidden = true
+
+    }
+    
+    func didFailureJoin(_ message: String) {
         
         let alert = UIAlertController(title: "alert", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)

@@ -73,19 +73,18 @@ class GetUserLoginReq {
     
     func postUserJoin(_ loginViewController: LogInViewController, name: String, email : String, password: String, phone : String) {
 
-        let url2 = "http://dhlcutpdus.site:9000/users"
+        let url = "http://dhlcutpdus.site:9000/users"
 
-        let params2 = [
+        let params = [
             "name" : name,
             "email" : email,
             "password" : password,
             "phoneNumber" : phone
         ]
 
-        print(params2)
-        AF.request(url2,
+        AF.request(url,
                    method: .post,
-                   parameters: params2,
+                   parameters: params,
                    encoder: JSONParameterEncoder(),
                    headers: nil
         )
@@ -95,12 +94,10 @@ class GetUserLoginReq {
                 switch response.result {
         
                 case .success(let response):
-                    // 성공
                     if response.isSuccess!, let result = response.result {
                         print("DEBUG>> USER API GET Response \(result) ")
-                        
                         print(result)
-//                        loginViewController.didSuccess(response)
+                        loginViewController.didSuccessJoin(response)
 
                     }
                     // 실패했을 때
