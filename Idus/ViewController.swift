@@ -14,6 +14,7 @@ class ViewController: UIViewController{
     var menuViewController: PagingMenuViewController!
     var contentViewController: PagingContentViewController!
 
+    let focusView = UnderlineFocusView()
 
     static var viewController: (UIColor) -> UIViewController = { (color) in
            let vc = UIViewController()
@@ -35,7 +36,6 @@ class ViewController: UIViewController{
         contentViewController!.reloadData()
 
         self?.firstLoad = nil
-
     }
     
     fileprivate func makeDataSource() -> [(menu:String, content: UIViewController)]{
@@ -69,15 +69,15 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-                menuViewController.register(nib: UINib(nibName: "MenuCell", bundle: nil), forCellWithReuseIdentifier: "MenuCell")
+            menuViewController.register(nib: UINib(nibName: "MenuCell", bundle: nil), forCellWithReuseIdentifier: "MenuCell")
 
-                menuViewController.registerFocusView(nib: UINib(nibName: "FocusView", bundle: nil))
-
-                
-                menuViewController.cellAlignment = .center
-                
-                menuViewController.cellSpacing = 55
-                dataSource = makeDataSource()
+            menuViewController.registerFocusView(nib: UINib(nibName: "FocusView", bundle: nil))
+//            menuViewController.registerFocusView(view: focusView)
+        
+            menuViewController.cellAlignment = .center
+            
+            menuViewController.cellSpacing = 30
+            dataSource = makeDataSource()
         
             
     }
@@ -111,14 +111,15 @@ extension ViewController: PagingMenuViewControllerDataSource {
     }
     
     func menuViewController(viewController: PagingMenuViewController, widthForItemAt index: Int) -> CGFloat {
-        return 100
+        return 120
     }
     
     func menuViewController(viewController: PagingMenuViewController, cellForItemAt index: Int) -> PagingMenuViewCell {
         let cell = viewController.dequeueReusableCell(withReuseIdentifier: "MenuCell", for: index) as! MenuCell
        
         cell.titleLabel.text = dataSource[index].menu
-        cell.titleLabel.textColor = .gray
+//        cell.titleLabel.textColor = .gray
+        
         
         
         
@@ -144,7 +145,26 @@ extension ViewController: PagingMenuViewControllerDelegate {
 }
 
 extension ViewController: PagingContentViewControllerDelegate {
+    
     func contentViewController(viewController: PagingContentViewController, didManualScrollOn index: Int, percent: CGFloat) {
         menuViewController.scroll(index: index, percent: percent, animated: false)
+        adjustfocusViewWidth(index: index, percent: percent)
+    }
+    
+    func adjustfocusViewWidth(index: Int, percent: CGFloat) {
+        let adjucentIdx = percent < 0 ? index - 1 : index + 1
+        guard let currentCell = menuViewController.cellForItem(at: index) as? TitleLabelMenuViewCell,
+            let adjucentCell = menuViewController.cellForItem(at: adjucentIdx) as? TitleLabelMenuViewCell else {
+            return
+        }
+        focusView.underlineWidth = adjucentCell.calcIntermediateLabelSize(with: currentCell, percent: percent)
+    }
+    
+    func setFocusViewWidth(index: Int) {
+        guard let cell = menuViewController.cellForItem(at: index) as? TitleLabelMenuViewCell else {
+            return
+        }
+        focusView.underlineWidth = cell.labelWidth
     }
 }
+

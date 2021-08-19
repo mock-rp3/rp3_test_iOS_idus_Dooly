@@ -264,7 +264,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
             //        print(check1, check2, check3)
 
             GetUserLoginReq().postUserJoin(self, name: joinName.text!,  email : joinEmail.text!, password: joinPassword.text!, phone: joinPhone.text!  )
-            }
+        }
 
     }
     

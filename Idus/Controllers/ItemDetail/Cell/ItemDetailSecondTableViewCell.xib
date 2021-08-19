@@ -68,16 +68,22 @@
                                     <constraint firstAttribute="height" constant="1" id="1EJ-LW-hoD"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4H-1M-OzE">
-                                <rect key="frame" x="14" y="224.5" width="39.5" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="배송비" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4H-1M-OzE">
+                                <rect key="frame" x="8" y="12" width="42" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxL-tQ-cK9">
-                                <rect key="frame" x="108" y="224.5" width="39.5" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2,500원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxL-tQ-cK9">
+                                <rect key="frame" x="101" y="12" width="56" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(40,000원 이상 무료배송)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eT-52-k2x">
+                                <rect key="frame" x="166" y="12" width="169.5" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -86,6 +92,7 @@
                             <constraint firstItem="O3s-SM-iM9" firstAttribute="centerX" secondItem="Hg7-5b-X74" secondAttribute="centerX" id="0RE-1j-hgG"/>
                             <constraint firstItem="2tN-wD-eAo" firstAttribute="centerX" secondItem="Hg7-5b-X74" secondAttribute="centerX" id="3fz-KT-5Yu"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2nH-mB-8Ec" secondAttribute="trailing" constant="20" symbolic="YES" id="6a3-ou-Iqs"/>
+                            <constraint firstItem="1eT-52-k2x" firstAttribute="centerY" secondItem="D4H-1M-OzE" secondAttribute="centerY" id="98w-bj-E9c"/>
                             <constraint firstAttribute="bottom" secondItem="4pg-7e-mpC" secondAttribute="bottom" constant="214" id="9Z7-Kn-FIG"/>
                             <constraint firstItem="pwL-r5-4TY" firstAttribute="centerY" secondItem="EJR-W3-iYc" secondAttribute="centerY" id="Ddj-Oq-wjJ"/>
                             <constraint firstItem="O3s-SM-iM9" firstAttribute="width" secondItem="RSc-4Q-6Aq" secondAttribute="width" id="Fee-95-ggG"/>
@@ -105,15 +112,16 @@
                             <constraint firstItem="D4H-1M-OzE" firstAttribute="leading" secondItem="1fz-Zy-6zP" secondAttribute="leading" id="b8F-Y7-BVj"/>
                             <constraint firstItem="1fz-Zy-6zP" firstAttribute="baseline" secondItem="2nH-mB-8Ec" secondAttribute="baseline" id="eeb-gZ-EIq"/>
                             <constraint firstItem="4pg-7e-mpC" firstAttribute="width" secondItem="Hg7-5b-X74" secondAttribute="width" multiplier="0.93" id="euz-bu-rMT"/>
+                            <constraint firstItem="1eT-52-k2x" firstAttribute="leading" secondItem="YxL-tQ-cK9" secondAttribute="trailing" multiplier="1.05" constant="1" id="gc6-gb-n8a"/>
                             <constraint firstItem="1fz-Zy-6zP" firstAttribute="leading" secondItem="Hg7-5b-X74" secondAttribute="leading" constant="14" id="gnz-AR-g5E"/>
+                            <constraint firstItem="D4H-1M-OzE" firstAttribute="top" secondItem="Hg7-5b-X74" secondAttribute="top" constant="12" id="hjP-LJ-I8X"/>
                             <constraint firstItem="D4H-1M-OzE" firstAttribute="top" secondItem="O3s-SM-iM9" secondAttribute="bottom" multiplier="1.01" constant="8" symbolic="YES" id="hzi-gx-850"/>
                             <constraint firstItem="2nH-mB-8Ec" firstAttribute="top" secondItem="Hg7-5b-X74" secondAttribute="top" constant="14" id="igc-rs-vx0"/>
-                            <constraint firstItem="D4H-1M-OzE" firstAttribute="baseline" secondItem="YxL-tQ-cK9" secondAttribute="baseline" id="jBF-x3-Lhb"/>
                             <constraint firstItem="RSc-4Q-6Aq" firstAttribute="centerX" secondItem="Hg7-5b-X74" secondAttribute="centerX" id="m0F-YL-e8y"/>
+                            <constraint firstItem="D4H-1M-OzE" firstAttribute="leading" secondItem="Hg7-5b-X74" secondAttribute="leadingMargin" id="m0W-qI-oNO"/>
                             <constraint firstAttribute="bottom" secondItem="2tN-wD-eAo" secondAttribute="bottom" multiplier="1.5" constant="12" id="n1v-gR-cuN"/>
                             <constraint firstItem="O3s-SM-iM9" firstAttribute="top" secondItem="pwL-r5-4TY" secondAttribute="bottom" constant="8" symbolic="YES" id="o1A-PA-NRM"/>
                             <constraint firstItem="pwL-r5-4TY" firstAttribute="leading" secondItem="EJR-W3-iYc" secondAttribute="trailing" multiplier="2" constant="1" id="pGV-uE-k5v"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YxL-tQ-cK9" secondAttribute="trailing" constant="20" symbolic="YES" id="rmU-sS-YfK"/>
                             <constraint firstItem="2nH-mB-8Ec" firstAttribute="leading" secondItem="1fz-Zy-6zP" secondAttribute="trailing" multiplier="2" constant="1" id="vIn-UW-Oee"/>
                             <constraint firstItem="2tN-wD-eAo" firstAttribute="top" secondItem="4pg-7e-mpC" secondAttribute="bottom" multiplier="1.2" constant="1" id="xBQ-JN-CEq"/>
                         </constraints>
@@ -127,8 +135,6 @@
                                 <exclude reference="2nH-mB-8Ec"/>
                                 <exclude reference="2tN-wD-eAo"/>
                                 <exclude reference="O3s-SM-iM9"/>
-                                <exclude reference="D4H-1M-OzE"/>
-                                <exclude reference="YxL-tQ-cK9"/>
                             </mask>
                         </variation>
                     </view>
