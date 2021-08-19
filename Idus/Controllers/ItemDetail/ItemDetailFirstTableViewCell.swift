@@ -1,5 +1,5 @@
 //
-//  ItemDetailsTableCell.swift
+//  ItemDetailFirstTableViewCell.swift
 //  Idus
 //
 //  Created by 김희진 on 2021/08/19.
@@ -7,12 +7,18 @@
 
 import UIKit
 
-class ItemDetailsTableCell: UITableViewCell {
+class ItemDetailFirstTableViewCell: UITableViewCell {
 
+
+    @IBOutlet var sellerName: UILabel!
     
-    @IBOutlet var itemImage: UIImageView!
     @IBOutlet var itemName: UILabel!
+    
     @IBOutlet var itemPrice: UILabel!
+    
+    
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,5 +30,5 @@ class ItemDetailsTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

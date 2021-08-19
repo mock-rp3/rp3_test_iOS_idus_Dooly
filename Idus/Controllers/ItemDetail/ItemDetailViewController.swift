@@ -11,16 +11,21 @@ class ItemDetailViewController: UIViewController  {
     
     @IBOutlet var tableView: UITableView!
 
+    var ItemDetailData = GetItemDetailRes()
     
-    var productDetails: ProductDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //
+        GetItemDetailReq().getItemData(self, itemIdx: 1)
+        
+        tabBarController?.tabBar.isHidden = true
+        navigationController?.isNavigationBarHidden = false
         tableView.delegate = self
         tableView.dataSource = self
-        
+
+        let ItemDetailFirstTableViewCell = UINib(nibName: "ItemDetailFirstTableViewCell", bundle: nil)
+        self.tableView.register(ItemDetailFirstTableViewCell, forCellReuseIdentifier: "ItemDetailFirstTableViewCell")
     }
 
 }
@@ -32,19 +37,58 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailsTableCell") as? ItemDetailsTableCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailFirstTableViewCell", for: indexPath) as? ItemDetailFirstTableViewCell else {
             return UITableViewCell()
         }
         
 //        cell.itemImage.image = UIImage(named: ProductDetails.name)
         
-        cell.itemName.text = "테스트 아이템"
-        cell.itemPrice.text = "13000원"
+        cell.itemName.text = ItemDetailData.result?.title
+        
+        
+        if let a = ItemDetailData.result?.finalPrice {
+            cell.itemPrice.text = "\(a)"
+            
+        }
+        
+            
         
         return cell
     }
     
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row{
+        case 0 :
+            let height = view.frame.height
+            return height * 0.9
+        default :
+            let height = view.frame.height
+            return height
+        }
+
+    }
     
+    //Models, Views, ViewControllers
+}
+
+extension ItemDetailViewController {
+    
+    func didSuccess(_ response: GetItemDetailRes) {
+        
+        ItemDetailData = response
+        tableView.reloadData()
+        
+    }
+    
+    func didFailure(_ message: String) {
+        
+        let alert = UIAlertController(title: "아이템 데이터가 없습니다", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+                     
+    }
+
     
 }

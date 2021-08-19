@@ -37,7 +37,6 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
         swipeRight.direction = UISwipeGestureRecognizer.Direction.down
         self.view.addGestureRecognizer(swipeRight)
         
-        
         loadJson()
         tableView.delegate = self
         tableView.dataSource = self
@@ -87,8 +86,6 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
         }
     }
-
-    
 
 }
 
