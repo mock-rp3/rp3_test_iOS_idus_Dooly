@@ -165,7 +165,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         
         joinView.isHidden = true
         
-        loginPageImage.image = UIImage(named: "join_background2")
+        loginPageImage.image = UIImage(named: "join_background4")
         
         let text1 = "Apple 로그인 시 이용약관 및 "
         let text2 = "에 동의하는걸로 간주합니다"
@@ -185,11 +185,22 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
 
         
         btn1.layer.cornerRadius = 22.0
+        btn1.layer.borderWidth = 1
+        btn1.layer.borderColor = UIColor.white.cgColor
         btn2.layer.cornerRadius = 22.0
+        btn2.layer.borderWidth = 1
+        btn2.layer.borderColor = UIColor.white.cgColor
         btn3.layer.cornerRadius = 22.0
+        btn3.layer.borderWidth = 1
+        btn3.layer.borderColor = UIColor.white.cgColor
         btn4.layer.cornerRadius = 22.0
+        btn4.layer.borderWidth = 1
+        btn4.layer.borderColor = UIColor.white.cgColor
         btn5.layer.cornerRadius = 22.0
         btnSubmit.layer.cornerRadius = 17.0
+        
+        inputEmail.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        inputPassword.attributedPlaceholder = NSAttributedString(string: "비밀번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
 
         
         logInView.isHidden = false
