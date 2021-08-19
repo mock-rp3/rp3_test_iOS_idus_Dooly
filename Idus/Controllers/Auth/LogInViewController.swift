@@ -361,137 +361,81 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
                     }
                 }
                 else {
+
                     //토큰 유효성 체크 성공(필요 시 토큰 갱신됨)
+                    UserApi.shared.me() {(user, error) in
+                        if let error = error {
+                            print(error)
+                        }
+                        else {
+                            print("me() success.")
+
+                            _ = user
+                            
+                            UserDefaults.standard.set(user?.kakaoAccount?.email, forKey: "email")
+                            UserDefaults.standard.set("", forKey: "password")
+                            UserDefaults.standard.set(user?.kakaoAccount?.profile?.nickname, forKey: "name")
+                            UserDefaults.standard.set("kakao", forKey: "platform")
+                            UserDefaults.standard.set("jwttokenexample", forKey: "jwt")
+
+                            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
+                            self.navigationController?.pushViewController(vc, animated: true)
+
+
+                        }
+                    }
                 }
             }
         }
         else {
             //로그인 필요
-        }
+            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    else {
+                        print("loginWithKakaoAccount() success.")
+                        //do something
+                        _ = oauthToken
+                        
+                        UserApi.shared.me() {(user, error) in
+                            if let error = error {
+                                print(error)
+                            }
+                            else {
+                                print("me() success.")
 
-        
-        // 사용자 액세스 토큰 정보 조회
-        UserApi.shared.accessTokenInfo {(accessTokenInfo, error) in
-            if let error = error {
-                print(error)
-            }
-            else {
-                print("accessTokenInfo() success.")
-                //do something
-                _ = accessTokenInfo
-                
-            }
-        }
-        
-        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-                if let error = error {
-                    print(error)
-                }
-                else {
-                    print("loginWithKakaoAccount() success.")
-                    //do something
-                    _ = oauthToken
-                    
-//                    if (UserDefaults.standard.value(forKey: "email") != nil){
-//                        print(UserDefaults.standard.value(forKey: "email"))
-//                    }
-//                    UserDefaults.standard.set(UserDefaults.standard.value(forKey: "email") as! String, forKey: "email")
-//                    UserDefaults.standard.set("", forKey: "password")
-//                    UserDefaults.standard.set(UserDefaults.standard.value(forKey: "name") as! String, forKey: "name")
-//                    UserDefaults.standard.set("kakao", forKey: "platform")
-//                    UserDefaults.standard.set("jwttokenexample", forKey: "jwt")
-//                    let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
-//                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-        }
-        
-        UserApi.shared.me() {(user, error) in
-            if let error = error {
-                print(error)
-            }
-            else {
-                print("me() success.")
+                                _ = user
+                                
+                                UserDefaults.standard.set(user?.kakaoAccount?.email, forKey: "email")
+                                UserDefaults.standard.set("", forKey: "password")
+                                UserDefaults.standard.set(user?.kakaoAccount?.profile?.nickname, forKey: "name")
+                                UserDefaults.standard.set("kakao", forKey: "platform")
+                                UserDefaults.standard.set("jwttokenexample", forKey: "jwt")
 
-                _ = user
-                
-                UserDefaults.standard.set(user?.kakaoAccount?.email, forKey: "email")
-                UserDefaults.standard.set("", forKey: "password")
-                UserDefaults.standard.set(user?.kakaoAccount?.profile?.nickname, forKey: "name")
-                UserDefaults.standard.set("kakao", forKey: "platform")
-                UserDefaults.standard.set("jwttokenexample", forKey: "jwt")
+                                let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
+                                self.navigationController?.pushViewController(vc, animated: true)
 
-                let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")
-                self.navigationController?.pushViewController(vc, animated: true)
-
-
-            }
-        }
-        
-        
-        // 기존 로그인 여부와 상관없이 로그인 요청 -> 일단 개발때는 만들어둔다
-        //        UserApi.shared.loginWithKakaoAccount(prompts:[.Login]) {(oauthToken, error) in
-        //            if let error = error {
-        //                print(error)
-        //            }
-        //            else {
-        //                print("loginWithKakaoAccount() success.")
-        //                //do something
-        //                _ = oauthToken
-        //            }
-        //        }
-        
-        // 추가항목 동의 받기
-        UserApi.shared.me() {(user, error) in
-            if let error = error {
-                print(error)
-            }
-            else {
-                if let user = user {
-
-                    //필요한 scope을 아래의 예제코드를 참고해서 추가한다.
-                    //아래 예제는 모든 스콥을 나열한것.
-                    var scopes = [String]()
-
-                    if (user.kakaoAccount?.profileNeedsAgreement == true) { scopes.append("profile") }
-                    if (user.kakaoAccount?.emailNeedsAgreement == true) { scopes.append("account_email") }
-                    if (user.kakaoAccount?.birthdayNeedsAgreement == true) { scopes.append("birthday") }
-                    if (user.kakaoAccount?.birthyearNeedsAgreement == true) { scopes.append("birthyear") }
-                    if (user.kakaoAccount?.genderNeedsAgreement == true) { scopes.append("gender") }
-                    if (user.kakaoAccount?.phoneNumberNeedsAgreement == true) { scopes.append("phone_number") }
-                    if (user.kakaoAccount?.ageRangeNeedsAgreement == true) { scopes.append("age_range") }
-                    if (user.kakaoAccount?.ciNeedsAgreement == true) { scopes.append("account_ci") }
-
-                    if scopes.count == 0  { return }
-
-                    //필요한 scope으로 토큰갱신을 한다.
-                    UserApi.shared.loginWithKakaoAccount(scopes: scopes) { (_, error) in
-                        if let error = error {
-                            print(error)
-                        }
-                        else {
-                            UserApi.shared.me() { (user, error) in
-                                if let error = error {
-                                    print(error)
-                                }
-                                else {
-                                    print("me() success.")
-
-                                    _ = user
-//
-//                                    let url = URL(string : user?.kakaoAccount?.profile?.profileImageUrl); do {
-//                                            let data = try Data(contentsOf: url!)
-//                                        vc.test.image = UIImage(data: data)
-//                                    } catch{}
-                                }
 
                             }
-                            
                         }
-
-                    } //UserApi.shared.loginWithKakaoAccount(scopes:)
-                }
+                        
+                    }
             }
         }
+
+//         사용자 액세스 토큰 정보 조회
+//        UserApi.shared.accessTokenInfo {(accessTokenInfo, error) in
+//            if let error = error {
+//                print(error)
+//            }
+//            else {
+//                print("accessTokenInfo() success.")
+//                //do something
+//                _ = accessTokenInfo
+//
+//            }
+//        }
         
     }
     

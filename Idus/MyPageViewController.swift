@@ -63,14 +63,14 @@ class MyPageViewController: UIViewController {
                     }
                 }
                 //연결해제
-                UserApi.shared.unlink {(error) in
-                    if let error = error {
-                        print(error)
-                    }
-                    else {
-                        print("unlink() success.")
-                    }
-                }
+                // UserApi.shared.unlink {(error) in
+                // if let error = error {
+                //     print(error)
+                // }
+                // else {
+                //   print("unlink() success.")
+                // }
+                // }
                 
                 print("Kakao User log out")
 
