@@ -111,18 +111,13 @@ extension ViewController: PagingMenuViewControllerDataSource {
     }
     
     func menuViewController(viewController: PagingMenuViewController, widthForItemAt index: Int) -> CGFloat {
-        return 120
+        return 117
     }
     
     func menuViewController(viewController: PagingMenuViewController, cellForItemAt index: Int) -> PagingMenuViewCell {
         let cell = viewController.dequeueReusableCell(withReuseIdentifier: "MenuCell", for: index) as! MenuCell
        
         cell.titleLabel.text = dataSource[index].menu
-//        cell.titleLabel.textColor = .gray
-        
-        
-        
-        
         return cell
     }
 }

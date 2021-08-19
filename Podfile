@@ -10,6 +10,7 @@ target 'Idus' do
   pod 'KakaoSDK'
   pod 'KakaoSDKUser'
   pod 'naveridlogin-sdk-ios'
+  pod 'BulletinBoard'
   # Pods for Idus
 
   target 'IdusTests' do

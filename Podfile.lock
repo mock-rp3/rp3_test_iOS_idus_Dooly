@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.3)
+  - BulletinBoard (5.0.0)
   - KakaoSDK (2.6.0):
     - KakaoSDKAuth (= 2.6.0)
     - KakaoSDKCommon (= 2.6.0)
@@ -37,6 +38,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - BulletinBoard
   - KakaoSDK
   - KakaoSDKUser
   - naveridlogin-sdk-ios
@@ -45,6 +47,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - BulletinBoard
     - KakaoSDK
     - KakaoSDKAuth
     - KakaoSDKCommon
@@ -59,6 +62,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  BulletinBoard: dba77053c2a7b64953f63073f7534165af2edd21
   KakaoSDK: fa00ea44415f172721d7469388c04db8912330cd
   KakaoSDKAuth: 037e6260f4468cbc3bde89a802864d6b58c5271c
   KakaoSDKCommon: 38154188336a1118f1b757f0fec54ff989365ddc
@@ -71,6 +75,6 @@ SPEC CHECKSUMS:
   naveridlogin-sdk-ios: b9d7c20677981177ed994ecb1c8c2b49f223277d
   PagingKit: 366cc22d74f4de7768bb31d8fcd49182f53e3ce7
 
-PODFILE CHECKSUM: 76368d62e12530d944a9e3abe78b4404b1cfe387
+PODFILE CHECKSUM: a044a7da32ada630b9e485a504917e3321f026a6
 
 COCOAPODS: 1.10.2

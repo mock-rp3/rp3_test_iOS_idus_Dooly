@@ -1255,6 +1255,12 @@
                             <constraint firstAttribute="trailing" secondItem="jGF-Ud-qkn" secondAttribute="trailing" id="lh4-bb-4Sh"/>
                             <constraint firstItem="jGF-Ud-qkn" firstAttribute="leading" secondItem="9z4-Pb-xUJ" secondAttribute="leading" id="n2h-74-GN3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="fzd-Ir-f17"/>
+                                <exclude reference="jGF-Ud-qkn"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="mz0-x7-UVs"/>
                     <connections>

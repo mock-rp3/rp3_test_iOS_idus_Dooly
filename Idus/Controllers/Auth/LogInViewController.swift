@@ -12,6 +12,7 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import NaverThirdPartyLogin
 import Alamofire
+import BLTNBoard
 
 class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate {
 
@@ -59,7 +60,6 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     var check3 : Bool = false
 
     
-    
     var UserData : GetUserLoginRes? = nil
 
     
@@ -68,14 +68,31 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     var index = 0
     
     
+    private lazy var boardManager: BLTNItemManager = {
+        let item = BLTNPageItem(title: "Push Notifications")
+        item.actionButtonTitle = "Cont"
+        item.alternativeButtonTitle = "later"
+        item.descriptionText = "11"
+        
+        item.actionHandler = { _ in
+            self.didTapBoardLocal()
+        }
+        item.alternativeHandler = { _ in
+            self.didTapBoardLocal()
+        }
+        item.appearance.actionButtonColor = .systemGray
+        item.appearance.alternativeButtonTitleColor = .black
+        
+        return BLTNItemManager(rootItem: item)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loginInstance?.requestDeleteToken()
         localLogin.layer.cornerRadius = 22.0
         naverLogin.layer.cornerRadius = 22.0
+        
 
-        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil ,  repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(changeImage), userInfo: nil ,  repeats: true)
 
     }
     
@@ -89,6 +106,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     }
     
     
+   
     
     @objc func changeImage() {
         if ( index + 1 == backgroundArr.count){
@@ -96,39 +114,51 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         }else {
             index += 1
         }
-        backgroundImage.image = backgroundArr[index]
+//        backgroundImage.image = backgroundArr[index]
+        UIView.transition(with: backgroundImage, duration: 3, options: .transitionCrossDissolve,
+                          animations: {self.backgroundImage.image =  self.backgroundArr[self.index] },completion: nil)
+        
     }
     
     
     
     
     @IBAction func localJoin(_ sender: Any) {
+        boardManager.showBulletin(above: self)
         
-        logInView.isHidden = true
         
-        btnCheckAll.tag = 1
-        btnCheck1.tag = 10
-        btnCheck2.tag = 20
-        btnCheck3.tag = 30
-        
-        joinEmail.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        joinName.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        joinPassword.attributedPlaceholder = NSAttributedString(string: "비밀번호 ( 영문 + 숫자 + 특수문자 8자 이상", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        joinPassword2.attributedPlaceholder = NSAttributedString(string: "비밀번호 확인", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        joinPhone.attributedPlaceholder = NSAttributedString(string: "전화번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        joinFriend.attributedPlaceholder = NSAttributedString(string: "추천인코드 (선택사항)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        
-        joinCheckBoxView.layer.borderWidth = 1
-        joinCheckBoxView.layer.cornerRadius = 6
-        joinCheckBoxView.layer.borderColor = UIColor.white.cgColor
-
-        btnJoin.layer.cornerRadius = 30.0
-
-        
-        joinPageImage.image = UIImage(named: "join_background3")
-        joinView.isHidden = false
+//        logInView.isHidden = true
+//
+//        btnCheckAll.tag = 1
+//        btnCheck1.tag = 10
+//        btnCheck2.tag = 20
+//        btnCheck3.tag = 30
+//
+//        joinEmail.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+//        joinName.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+//        joinPassword.attributedPlaceholder = NSAttributedString(string: "비밀번호 ( 영문 + 숫자 + 특수문자 8자 이상", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+//        joinPassword2.attributedPlaceholder = NSAttributedString(string: "비밀번호 확인", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+//        joinPhone.attributedPlaceholder = NSAttributedString(string: "전화번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+//        joinFriend.attributedPlaceholder = NSAttributedString(string: "추천인코드 (선택사항)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+//
+//        joinCheckBoxView.layer.borderWidth = 1
+//        joinCheckBoxView.layer.cornerRadius = 6
+//        joinCheckBoxView.layer.borderColor = UIColor.white.cgColor
+//
+//        btnJoin.layer.cornerRadius = 30.0
+//
+//
+//        joinPageImage.image = UIImage(named: "join_background3")
+//        joinView.isHidden = false
 
     }
+    
+    
+    func didTapBoardLocal(){
+            print("local click")
+    }
+
+    
     
     
     @IBAction func localLogIn(_ sender: Any) {
