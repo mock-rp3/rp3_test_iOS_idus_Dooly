@@ -13,10 +13,18 @@ class ItemDetailViewController: UIViewController  {
     @IBOutlet var buyBtn: UIButton!
     @IBOutlet var presentBtn: UIButton!
     @IBOutlet var floatingView: UIView!
+    @IBOutlet var bottomView: UIView!
+    @IBOutlet var buyView: UIView!
+    @IBOutlet var buyMainView: UIView!
+    @IBOutlet var buyCloseView: UIImageView!
+    @IBOutlet var optionCloseView: UIButton!
     
     
+    @IBOutlet var selectTV1: UITableView!
+    @IBOutlet var selectOp1: UIButton!
     var ItemDetailData = GetItemDetailRes()
     
+    let ary = ["v1", "v2", "v3","v3","v3","v3","v3","v3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +35,20 @@ class ItemDetailViewController: UIViewController  {
         navigationController?.isNavigationBarHidden = false
         tableView.delegate = self
         tableView.dataSource = self
+        selectTV1.delegate =  self
+        selectTV1.dataSource = self
+        tableView.tag = 0
+        selectTV1.tag = 1
 
         let ItemDetailFirstTableViewCell = UINib(nibName: "ItemDetailFirstTableViewCell", bundle: nil)
         self.tableView.register(ItemDetailFirstTableViewCell, forCellReuseIdentifier: "ItemDetailFirstTableViewCell")
         
         let ItemDetailSecondTableViewCell = UINib(nibName: "ItemDetailSecondTableViewCell", bundle: nil)
         self.tableView.register(ItemDetailSecondTableViewCell, forCellReuseIdentifier: "ItemDetailSecondTableViewCell")
-        
-        
+
+        let ItemDetailThirdTableViewCell = UINib(nibName: "ItemDetailThirdTableViewCell", bundle: nil)
+        self.tableView.register(ItemDetailThirdTableViewCell, forCellReuseIdentifier: "ItemDetailThirdTableViewCell")
+
         presentBtn.layer.borderColor = UIColor.orange.cgColor
         presentBtn.layer.cornerRadius = 3
         presentBtn.layer.borderWidth = 1
@@ -56,6 +70,13 @@ class ItemDetailViewController: UIViewController  {
         
         floatingView.layer.shadowOffset = CGSize(width: 3, height: 3)
         
+        bottomView.layer.addBorder([.top], color: UIColor.lightGray, width: 1.0)
+
+       
+        let tapClosing = UITapGestureRecognizer(target: self, action: #selector(self.tapClose(_:)))
+        buyCloseView.isUserInteractionEnabled = true
+        buyCloseView.addGestureRecognizer(tapClosing)
+   
     }
     
     
@@ -63,59 +84,123 @@ class ItemDetailViewController: UIViewController  {
     }
     
     @IBAction func buyBtn(_ sender: Any) {
-        
+        buyView.isHidden = false
     }
+    
+    @objc func tapClose(_ sender: UITapGestureRecognizer) {
+        buyView.isHidden = true
+
+    }
+    
+    @IBAction func tapOpenOption(_ sender: Any) {
+        selectTV1.isHidden = false
+    }
+    
+    @IBAction func tapCloseOption(_ sender: Any) {
+        selectTV1.isHidden = true
+    }
+    
+    
+    
     
 }
 
 extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        
+        if tableView.tag == 0 {
+            return 3
+        }
+        else {
+            return ary.count
+            
+        }
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if (indexPath.row == 0) {
 
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailFirstTableViewCell", for: indexPath) as? ItemDetailFirstTableViewCell else { return UITableViewCell()}
-            
-    //        cell.itemImage.image = UIImage(named: ProductDetails.name)
-            cell.itemName.text = ItemDetailData.result?.title
-            
-            if let a = ItemDetailData.result?.finalPrice {
-                cell.itemPrice.text = "\(a)"
-            }
-            return cell
+        if ( tableView.tag == 0) {
 
-        } else if (indexPath.row == 1) {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailSecondTableViewCell", for: indexPath) as? ItemDetailSecondTableViewCell else { return UITableViewCell()}
-            return cell
-     
+                if (indexPath.row == 0) {
+
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailFirstTableViewCell", for: indexPath) as? ItemDetailFirstTableViewCell else { return UITableViewCell()}
+                    
+            //        cell.itemImage.image = UIImage(named: ProductDetails.name)
+                    cell.itemName.text = ItemDetailData.result?.title
+                    
+                    if let a = ItemDetailData.result?.finalPrice {
+                        cell.itemPrice.text = "\(a)"
+                                    }
+                    return cell
+
+                } else if (indexPath.row == 1) {
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailSecondTableViewCell", for: indexPath) as? ItemDetailSecondTableViewCell else { return UITableViewCell()}
+                    return cell
+                                                                                                    
+                } else if (indexPath.row == 2) {
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailThirdTableViewCell", for: indexPath) as? ItemDetailThirdTableViewCell else { return UITableViewCell()}
+                    return cell
+             
+                }
+                else {
+                    return UITableViewCell()
+                }
         } else {
-            return UITableViewCell()
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.textLabel?.text = ary[indexPath.row]
+            return cell
         }
+            
+        
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row{
-        case 0 :
-            let height = tableView.frame.height
-            print(height)
-            return height * 1.15
-        case 1 :
-            let height = tableView.frame.height
-            return height * 0.6
-        default :
-            let height = view.frame.height
-            return height
-        }
+        
+        
+        if ( tableView.tag == 0 ) {
+            
+            switch indexPath.row{
+            case 0 :
+                let height = tableView.frame.height
+                return height * 1.15
+            case 1 :
+                let height = tableView.frame.height
+                return height * 0.6
+            case 2 :
+                let height = tableView.frame.height
+                return height * 0.8
 
+            default :
+                let height = tableView.frame.height
+                return height
+            }
+        }
+        else {
+            return 50
+        }
+ 
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if ( tableView.tag == 0){
+        }else {
+            let cell = tableView.cellForRow(at: indexPath)
+            selectOp1.setTitle(cell?.textLabel?.text, for: .normal)
+            selectTV1.isHidden = true
+        }
+    }
+    
 }
+
+
 
 extension ItemDetailViewController {
     
@@ -137,3 +222,31 @@ extension ItemDetailViewController {
 
     
 }
+
+extension CALayer {
+    func addBorder(_ arr_edge: [UIRectEdge], color: UIColor, width: CGFloat) {
+        for edge in arr_edge {
+            let border = CALayer()
+            switch edge {
+            case UIRectEdge.top:
+                border.frame = CGRect.init(x: 0, y: 0, width: frame.width, height: width)
+                break
+            case UIRectEdge.bottom:
+                border.frame = CGRect.init(x: 0, y: frame.height - width, width: frame.width, height: width)
+                break
+            case UIRectEdge.left:
+                border.frame = CGRect.init(x: 0, y: 0, width: width, height: frame.height)
+                break
+            case UIRectEdge.right:
+                border.frame = CGRect.init(x: frame.width - width, y: 0, width: width, height: frame.height)
+                break
+            default:
+                break
+            }
+            border.backgroundColor = color.cgColor;
+            self.addSublayer(border)
+        }
+    }
+}
+
+

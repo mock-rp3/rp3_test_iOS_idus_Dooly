@@ -24,6 +24,8 @@
 		F03392C926CF5990002CA926 /* JoinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392C826CF5990002CA926 /* JoinRequest.swift */; };
 		F03392CD26CF94EB002CA926 /* ClassOnlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392CC26CF94EB002CA926 /* ClassOnlineViewController.swift */; };
 		F03392CF26CF94FB002CA926 /* ClassOfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392CE26CF94FB002CA926 /* ClassOfflineViewController.swift */; };
+		F03392D926D022CE002CA926 /* ItemDetailThirdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392D726D022CE002CA926 /* ItemDetailThirdTableViewCell.swift */; };
+		F03392DA26D022CE002CA926 /* ItemDetailThirdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03392D826D022CE002CA926 /* ItemDetailThirdTableViewCell.xib */; };
 		F066ABC326CA791000503ADA /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABC226CA791000503ADA /* LogInViewController.swift */; };
 		F066ABD126CAFF8200503ADA /* GetUserLoginReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */; };
 		F066ABD526CAFFC800503ADA /* GetUserLoginRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */; };
@@ -95,6 +97,8 @@
 		F03392C826CF5990002CA926 /* JoinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRequest.swift; sourceTree = "<group>"; };
 		F03392CC26CF94EB002CA926 /* ClassOnlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassOnlineViewController.swift; sourceTree = "<group>"; };
 		F03392CE26CF94FB002CA926 /* ClassOfflineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassOfflineViewController.swift; sourceTree = "<group>"; };
+		F03392D726D022CE002CA926 /* ItemDetailThirdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailThirdTableViewCell.swift; sourceTree = "<group>"; };
+		F03392D826D022CE002CA926 /* ItemDetailThirdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailThirdTableViewCell.xib; sourceTree = "<group>"; };
 		F066ABC226CA791000503ADA /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLoginReq.swift; sourceTree = "<group>"; };
 		F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLoginRes.swift; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 				F02BF46D26CE1F4A000B3D74 /* ItemDetailFirstTableViewCell.xib */,
 				F02BF47626CE564B000B3D74 /* ItemDetailSecondTableViewCell.swift */,
 				F02BF47726CE564B000B3D74 /* ItemDetailSecondTableViewCell.xib */,
+				F03392D726D022CE002CA926 /* ItemDetailThirdTableViewCell.swift */,
+				F03392D826D022CE002CA926 /* ItemDetailThirdTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -482,6 +488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F03392DA26D022CE002CA926 /* ItemDetailThirdTableViewCell.xib in Resources */,
 				F032B0B726C9A7ED0029A414 /* productName.json in Resources */,
 				F02BF47926CE564B000B3D74 /* ItemDetailSecondTableViewCell.xib in Resources */,
 				F02BF46F26CE1F4A000B3D74 /* ItemDetailFirstTableViewCell.xib in Resources */,
@@ -641,6 +648,7 @@
 				F0E6C3DB26C84572007B7272 /* TodayViewController.swift in Sources */,
 				F0E6C3B226C7ED94007B7272 /* Idus.xcdatamodeld in Sources */,
 				F0E6C3DD26C84594007B7272 /* CurrentViewController.swift in Sources */,
+				F03392D926D022CE002CA926 /* ItemDetailThirdTableViewCell.swift in Sources */,
 				F066ABD126CAFF8200503ADA /* GetUserLoginReq.swift in Sources */,
 				F0E6C3FC26C93FFF007B7272 /* AdCollectionViewCell.swift in Sources */,
 				F0E6C3E926C85259007B7272 /* MenuCell.swift in Sources */,
