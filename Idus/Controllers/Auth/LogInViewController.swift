@@ -124,32 +124,33 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     
     
     @IBAction func localJoin(_ sender: Any) {
-        boardManager.showBulletin(above: self)
+        
+//        boardManager.showBulletin(above: self)
         
         
-//        logInView.isHidden = true
-//
-//        btnCheckAll.tag = 1
-//        btnCheck1.tag = 10
-//        btnCheck2.tag = 20
-//        btnCheck3.tag = 30
-//
-//        joinEmail.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-//        joinName.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-//        joinPassword.attributedPlaceholder = NSAttributedString(string: "비밀번호 ( 영문 + 숫자 + 특수문자 8자 이상", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-//        joinPassword2.attributedPlaceholder = NSAttributedString(string: "비밀번호 확인", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-//        joinPhone.attributedPlaceholder = NSAttributedString(string: "전화번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-//        joinFriend.attributedPlaceholder = NSAttributedString(string: "추천인코드 (선택사항)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-//
-//        joinCheckBoxView.layer.borderWidth = 1
-//        joinCheckBoxView.layer.cornerRadius = 6
-//        joinCheckBoxView.layer.borderColor = UIColor.white.cgColor
-//
-//        btnJoin.layer.cornerRadius = 30.0
-//
-//
-//        joinPageImage.image = UIImage(named: "join_background3")
-//        joinView.isHidden = false
+        logInView.isHidden = true
+
+        btnCheckAll.tag = 1
+        btnCheck1.tag = 10
+        btnCheck2.tag = 20
+        btnCheck3.tag = 30
+
+        joinEmail.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        joinName.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        joinPassword.attributedPlaceholder = NSAttributedString(string: "비밀번호 ( 영문 + 숫자 + 특수문자 8자 이상", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        joinPassword2.attributedPlaceholder = NSAttributedString(string: "비밀번호 확인", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        joinPhone.attributedPlaceholder = NSAttributedString(string: "전화번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        joinFriend.attributedPlaceholder = NSAttributedString(string: "추천인코드 (선택사항)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+
+        joinCheckBoxView.layer.borderWidth = 1
+        joinCheckBoxView.layer.cornerRadius = 6
+        joinCheckBoxView.layer.borderColor = UIColor.white.cgColor
+
+        btnJoin.layer.cornerRadius = 30.0
+
+
+        joinPageImage.image = UIImage(named: "join_background3")
+        joinView.isHidden = false
 
     }
     
@@ -300,11 +301,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         
         }else {
             
-            //        print(joinPhone.text!)
-            //        print(joinFriend.text!)
-            //        print(check1, check2, check3)
-
-            GetUserLoginReq().postUserJoin(self, name: joinName.text!,  email : joinEmail.text!, password: joinPassword.text!, phone: joinPhone.text!  )
+            GetUserLoginReq().postUserJoin(self, name: joinName.text!,  email : joinEmail.text!, password: joinPassword.text!, phone: joinPhone.text! , term1: check1 , term2: check2, term3: check3, recommendEmail: joinFriend.text!  )
         }
 
     }
@@ -515,7 +512,7 @@ extension LogInViewController {
                      
     }
     
-    func didSuccessJoin(_ response: GetUserLoginRes) {
+    func didSuccessJoin(_ response: GetUserJoinRes) {
        
         let alert = UIAlertController(title: "회원가입 성공했습니다. 로그인해주세요!", message: "회원가입 성공했습니다. 로그인해주세요!", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)

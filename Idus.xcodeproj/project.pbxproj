@@ -20,6 +20,8 @@
 		F032B0B526C9A6C20029A414 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032B0B426C9A6C20029A414 /* ProductsModel.swift */; };
 		F032B0B726C9A7ED0029A414 /* productName.json in Resources */ = {isa = PBXBuildFile; fileRef = F032B0B626C9A7ED0029A414 /* productName.json */; };
 		F032B0B926C9B6420029A414 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032B0B826C9B6420029A414 /* ProductCollectionViewCell.swift */; };
+		F03392C726CF5423002CA926 /* GetUserJoinRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392C626CF5423002CA926 /* GetUserJoinRes.swift */; };
+		F03392C926CF5990002CA926 /* JoinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392C826CF5990002CA926 /* JoinRequest.swift */; };
 		F066ABC326CA791000503ADA /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABC226CA791000503ADA /* LogInViewController.swift */; };
 		F066ABD126CAFF8200503ADA /* GetUserLoginReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */; };
 		F066ABD526CAFFC800503ADA /* GetUserLoginRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */; };
@@ -87,6 +89,8 @@
 		F032B0B426C9A6C20029A414 /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
 		F032B0B626C9A7ED0029A414 /* productName.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = productName.json; sourceTree = "<group>"; };
 		F032B0B826C9B6420029A414 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		F03392C626CF5423002CA926 /* GetUserJoinRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserJoinRes.swift; sourceTree = "<group>"; };
+		F03392C826CF5990002CA926 /* JoinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRequest.swift; sourceTree = "<group>"; };
 		F066ABC226CA791000503ADA /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLoginReq.swift; sourceTree = "<group>"; };
 		F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLoginRes.swift; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 			children = (
 				F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */,
 				F02BF47226CE3A27000B3D74 /* GetItemDetailRes.swift */,
+				F03392C626CF5423002CA926 /* GetUserJoinRes.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 				F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */,
 				F066ABD626CB9DB800503ADA /* SignInRequest.swift */,
 				F02BF47426CE3CE0000B3D74 /* GetItemDetailReq.swift */,
+				F03392C826CF5990002CA926 /* JoinRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				F0E6C3F226C88AF3007B7272 /* ClassViewController.swift in Sources */,
 				F02BF46E26CE1F4A000B3D74 /* ItemDetailFirstTableViewCell.swift in Sources */,
 				F0E6C3A826C7ED94007B7272 /* AppDelegate.swift in Sources */,
+				F03392C926CF5990002CA926 /* JoinRequest.swift in Sources */,
 				F02BF47526CE3CE0000B3D74 /* GetItemDetailReq.swift in Sources */,
 				F0A26D9F26CD52B60085806E /* ItemListViewController.swift in Sources */,
 				F0E6C3F626C88B0D007B7272 /* CategoryViewController.swift in Sources */,
@@ -599,6 +606,7 @@
 				F0E6C3FA26C93256007B7272 /* DetailCollectionViewCell.swift in Sources */,
 				F0E6C3F826C88B1A007B7272 /* MyPageViewController.swift in Sources */,
 				F032B0B326C9A4C60029A414 /* ProductTableViewCell.swift in Sources */,
+				F03392C726CF5423002CA926 /* GetUserJoinRes.swift in Sources */,
 				F0E6C3DB26C84572007B7272 /* TodayViewController.swift in Sources */,
 				F0E6C3B226C7ED94007B7272 /* Idus.xcdatamodeld in Sources */,
 				F0E6C3DD26C84594007B7272 /* CurrentViewController.swift in Sources */,
