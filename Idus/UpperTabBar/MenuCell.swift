@@ -15,6 +15,7 @@ class MenuCell: PagingMenuViewCell{
     override public var isSelected: Bool {
             didSet {
                 if isSelected {
+                    
                     titleLabel.textColor = UIColor.orange
                     
                 } else {

@@ -77,7 +77,6 @@ class ViewController: UIViewController{
         
             menuViewController.cellAlignment = .center
             
-            menuViewController.cellSpacing = 30
             dataSource = makeDataSource()
         
             if UserDefaults.standard.value(forKey: "jwt") == nil {
@@ -112,7 +111,7 @@ class ViewController: UIViewController{
     
     @IBAction func okAction(_ sender: Any) {
         pushAgreeView.isHidden = true
-        tabBarController?.tabBar.isHidden = false        
+        tabBarController?.tabBar.isHidden = false
     }
     
 
@@ -125,7 +124,7 @@ extension ViewController: PagingMenuViewControllerDataSource {
     }
     
     func menuViewController(viewController: PagingMenuViewController, widthForItemAt index: Int) -> CGFloat {
-        return 117
+        return view.frame.size.width/3
     }
     
     func menuViewController(viewController: PagingMenuViewController, cellForItemAt index: Int) -> PagingMenuViewCell {

@@ -1,13 +1,13 @@
 //
-//  ClassViewController.swift
+//  ClassOnlineViewController.swift
 //  Idus
 //
-//  Created by 김희진 on 2021/08/15.
+//  Created by 김희진 on 2021/08/20.
 //
 
 import UIKit
 
-class ClassViewController: UIViewController {
+class ClassOnlineViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

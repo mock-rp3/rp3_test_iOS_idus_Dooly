@@ -22,6 +22,8 @@
 		F032B0B926C9B6420029A414 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032B0B826C9B6420029A414 /* ProductCollectionViewCell.swift */; };
 		F03392C726CF5423002CA926 /* GetUserJoinRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392C626CF5423002CA926 /* GetUserJoinRes.swift */; };
 		F03392C926CF5990002CA926 /* JoinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392C826CF5990002CA926 /* JoinRequest.swift */; };
+		F03392CD26CF94EB002CA926 /* ClassOnlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392CC26CF94EB002CA926 /* ClassOnlineViewController.swift */; };
+		F03392CF26CF94FB002CA926 /* ClassOfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392CE26CF94FB002CA926 /* ClassOfflineViewController.swift */; };
 		F066ABC326CA791000503ADA /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABC226CA791000503ADA /* LogInViewController.swift */; };
 		F066ABD126CAFF8200503ADA /* GetUserLoginReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */; };
 		F066ABD526CAFFC800503ADA /* GetUserLoginRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */; };
@@ -91,6 +93,8 @@
 		F032B0B826C9B6420029A414 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		F03392C626CF5423002CA926 /* GetUserJoinRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserJoinRes.swift; sourceTree = "<group>"; };
 		F03392C826CF5990002CA926 /* JoinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRequest.swift; sourceTree = "<group>"; };
+		F03392CC26CF94EB002CA926 /* ClassOnlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassOnlineViewController.swift; sourceTree = "<group>"; };
+		F03392CE26CF94FB002CA926 /* ClassOfflineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassOfflineViewController.swift; sourceTree = "<group>"; };
 		F066ABC226CA791000503ADA /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLoginReq.swift; sourceTree = "<group>"; };
 		F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLoginRes.swift; sourceTree = "<group>"; };
@@ -200,6 +204,32 @@
 			path = AdSliderCell;
 			sourceTree = "<group>";
 		};
+		F03392D026CF9779002CA926 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				F0E6C3F126C88AF3007B7272 /* ClassViewController.swift */,
+				F03392CC26CF94EB002CA926 /* ClassOnlineViewController.swift */,
+				F03392CE26CF94FB002CA926 /* ClassOfflineViewController.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		F03392D126CF97A5002CA926 /* Main_Today */ = {
+			isa = PBXGroup;
+			children = (
+				F0E6C3DA26C84572007B7272 /* TodayViewController.swift */,
+			);
+			path = Main_Today;
+			sourceTree = "<group>";
+		};
+		F03392D226CF98F9002CA926 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				F0E6C3F726C88B1A007B7272 /* MyPageViewController.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		F0449C7526CD68740030A34B /* ItemDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +280,9 @@
 		F0A26D9A26CC60530085806E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F03392D226CF98F9002CA926 /* MyPage */,
+				F03392D126CF97A5002CA926 /* Main_Today */,
+				F03392D026CF9779002CA926 /* Class */,
 				F0449C7526CD68740030A34B /* ItemDetail */,
 				F0A26D9B26CC605D0085806E /* Auth */,
 			);
@@ -302,14 +335,11 @@
 				F0E6C3B526C7ED95007B7272 /* LaunchScreen.storyboard */,
 				F0E6C3B826C7ED95007B7272 /* Info.plist */,
 				F0E6C3B026C7ED94007B7272 /* Idus.xcdatamodeld */,
-				F0E6C3DA26C84572007B7272 /* TodayViewController.swift */,
 				F0E6C3DC26C84594007B7272 /* CurrentViewController.swift */,
 				F0E6C3DE26C8459E007B7272 /* NewViewController.swift */,
 				F0E6C3EE26C86FC9007B7272 /* SwipingController.swift */,
-				F0E6C3F126C88AF3007B7272 /* ClassViewController.swift */,
 				F0E6C3F326C88B01007B7272 /* SearchViewController.swift */,
 				F0E6C3F526C88B0D007B7272 /* CategoryViewController.swift */,
-				F0E6C3F726C88B1A007B7272 /* MyPageViewController.swift */,
 				F032B0B626C9A7ED0029A414 /* productName.json */,
 				F0A26D9E26CD52B60085806E /* ItemListViewController.swift */,
 			);
@@ -593,6 +623,7 @@
 				F066ABD526CAFFC800503ADA /* GetUserLoginRes.swift in Sources */,
 				F0E6C3F226C88AF3007B7272 /* ClassViewController.swift in Sources */,
 				F02BF46E26CE1F4A000B3D74 /* ItemDetailFirstTableViewCell.swift in Sources */,
+				F03392CF26CF94FB002CA926 /* ClassOfflineViewController.swift in Sources */,
 				F0E6C3A826C7ED94007B7272 /* AppDelegate.swift in Sources */,
 				F03392C926CF5990002CA926 /* JoinRequest.swift in Sources */,
 				F02BF47526CE3CE0000B3D74 /* GetItemDetailReq.swift in Sources */,
@@ -617,6 +648,7 @@
 				F066ABC326CA791000503ADA /* LogInViewController.swift in Sources */,
 				F0E6C3AA26C7ED94007B7272 /* SceneDelegate.swift in Sources */,
 				F02BF47826CE564B000B3D74 /* ItemDetailSecondTableViewCell.swift in Sources */,
+				F03392CD26CF94EB002CA926 /* ClassOnlineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
