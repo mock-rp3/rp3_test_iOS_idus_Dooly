@@ -130,6 +130,7 @@
                 <constraints>
                     <constraint firstItem="Hg7-5b-X74" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9qJ-gx-wZc"/>
                     <constraint firstItem="Hg7-5b-X74" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="I7A-wn-VNF"/>
+                    <constraint firstItem="Hg7-5b-X74" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="Jfp-1n-4mh"/>
                     <constraint firstItem="Hg7-5b-X74" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="j6M-bt-ATc"/>
                     <constraint firstAttribute="trailing" secondItem="Hg7-5b-X74" secondAttribute="trailing" id="jQK-Fm-FIi"/>
                     <constraint firstAttribute="trailing" secondItem="Hg7-5b-X74" secondAttribute="trailing" id="q0S-bF-HiR"/>

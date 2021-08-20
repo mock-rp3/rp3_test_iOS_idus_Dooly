@@ -158,40 +158,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5vh-SK-Xx0">
-                                <rect key="frame" x="0.0" y="88" width="414" height="1350"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5vh-SK-Xx0">
+                                <rect key="frame" x="0.0" y="88" width="414" height="712"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1350" id="grh-Md-1sz"/>
-                                </constraints>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ItemDetailFirstTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemDetailFirstTableViewCell" rowHeight="784" id="GEI-lf-VTs" customClass="ItemDetailFirstTableViewCell" customModule="Idus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="784"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ItemDetailFirstTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemDetailFirstTableViewCell" id="GEI-lf-VTs" customClass="ItemDetailFirstTableViewCell" customModule="Idus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GEI-lf-VTs" id="zHX-qG-5Af">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="784"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ItemDetailSecondTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemDetailSecondTableViewCell" rowHeight="491" id="07M-hn-Dfe" customClass="ItemDetailSecondTableViewCell" customModule="Idus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="808.5" width="414" height="491"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ItemDetailSecondTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemDetailSecondTableViewCell" id="07M-hn-Dfe" customClass="ItemDetailSecondTableViewCell" customModule="Idus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="68.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="07M-hn-Dfe" id="eUg-ye-2HQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="491"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="603" id="Aa5-YI-LdJ">
-                                        <rect key="frame" x="0.0" y="1299.5" width="414" height="603"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Aa5-YI-LdJ" id="IDc-bq-4zk">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="603"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -281,6 +269,7 @@
                             <constraint firstItem="TDD-h4-Nna" firstAttribute="trailing" secondItem="8Yi-vz-5O9" secondAttribute="trailing" multiplier="1.05" constant="1" id="gbn-0u-M8G"/>
                             <constraint firstItem="kC4-lH-HCL" firstAttribute="leading" secondItem="5vh-SK-Xx0" secondAttribute="leading" id="nQz-Fp-jey"/>
                             <constraint firstItem="kC4-lH-HCL" firstAttribute="top" secondItem="TDD-h4-Nna" secondAttribute="top" constant="710" id="o2Y-rw-6Pj"/>
+                            <constraint firstItem="5vh-SK-Xx0" firstAttribute="height" secondItem="TDD-h4-Nna" secondAttribute="height" multiplier="0.92" id="ymM-mB-ICg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TKV-VU-K0c"/>
@@ -294,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JtW-aG-dMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1048" y="1449"/>
+            <point key="canvasLocation" x="-1049.2753623188407" y="1448.4375"/>
         </scene>
         <!--Today View Controller-->
         <scene sceneID="WlG-2V-9Tw">

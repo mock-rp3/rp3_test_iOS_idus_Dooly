@@ -102,7 +102,8 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
         switch indexPath.row{
         case 0 :
             let height = tableView.frame.height
-            return height * 0.9
+            print(height)
+            return height * 1.15
         case 1 :
             let height = tableView.frame.height
             return height * 0.6
