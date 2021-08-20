@@ -488,7 +488,6 @@ extension LogInViewController {
         print(UserData as Any)
 
         let userJwt = response.result?.jwt
-                
         logInView.isHidden = true
 
         UserDefaults.standard.set(inputEmail.text, forKey: "email")
@@ -496,6 +495,7 @@ extension LogInViewController {
         UserDefaults.standard.set("김희진", forKey: "name")
         UserDefaults.standard.set("local", forKey: "platform")
         UserDefaults.standard.set(userJwt, forKey: "jwt")
+        UserDefaults.standard.set("1" , forKey: "IsAgreePush")
 
         
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TabBarController")

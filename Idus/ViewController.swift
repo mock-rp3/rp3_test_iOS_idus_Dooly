@@ -10,7 +10,8 @@ import PagingKit
 
 class ViewController: UIViewController{
     
-
+    @IBOutlet var pushAgreeView: UIView!
+    
     var menuViewController: PagingMenuViewController!
     var contentViewController: PagingContentViewController!
 
@@ -79,6 +80,12 @@ class ViewController: UIViewController{
             menuViewController.cellSpacing = 30
             dataSource = makeDataSource()
         
+            if UserDefaults.standard.value(forKey: "jwt") == nil {
+                pushAgreeView.isHidden = false
+                tabBarController?.tabBar.isHidden = true
+            }
+
+        
             
     }
 
@@ -100,7 +107,14 @@ class ViewController: UIViewController{
               contentViewController.delegate = self
           }
     }
-
+    
+    
+    
+    @IBAction func okAction(_ sender: Any) {
+        pushAgreeView.isHidden = true
+        tabBarController?.tabBar.isHidden = false        
+    }
+    
 
 }
 

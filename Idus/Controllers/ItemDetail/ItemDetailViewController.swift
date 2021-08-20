@@ -10,7 +10,11 @@ import UIKit
 class ItemDetailViewController: UIViewController  {
     
     @IBOutlet var tableView: UITableView!
-
+    @IBOutlet var buyBtn: UIButton!
+    @IBOutlet var presentBtn: UIButton!
+    @IBOutlet var floatingView: UIView!
+    
+    
     var ItemDetailData = GetItemDetailRes()
     
     
@@ -29,9 +33,39 @@ class ItemDetailViewController: UIViewController  {
         
         let ItemDetailSecondTableViewCell = UINib(nibName: "ItemDetailSecondTableViewCell", bundle: nil)
         self.tableView.register(ItemDetailSecondTableViewCell, forCellReuseIdentifier: "ItemDetailSecondTableViewCell")
+        
+        
+        presentBtn.layer.borderColor = UIColor.orange.cgColor
+        presentBtn.layer.cornerRadius = 3
+        presentBtn.layer.borderWidth = 1
 
+        buyBtn.layer.borderColor = UIColor.orange.cgColor
+        buyBtn.layer.cornerRadius = 10
+        
+        
+        floatingView.layer.cornerRadius = floatingView.frame.height/2
+        floatingView.layer.borderWidth = 1
+        floatingView.clipsToBounds = true
+        
+        floatingView.layer.borderColor = UIColor.lightGray.cgColor
+        floatingView.layer.borderWidth = 1
+        floatingView.layer.shadowColor = UIColor.lightGray.cgColor
+        floatingView.layer.shadowOffset = CGSize.zero
+        floatingView.layer.shadowRadius = 6
+        floatingView.layer.shadowOpacity = 1.0
+        
+        floatingView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        
     }
-
+    
+    
+    @IBAction func cchimBtn(_ sender: Any) {
+    }
+    
+    @IBAction func buyBtn(_ sender: Any) {
+        
+    }
+    
 }
 
 extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
@@ -79,7 +113,7 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
 
     }
     
-    //Models, Views, ViewControllers
+
 }
 
 extension ItemDetailViewController {

@@ -27,10 +27,10 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var tableView: UITableView!
 
     
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+
     
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(TodayViewController.respondToSwipeGesture(_:)))
         
@@ -42,6 +42,7 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
         tableView.dataSource = self
     
         startTimer()
+    
         
         
     }
@@ -86,6 +87,7 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
         }
     }
+        
 
 }
 
