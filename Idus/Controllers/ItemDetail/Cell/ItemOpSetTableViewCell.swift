@@ -1,5 +1,5 @@
 //
-//  ItemOptionSetTableViewCell.swift
+//  ItemOpSetTableViewCell.swift
 //  Idus
 //
 //  Created by 김희진 on 2021/08/21.
@@ -7,8 +7,9 @@
 
 import UIKit
 
-class ItemOptionSetTableViewCell: UITableViewCell {
+class ItemOpSetTableViewCell: UITableViewCell {
 
+    @IBOutlet var test: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +20,5 @@ class ItemOptionSetTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

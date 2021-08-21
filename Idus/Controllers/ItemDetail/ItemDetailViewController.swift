@@ -25,13 +25,16 @@ class ItemDetailViewController: UIViewController  {
     @IBOutlet var selectTV1: UITableView!
     
     
+    @IBOutlet var optionText: UILabel!
     
     //필요없음
     @IBOutlet var selectOp1: UIButton!
     var ItemDetailData = GetItemDetailRes()
     
     let ary = ["빨간색", "노란색", "파란색","초록색"]
-    let buySetArr = [String]()
+    var buySetArr = [String]()
+    var buyString = ""
+    var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,9 +63,6 @@ class ItemDetailViewController: UIViewController  {
         let ItemDetailThirdTableViewCell = UINib(nibName: "ItemDetailThirdTableViewCell", bundle: nil)
         self.tableView.register(ItemDetailThirdTableViewCell, forCellReuseIdentifier: "ItemDetailThirdTableViewCell")
         
-        let ItemOptionSetTableViewCell = UINib(nibName: "ItemOptionSetTableViewCell", bundle: nil)
-        self.buyOptionSetTV.register(ItemOptionSetTableViewCell, forCellReuseIdentifier: "ItemOptionSetTableViewCell")
-
 
         presentBtn.layer.borderColor = UIColor.orange.cgColor
         presentBtn.layer.cornerRadius = 3
@@ -119,6 +119,19 @@ class ItemDetailViewController: UIViewController  {
     }
     
     
+    @IBAction func deleteOptionSet(_ sender: UIButton) {
+        let point = sender.convert(CGPoint.zero, to: buyOptionSetTV)
+        
+        let indexpath = buyOptionSetTV.indexPathForRow(at: point)
+        
+        buySetArr.remove(at: indexpath!.row)
+        
+        buyOptionSetTV.beginUpdates()
+        buyOptionSetTV.deleteRows(at: [IndexPath(row:indexpath!.row, section:0)], with: .none)
+        
+        buyOptionSetTV.endUpdates()
+        
+    }
     
     
 }
@@ -177,11 +190,16 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
         
         else  {
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemOptionSetTableViewCell", for: indexPath) as? ItemOptionSetTableViewCell else { return UITableViewCell()}
-            return cell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemOpSetTableViewCell", for: indexPath) as? ItemOpSetTableViewCell else { return UITableViewCell()}
             
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "ItemOptionSetTableViewCell", for: indexPath) as? ItemOptionSetTableViewCell
-//            return cell!
+            
+                        cell.test.text = buySetArr[indexPath.row]
+//                        cell.textLabel?.text = buySetArr[indexPath.row]
+
+
+            return cell
+
+            
         }
          
     }
@@ -211,15 +229,27 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
             return 40
         }
         else {
-            return 200
+            return 60
         }
  
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if ( tableView.tag == 0 && tableView.tag == 2){
-        } else {
+        if ( tableView.tag == 0 &&  tableView.tag == 2){
+        }
+        else {
             let cell = tableView.cellForRow(at: indexPath)
+            buyString = (cell?.textLabel?.text)!
+            
+            print(cell?.textLabel?.text as Any)
+            
+            self.buySetArr.insert(buyString, at: 0)
+            
+            buyOptionSetTV.beginUpdates()
+            buyOptionSetTV.insertRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+            buyOptionSetTV.endUpdates()
+
+            
             selectOp1.setTitle(cell?.textLabel?.text, for: .normal)
             selectTV1.isHidden = true
             optionCloseView.isHidden = true
