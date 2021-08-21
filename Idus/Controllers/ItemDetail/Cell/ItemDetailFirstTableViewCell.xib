@@ -113,7 +113,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pon-RF-i3i">
                                 <rect key="frame" x="11" y="424" width="395" height="280"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottom_tap_btn_heart" translatesAutoresizingMaskIntoConstraints="NO" id="unD-iN-Rjf">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seller_image" translatesAutoresizingMaskIntoConstraints="NO" id="unD-iN-Rjf">
                                         <rect key="frame" x="1" y="0.0" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="3YS-7m-afc"/>
@@ -187,12 +187,12 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKU-RB-UYh">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKU-RB-UYh">
                                         <rect key="frame" x="1" y="234" width="197.5" height="36.5"/>
                                         <color key="backgroundColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="ㅇㄴㄹButton"/>
+                                        <state key="normal" title="ㅇㄴㄹButton" image="cchim_image_large"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sellername" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y95-IE-rw5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="린카" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y95-IE-rw5">
                                         <rect key="frame" x="44" y="7.5" width="351" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="CvV-W5-T65"/>
@@ -283,8 +283,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bottom_tap_btn_heart" width="52" height="50"/>
+        <image name="cchim_image_large" width="338" height="80"/>
         <image name="itemDetailImage1" width="772" height="774"/>
+        <image name="seller_image" width="76" height="76"/>
         <image name="showDetail" width="36" height="34"/>
         <image name="star5" width="65" height="13"/>
         <systemColor name="systemBackgroundColor">

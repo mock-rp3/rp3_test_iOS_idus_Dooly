@@ -9,7 +9,9 @@ import UIKit
 
 class ItemOpSetTableViewCell: UITableViewCell {
 
-    @IBOutlet var test: UILabel!
+    @IBOutlet var opSetString: UILabel!
+    @IBOutlet var opSetPrice: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +21,12 @@ class ItemOpSetTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0))
     }
 
 }

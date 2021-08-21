@@ -114,43 +114,61 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         }else {
             index += 1
         }
-//        backgroundImage.image = backgroundArr[index]
         UIView.transition(with: backgroundImage, duration: 3, options: .transitionCrossDissolve,
                           animations: {self.backgroundImage.image =  self.backgroundArr[self.index] },completion: nil)
-        
     }
-    
-    
     
     
     @IBAction func localJoin(_ sender: Any) {
         
 //        boardManager.showBulletin(above: self)
         
+        let actionSheet = UIAlertController(title: nil , message: "다른 방법으로 가입하기", preferredStyle: .actionSheet)
         
-        logInView.isHidden = true
+        let passNaverAction = UIAlertAction(title: "네이버", style: .default ){ (action) in
+            self.naverLogin(action)
+        }
+        
+        let passFacebookAction = UIAlertAction(title: "페이스북", style: .default, handler:  nil )
+        let passTwitterAction = UIAlertAction(title: "트위터", style: .default, handler:  nil )
 
-        btnCheckAll.tag = 1
-        btnCheck1.tag = 10
-        btnCheck2.tag = 20
-        btnCheck3.tag = 30
-
-        joinEmail.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        joinName.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        joinPassword.attributedPlaceholder = NSAttributedString(string: "비밀번호 ( 영문 + 숫자 + 특수문자 8자 이상", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        joinPassword2.attributedPlaceholder = NSAttributedString(string: "비밀번호 확인", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        joinPhone.attributedPlaceholder = NSAttributedString(string: "전화번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        joinFriend.attributedPlaceholder = NSAttributedString(string: "추천인코드 (선택사항)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-
-        joinCheckBoxView.layer.borderWidth = 1
-        joinCheckBoxView.layer.cornerRadius = 6
-        joinCheckBoxView.layer.borderColor = UIColor.white.cgColor
-
-        btnJoin.layer.cornerRadius = 30.0
-
-
-        joinPageImage.image = UIImage(named: "join_background3")
-        joinView.isHidden = false
+        let passEamilAction = UIAlertAction(title: "이메일", style: .default ) { (action) in
+            
+            
+            self.logInView.isHidden = true
+    
+            self.btnCheckAll.tag = 1
+            self.btnCheck1.tag = 10
+            self.btnCheck2.tag = 20
+            self.btnCheck3.tag = 30
+    
+            self.joinEmail.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+            self.joinName.attributedPlaceholder = NSAttributedString(string: "이름", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+            self.joinPassword.attributedPlaceholder = NSAttributedString(string: "비밀번호 ( 영문 + 숫자 + 특수문자 8자 이상", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+            self.joinPassword2.attributedPlaceholder = NSAttributedString(string: "비밀번호 확인", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+            self.joinPhone.attributedPlaceholder = NSAttributedString(string: "전화번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+            self.joinFriend.attributedPlaceholder = NSAttributedString(string: "추천인코드 (선택사항)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+    
+            self.joinCheckBoxView.layer.borderWidth = 1
+            self.joinCheckBoxView.layer.cornerRadius = 6
+            self.joinCheckBoxView.layer.borderColor = UIColor.white.cgColor
+    
+            self.btnJoin.layer.cornerRadius = 30.0
+    
+            self.joinPageImage.image = UIImage(named: "join_background3")
+            self.joinView.isHidden = false
+            
+        }
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        actionSheet.addAction(passNaverAction)
+        actionSheet.addAction(passFacebookAction)
+        actionSheet.addAction(passTwitterAction)
+        actionSheet.addAction(passEamilAction)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true, completion: nil)
 
     }
     
@@ -185,20 +203,20 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
          emailText.attributedText = attributedString
 
         
-        btn1.layer.cornerRadius = 22.0
+        btn1.layer.cornerRadius = 24.0
         btn1.layer.borderWidth = 1
         btn1.layer.borderColor = UIColor.white.cgColor
-        btn2.layer.cornerRadius = 22.0
+        btn2.layer.cornerRadius = 24.0
         btn2.layer.borderWidth = 1
         btn2.layer.borderColor = UIColor.white.cgColor
-        btn3.layer.cornerRadius = 22.0
+        btn3.layer.cornerRadius = 24.0
         btn3.layer.borderWidth = 1
         btn3.layer.borderColor = UIColor.white.cgColor
-        btn4.layer.cornerRadius = 22.0
+        btn4.layer.cornerRadius = 24.0
         btn4.layer.borderWidth = 1
         btn4.layer.borderColor = UIColor.white.cgColor
-        btn5.layer.cornerRadius = 22.0
-        btnSubmit.layer.cornerRadius = 17.0
+        btn5.layer.cornerRadius = 24.0
+        btnSubmit.layer.cornerRadius = 18.0
         
         inputEmail.attributedPlaceholder = NSAttributedString(string: "이메일", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         inputPassword.attributedPlaceholder = NSAttributedString(string: "비밀번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])

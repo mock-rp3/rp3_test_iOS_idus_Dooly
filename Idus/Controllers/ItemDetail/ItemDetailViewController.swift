@@ -10,34 +10,38 @@ import UIKit
 class ItemDetailViewController: UIViewController  {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var buyOptionSetTV: UITableView!
+    @IBOutlet var selectTV1: UITableView!
+
+    
     @IBOutlet var buyBtn: UIButton!
     @IBOutlet var presentBtn: UIButton!
     @IBOutlet var floatingView: UIView!
     @IBOutlet var bottomView: UIView!
+
+
     @IBOutlet var buyView: UIView!
     @IBOutlet var buyMainView: UIView!
     @IBOutlet var buyCloseView: UIImageView!
+    @IBOutlet var buySelectView: UIView!
     @IBOutlet var optionCloseView: UIButton!
+    @IBOutlet var buyCartbutton: UIButton!
+    @IBOutlet var buyNowbutton: UIButton!
     
     
     
-    @IBOutlet var buyOptionSetTV: UITableView!
-    @IBOutlet var selectTV1: UITableView!
-    
-    
-    @IBOutlet var optionText: UILabel!
-    
-    //필요없음
-    @IBOutlet var selectOp1: UIButton!
     var ItemDetailData = GetItemDetailRes()
     
     let ary = ["빨간색", "노란색", "파란색","초록색"]
     var buySetArr = [String]()
+    var priceArr = [String]()
     var buyString = ""
     var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        buyMainView.layer.cornerRadius = 8
         
         GetItemDetailReq().getItemData(self, itemIdx: 1)
         
@@ -72,6 +76,13 @@ class ItemDetailViewController: UIViewController  {
         buyBtn.layer.cornerRadius = 10
         
         
+        buyCartbutton.layer.borderColor = UIColor.gray.cgColor
+        buyCartbutton.layer.cornerRadius = 5
+
+        buyNowbutton.layer.borderColor = UIColor.orange.cgColor
+        buyNowbutton.layer.cornerRadius = 5
+
+        
         floatingView.layer.cornerRadius = floatingView.frame.height/2
         floatingView.layer.borderWidth = 1
         floatingView.clipsToBounds = true
@@ -86,6 +97,8 @@ class ItemDetailViewController: UIViewController  {
         floatingView.layer.shadowOffset = CGSize(width: 3, height: 3)
         
         bottomView.layer.addBorder([.top], color: UIColor.lightGray, width: 1.0)
+
+        buySelectView.layer.addBorder([.top], color: UIColor.lightGray, width: 1.0)
 
        
         let tapClosing = UITapGestureRecognizer(target: self, action: #selector(self.tapClose(_:)))
@@ -193,7 +206,8 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemOpSetTableViewCell", for: indexPath) as? ItemOpSetTableViewCell else { return UITableViewCell()}
             
             
-                        cell.test.text = buySetArr[indexPath.row]
+            cell.opSetString.text = buySetArr[indexPath.row]
+            cell.opSetPrice.text = priceArr[indexPath.row]
 //                        cell.textLabel?.text = buySetArr[indexPath.row]
 
 
@@ -229,7 +243,7 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
             return 40
         }
         else {
-            return 60
+            return 70
         }
  
     }
@@ -238,21 +252,30 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
         if ( tableView.tag == 0 &&  tableView.tag == 2){
         }
         else {
+            
             let cell = tableView.cellForRow(at: indexPath)
-            buyString = (cell?.textLabel?.text)!
+            
+            if ((cell?.textLabel!.text) != nil) {
+                buyString = (cell?.textLabel?.text!)!
+            }
             
             print(cell?.textLabel?.text as Any)
             
             self.buySetArr.insert(buyString, at: 0)
+            self.priceArr.insert("1000", at: 0)
             
             buyOptionSetTV.beginUpdates()
             buyOptionSetTV.insertRows(at: [IndexPath(row: 0, section: 0)], with: .none)
             buyOptionSetTV.endUpdates()
 
             
-            selectOp1.setTitle(cell?.textLabel?.text, for: .normal)
+//            selectOp1.setTitle(cell?.textLabel?.text, for: .normal)
             selectTV1.isHidden = true
             optionCloseView.isHidden = true
+            
+            buyCartbutton.layer.backgroundColor = UIColor.white.cgColor
+            buyNowbutton.layer.borderColor = UIColor.orange.cgColor
+            
 
         }
     }
