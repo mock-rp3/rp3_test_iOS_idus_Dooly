@@ -20,11 +20,18 @@ class ItemDetailViewController: UIViewController  {
     @IBOutlet var optionCloseView: UIButton!
     
     
+    
+    @IBOutlet var buyOptionSetTV: UITableView!
     @IBOutlet var selectTV1: UITableView!
+    
+    
+    
+    //필요없음
     @IBOutlet var selectOp1: UIButton!
     var ItemDetailData = GetItemDetailRes()
     
-    let ary = ["v1", "v2", "v3","v3","v3","v3","v3","v3"]
+    let ary = ["빨간색", "노란색", "파란색","초록색"]
+    let buySetArr = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +44,12 @@ class ItemDetailViewController: UIViewController  {
         tableView.dataSource = self
         selectTV1.delegate =  self
         selectTV1.dataSource = self
+        buyOptionSetTV.dataSource = self
+        buyOptionSetTV.delegate = self
+        
         tableView.tag = 0
         selectTV1.tag = 1
+        buyOptionSetTV.tag = 2
 
         let ItemDetailFirstTableViewCell = UINib(nibName: "ItemDetailFirstTableViewCell", bundle: nil)
         self.tableView.register(ItemDetailFirstTableViewCell, forCellReuseIdentifier: "ItemDetailFirstTableViewCell")
@@ -48,6 +59,10 @@ class ItemDetailViewController: UIViewController  {
 
         let ItemDetailThirdTableViewCell = UINib(nibName: "ItemDetailThirdTableViewCell", bundle: nil)
         self.tableView.register(ItemDetailThirdTableViewCell, forCellReuseIdentifier: "ItemDetailThirdTableViewCell")
+        
+        let ItemOptionSetTableViewCell = UINib(nibName: "ItemOptionSetTableViewCell", bundle: nil)
+        self.buyOptionSetTV.register(ItemOptionSetTableViewCell, forCellReuseIdentifier: "ItemOptionSetTableViewCell")
+
 
         presentBtn.layer.borderColor = UIColor.orange.cgColor
         presentBtn.layer.cornerRadius = 3
@@ -94,10 +109,13 @@ class ItemDetailViewController: UIViewController  {
     
     @IBAction func tapOpenOption(_ sender: Any) {
         selectTV1.isHidden = false
+        optionCloseView.isHidden = false
     }
     
     @IBAction func tapCloseOption(_ sender: Any) {
         selectTV1.isHidden = true
+        optionCloseView.isHidden = true
+
     }
     
     
@@ -116,29 +134,26 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
         if tableView.tag == 0 {
             return 3
         }
-        else {
+        if tableView.tag == 1 {
             return ary.count
-            
+        }
+        else {
+            return buySetArr.count
         }
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if ( tableView.tag == 0) {
+        if tableView.tag == 0 {
 
                 if (indexPath.row == 0) {
-
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailFirstTableViewCell", for: indexPath) as? ItemDetailFirstTableViewCell else { return UITableViewCell()}
-                    
             //        cell.itemImage.image = UIImage(named: ProductDetails.name)
                     cell.itemName.text = ItemDetailData.result?.title
-                    
                     if let a = ItemDetailData.result?.finalPrice {
-                        cell.itemPrice.text = "\(a)"
-                                    }
+                        cell.itemPrice.text = "\(a)"}
                     return cell
-
                 } else if (indexPath.row == 1) {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailSecondTableViewCell", for: indexPath) as? ItemDetailSecondTableViewCell else { return UITableViewCell()}
                     return cell
@@ -146,24 +161,33 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
                 } else if (indexPath.row == 2) {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailThirdTableViewCell", for: indexPath) as? ItemDetailThirdTableViewCell else { return UITableViewCell()}
                     return cell
-             
                 }
                 else {
                     return UITableViewCell()
                 }
-        } else {
+        }
+        
+        else if tableView.tag == 1 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = ary[indexPath.row]
             return cell
-        }
             
+        }
         
+        else  {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemOptionSetTableViewCell", for: indexPath) as? ItemOptionSetTableViewCell else { return UITableViewCell()}
+            return cell
+            
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "ItemOptionSetTableViewCell", for: indexPath) as? ItemOptionSetTableViewCell
+//            return cell!
+        }
+         
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         
         if ( tableView.tag == 0 ) {
             
@@ -183,18 +207,23 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
                 return height
             }
         }
+        else if (tableView.tag == 1) {
+            return 40
+        }
         else {
-            return 50
+            return 200
         }
  
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if ( tableView.tag == 0){
-        }else {
+        if ( tableView.tag == 0 && tableView.tag == 2){
+        } else {
             let cell = tableView.cellForRow(at: indexPath)
             selectOp1.setTitle(cell?.textLabel?.text, for: .normal)
             selectTV1.isHidden = true
+            optionCloseView.isHidden = true
+
         }
     }
     

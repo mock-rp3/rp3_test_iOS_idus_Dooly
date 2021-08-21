@@ -26,6 +26,8 @@
 		F03392CF26CF94FB002CA926 /* ClassOfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392CE26CF94FB002CA926 /* ClassOfflineViewController.swift */; };
 		F03392D926D022CE002CA926 /* ItemDetailThirdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392D726D022CE002CA926 /* ItemDetailThirdTableViewCell.swift */; };
 		F03392DA26D022CE002CA926 /* ItemDetailThirdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03392D826D022CE002CA926 /* ItemDetailThirdTableViewCell.xib */; };
+		F03392E926D0994A002CA926 /* ItemOptionSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03392E726D0994A002CA926 /* ItemOptionSetTableViewCell.swift */; };
+		F03392EA26D0994A002CA926 /* ItemOptionSetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03392E826D0994A002CA926 /* ItemOptionSetTableViewCell.xib */; };
 		F066ABC326CA791000503ADA /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABC226CA791000503ADA /* LogInViewController.swift */; };
 		F066ABD126CAFF8200503ADA /* GetUserLoginReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */; };
 		F066ABD526CAFFC800503ADA /* GetUserLoginRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */; };
@@ -99,6 +101,8 @@
 		F03392CE26CF94FB002CA926 /* ClassOfflineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassOfflineViewController.swift; sourceTree = "<group>"; };
 		F03392D726D022CE002CA926 /* ItemDetailThirdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailThirdTableViewCell.swift; sourceTree = "<group>"; };
 		F03392D826D022CE002CA926 /* ItemDetailThirdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailThirdTableViewCell.xib; sourceTree = "<group>"; };
+		F03392E726D0994A002CA926 /* ItemOptionSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOptionSetTableViewCell.swift; sourceTree = "<group>"; };
+		F03392E826D0994A002CA926 /* ItemOptionSetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemOptionSetTableViewCell.xib; sourceTree = "<group>"; };
 		F066ABC226CA791000503ADA /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLoginReq.swift; sourceTree = "<group>"; };
 		F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLoginRes.swift; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 				F02BF47726CE564B000B3D74 /* ItemDetailSecondTableViewCell.xib */,
 				F03392D726D022CE002CA926 /* ItemDetailThirdTableViewCell.swift */,
 				F03392D826D022CE002CA926 /* ItemDetailThirdTableViewCell.xib */,
+				F03392E726D0994A002CA926 /* ItemOptionSetTableViewCell.swift */,
+				F03392E826D0994A002CA926 /* ItemOptionSetTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -493,6 +499,7 @@
 				F02BF47926CE564B000B3D74 /* ItemDetailSecondTableViewCell.xib in Resources */,
 				F02BF46F26CE1F4A000B3D74 /* ItemDetailFirstTableViewCell.xib in Resources */,
 				F0E6C3B726C7ED95007B7272 /* LaunchScreen.storyboard in Resources */,
+				F03392EA26D0994A002CA926 /* ItemOptionSetTableViewCell.xib in Resources */,
 				F0E6C3B426C7ED95007B7272 /* Assets.xcassets in Resources */,
 				F0E6C3EB26C852F2007B7272 /* MenuCell.xib in Resources */,
 				F0E6C3ED26C853C1007B7272 /* FocusView.xib in Resources */,
@@ -645,6 +652,7 @@
 				F0E6C3F826C88B1A007B7272 /* MyPageViewController.swift in Sources */,
 				F032B0B326C9A4C60029A414 /* ProductTableViewCell.swift in Sources */,
 				F03392C726CF5423002CA926 /* GetUserJoinRes.swift in Sources */,
+				F03392E926D0994A002CA926 /* ItemOptionSetTableViewCell.swift in Sources */,
 				F0E6C3DB26C84572007B7272 /* TodayViewController.swift in Sources */,
 				F0E6C3B226C7ED94007B7272 /* Idus.xcdatamodeld in Sources */,
 				F0E6C3DD26C84594007B7272 /* CurrentViewController.swift in Sources */,
