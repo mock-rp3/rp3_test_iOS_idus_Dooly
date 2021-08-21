@@ -229,6 +229,7 @@
 		F03392D126CF97A5002CA926 /* Main_Today */ = {
 			isa = PBXGroup;
 			children = (
+				F032B0B126C9901A0029A414 /* AdSliderCell */,
 				F0E6C3DA26C84572007B7272 /* TodayViewController.swift */,
 			);
 			path = Main_Today;
@@ -292,9 +293,13 @@
 		F0A26D9A26CC60530085806E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F03392D226CF98F9002CA926 /* MyPage */,
-				F03392D126CF97A5002CA926 /* Main_Today */,
+				F0E6C3F026C86FDF007B7272 /* UpperTabBar */,
+				F0CADD4D26D16D3B0038E2FB /* Main */,
 				F03392D026CF9779002CA926 /* Class */,
+				F0CADD5026D16D960038E2FB /* Search */,
+				F0CADD5126D16DAA0038E2FB /* Category */,
+				F03392D226CF98F9002CA926 /* MyPage */,
+				F0CADD5226D16E360038E2FB /* ItemList */,
 				F0449C7526CD68740030A34B /* ItemDetail */,
 				F0A26D9B26CC605D0085806E /* Auth */,
 			);
@@ -307,6 +312,56 @@
 				F066ABC226CA791000503ADA /* LogInViewController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		F0CADD4D26D16D3B0038E2FB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F03392D126CF97A5002CA926 /* Main_Today */,
+				F0CADD4E26D16D520038E2FB /* Main_current */,
+				F0CADD4F26D16D6D0038E2FB /* Main_new */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F0CADD4E26D16D520038E2FB /* Main_current */ = {
+			isa = PBXGroup;
+			children = (
+				F0E6C3DC26C84594007B7272 /* CurrentViewController.swift */,
+			);
+			path = Main_current;
+			sourceTree = "<group>";
+		};
+		F0CADD4F26D16D6D0038E2FB /* Main_new */ = {
+			isa = PBXGroup;
+			children = (
+				F0E6C3DE26C8459E007B7272 /* NewViewController.swift */,
+			);
+			path = Main_new;
+			sourceTree = "<group>";
+		};
+		F0CADD5026D16D960038E2FB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F0E6C3F326C88B01007B7272 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F0CADD5126D16DAA0038E2FB /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F0E6C3F526C88B0D007B7272 /* CategoryViewController.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		F0CADD5226D16E360038E2FB /* ItemList */ = {
+			isa = PBXGroup;
+			children = (
+				F0A26D9E26CD52B60085806E /* ItemListViewController.swift */,
+			);
+			path = ItemList;
 			sourceTree = "<group>";
 		};
 		F0E6C39B26C7ED94007B7272 = {
@@ -337,8 +392,6 @@
 				F0A26D9A26CC60530085806E /* Controllers */,
 				F066ABC426CAFB0E00503ADA /* API */,
 				F066ABC126C9DB9800503ADA /* Models */,
-				F0E6C3F026C86FDF007B7272 /* UpperTabBar */,
-				F032B0B126C9901A0029A414 /* AdSliderCell */,
 				F0E6C3AD26C7ED94007B7272 /* Main.storyboard */,
 				F0E6C3A726C7ED94007B7272 /* AppDelegate.swift */,
 				F0E6C3A926C7ED94007B7272 /* SceneDelegate.swift */,
@@ -347,13 +400,8 @@
 				F0E6C3B526C7ED95007B7272 /* LaunchScreen.storyboard */,
 				F0E6C3B826C7ED95007B7272 /* Info.plist */,
 				F0E6C3B026C7ED94007B7272 /* Idus.xcdatamodeld */,
-				F0E6C3DC26C84594007B7272 /* CurrentViewController.swift */,
-				F0E6C3DE26C8459E007B7272 /* NewViewController.swift */,
 				F0E6C3EE26C86FC9007B7272 /* SwipingController.swift */,
-				F0E6C3F326C88B01007B7272 /* SearchViewController.swift */,
-				F0E6C3F526C88B0D007B7272 /* CategoryViewController.swift */,
 				F032B0B626C9A7ED0029A414 /* productName.json */,
-				F0A26D9E26CD52B60085806E /* ItemListViewController.swift */,
 			);
 			path = Idus;
 			sourceTree = "<group>";

@@ -348,6 +348,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     // referesh token
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
         loginInstance?.accessToken
+        print("token refresh")
     }
     
     // 로그아웃
