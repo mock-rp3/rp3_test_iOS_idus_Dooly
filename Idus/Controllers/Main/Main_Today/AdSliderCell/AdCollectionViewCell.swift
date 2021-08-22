@@ -8,13 +8,15 @@
 import UIKit
 
 class AdCollectionViewCell: UICollectionViewCell {
-    @IBOutlet var adImage: UIImageView!
-
     
-    var image:UIImage!{
+    
+    @IBOutlet var adImage: UIImageView!
+    @IBOutlet var image: UIImageView!
+    
+    var imageview: UIImage!{
         didSet{
-            adImage.image = image
-            
+            image.image = imageview
+
         }
     }
 }
