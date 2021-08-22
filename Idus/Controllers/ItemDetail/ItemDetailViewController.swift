@@ -27,16 +27,28 @@ class ItemDetailViewController: UIViewController  {
     @IBOutlet var optionCloseView: UIButton!
     @IBOutlet var buyCartbutton: UIButton!
     @IBOutlet var buyNowbutton: UIButton!
-    
-    
+        
     
     var ItemDetailData = GetItemDetailRes()
     
     let ary = ["빨간색", "노란색", "파란색","초록색"]
+   
+    var countArr = [Int]()
     var buySetArr = [String]()
-    var priceArr = [String]()
+    var priceArr = [Int]()
     var buyString = ""
+    var buyPrice = 0
     var index = 0
+    
+    var test = [Bool]()
+    var selectState = false
+    var selectedCount = 0
+    var tempOp = ""
+    var step = 0
+    var tempPrice = 0
+
+    @IBOutlet var totalCount: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +116,15 @@ class ItemDetailViewController: UIViewController  {
         let tapClosing = UITapGestureRecognizer(target: self, action: #selector(self.tapClose(_:)))
         buyCloseView.isUserInteractionEnabled = true
         buyCloseView.addGestureRecognizer(tapClosing)
+//
+//        let tapCountPlus = UITapGestureRecognizer(target: self, action: #selector(self.tapPlus(_:)))
+//        btn_plus.isUserInteractionEnabled = true
+//        btn_plus.addGestureRecognizer(tapCountPlus)
+//
+//        let tapCountMinus = UITapGestureRecognizer(target: self, action: #selector(self.tapMinus(_:)))
+//        btn_minus.isUserInteractionEnabled = true
+//        btn_minus.addGestureRecognizer(tapCountMinus)
+
    
     }
     
@@ -113,6 +134,7 @@ class ItemDetailViewController: UIViewController  {
     
     @IBAction func buyBtn(_ sender: Any) {
         buyView.isHidden = false
+        
     }
     
     @objc func tapClose(_ sender: UITapGestureRecognizer) {
@@ -123,6 +145,12 @@ class ItemDetailViewController: UIViewController  {
     @IBAction func tapOpenOption(_ sender: Any) {
         selectTV1.isHidden = false
         optionCloseView.isHidden = false
+
+//        tableView.deselectRow(at: IndexPath(row: 0, section: 0), animated: true)
+//        test[0] = !test[0]
+//        tableView.reloadSections([0,0], with: .none)
+//        selectedCount += 1
+
     }
     
     @IBAction func tapCloseOption(_ sender: Any) {
@@ -138,21 +166,55 @@ class ItemDetailViewController: UIViewController  {
         let indexpath = buyOptionSetTV.indexPathForRow(at: point)
         
         buySetArr.remove(at: indexpath!.row)
+        priceArr.remove(at: indexpath!.row)
+        countArr.remove(at: indexpath!.row)
         
         buyOptionSetTV.beginUpdates()
         buyOptionSetTV.deleteRows(at: [IndexPath(row:indexpath!.row, section:0)], with: .none)
-        
         buyOptionSetTV.endUpdates()
+        
+        totalCount.text = "\(simpleArraySum(ar: priceArr))"
+        
+    }
+   
+    @IBAction func minusCount(_ sender: UIButton) {
+//        let point = sender.convert(CGPoint.zero, to: buyOptionSetTV)
+//        let indexpath = buyOptionSetTV.indexPathForRow(at: point)
+//        print(indexpath!.row)
+//        countArr[indexPath!.row] = countArr[indexPath.row] - 1
+//        buyOptionSetTV.reloadData()
         
     }
     
+    @IBAction func plusCount(_ sender: UIButton) {
+        let point = sender.convert(CGPoint.zero, to: buyOptionSetTV)
+        let indexpath = buyOptionSetTV.indexPathForRow(at: point)
+
+        countArr[indexpath!.row] = countArr[indexpath!.row] + 1
+        
+        totalCount.text = "\( Int(totalCount.text!)! + priceArr[indexpath!.row] )"
+        
+        buyOptionSetTV.reloadData()
+    }
+    
+    func simpleArraySum(ar: [Int]) -> Int {
+        return ar.reduce(0,+)
+    }
+
+
     
 }
 
 extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if tableView.tag == 1 {
+            return ItemDetailData.result?.option.count ?? 0
+        }
+        else {
+            return 1
+
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -161,7 +223,12 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
             return 3
         }
         if tableView.tag == 1 {
-            return ary.count
+            if ( test[section] == true){
+                return (ItemDetailData.result?.detail!.count)! + 1
+            }else{
+                return 1
+            }
+//            return ItemDetailData.result?.detail?.count ?? 0
         }
         else {
             return buySetArr.count
@@ -172,13 +239,17 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if tableView.tag == 0 {
-
                 if (indexPath.row == 0) {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailFirstTableViewCell", for: indexPath) as? ItemDetailFirstTableViewCell else { return UITableViewCell()}
             //        cell.itemImage.image = UIImage(named: ProductDetails.name)
+                    
                     cell.itemName.text = ItemDetailData.result?.title
+                    
                     if let a = ItemDetailData.result?.finalPrice {
                         cell.itemPrice.text = "\(a)"}
+                    if let a = ItemDetailData.result?.reviewCount {
+                        cell.reviewCount.text = "\(a)"}
+                    
                     return cell
                 } else if (indexPath.row == 1) {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailSecondTableViewCell", for: indexPath) as? ItemDetailSecondTableViewCell else { return UITableViewCell()}
@@ -194,11 +265,18 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
         else if tableView.tag == 1 {
-            
+
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = ary[indexPath.row]
-            return cell
             
+            if (indexPath.row == 0){
+                cell.textLabel?.text = "\(ItemDetailData.result?.option[indexPath.section].title ?? "")"
+                cell.backgroundColor = .systemGray
+                
+            }else {
+                cell.textLabel?.text = "\(ItemDetailData.result?.detail![indexPath.row-1].title ?? "")"
+            }
+            return cell
+
         }
         
         else  {
@@ -207,7 +285,9 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
             
             
             cell.opSetString.text = buySetArr[indexPath.row]
-            cell.opSetPrice.text = priceArr[indexPath.row]
+            cell.opSetPrice.text = "\(priceArr[indexPath.row])"
+            cell.opSetCount.text = "\(countArr[indexPath.row])"
+//            cell.opSetPrice.text = "\(ItemDetailData.result?.option[indexPath.row].price)"
 //                        cell.textLabel?.text = buySetArr[indexPath.row]
 
 
@@ -249,33 +329,66 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if ( tableView.tag == 0 &&  tableView.tag == 2){
+        let totalcount = ItemDetailData.result?.option.count
+
+        if ( tableView.tag == 0 || tableView.tag == 2){
         }
         else {
+         
+            if (selectedCount == 0 ){
+                tableView.deselectRow(at: indexPath, animated: true)
+                test[indexPath.section] = !test[indexPath.section]
             
-            let cell = tableView.cellForRow(at: indexPath)
-            
-            if ((cell?.textLabel!.text) != nil) {
-                buyString = (cell?.textLabel?.text!)!
+                tableView.reloadSections([indexPath.section], with: .none)
+                selectedCount += 1
             }
-            
-            print(cell?.textLabel?.text as Any)
-            
-            self.buySetArr.insert(buyString, at: 0)
-            self.priceArr.insert("1000", at: 0)
-            
-            buyOptionSetTV.beginUpdates()
-            buyOptionSetTV.insertRows(at: [IndexPath(row: 0, section: 0)], with: .none)
-            buyOptionSetTV.endUpdates()
+            if ( selectedCount == 1 ) {
 
-            
-//            selectOp1.setTitle(cell?.textLabel?.text, for: .normal)
-            selectTV1.isHidden = true
-            optionCloseView.isHidden = true
-            
-            buyCartbutton.layer.backgroundColor = UIColor.white.cgColor
-            buyNowbutton.layer.borderColor = UIColor.orange.cgColor
-            
+                print(indexPath)
+                let cell = tableView.cellForRow(at: indexPath)
+
+                if(indexPath.row == 0){
+
+                }else{
+                    buyString = (cell?.textLabel?.text!)!
+                    print(buyString)
+                    print("!!")
+                    tableView.deselectRow(at: indexPath, animated: true)
+                    test[indexPath.section] = !test[indexPath.section]
+                    tableView.reloadSections([indexPath.section], with: .none)
+                    tempOp +=  (ItemDetailData.result?.option[indexPath.row - 1].title)! + ":" + buyString + "/"
+                    tempPrice += (ItemDetailData.result?.option[indexPath.row - 1].price)!
+                    print(tempOp)
+                    print(tempPrice)
+                    step += 1
+                    selectedCount = 0
+                }
+            }
+            if (step == totalcount ){
+                    buyString = tempOp
+                    buyPrice = tempPrice
+                
+                    self.buySetArr.insert(buyString, at: 0)
+                    self.priceArr.insert(buyPrice, at: 0)
+                    self.countArr.insert(1, at: 0)
+    
+                    buyOptionSetTV.beginUpdates()
+                    buyOptionSetTV.insertRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+                    buyOptionSetTV.endUpdates()
+                    
+                    totalCount.text = "\(simpleArraySum(ar: priceArr))"
+                
+                    
+                    selectTV1.isHidden = true
+                    optionCloseView.isHidden = true
+    
+                    buyCartbutton.layer.backgroundColor = UIColor.white.cgColor
+                    buyNowbutton.layer.borderColor = UIColor.orange.cgColor
+                    
+                    tempOp = ""
+                    tempPrice = 0
+                    step = 0
+            }
 
         }
     }
@@ -289,7 +402,13 @@ extension ItemDetailViewController {
     func didSuccess(_ response: GetItemDetailRes) {
         
         ItemDetailData = response
+        
+        for _ in ItemDetailData.result!.option {
+            test.append(false)
+        }
         tableView.reloadData()
+        selectTV1.reloadData()
+        buyOptionSetTV.reloadData()
         
     }
     

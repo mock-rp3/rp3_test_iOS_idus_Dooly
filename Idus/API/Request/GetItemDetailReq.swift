@@ -32,14 +32,14 @@ class GetItemDetailReq {
                 case .success(let response):
                     // 성공
                     if response.isSuccess!, let result = response.result {
-                        print("DEBUG>> USER API GET Response \(result) ")
+//                        print("DEBUG>> USER API GET Response \(result) ")
                         itemDetailViewController.didSuccess(response)
                     }
                     // 실패했을 때
                     else {
                         switch response.code {
-                            case 2022:
-                                print("!")
+                            case 4000:
+                                print("데이터베이스 연결에 실패하였습니다")
                             default :
                                 print("!!")
                         }

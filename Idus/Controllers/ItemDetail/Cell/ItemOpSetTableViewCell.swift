@@ -11,6 +11,7 @@ class ItemOpSetTableViewCell: UITableViewCell {
 
     @IBOutlet var opSetString: UILabel!
     @IBOutlet var opSetPrice: UILabel!
+    @IBOutlet var opSetCount: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

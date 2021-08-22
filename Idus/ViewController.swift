@@ -79,10 +79,10 @@ class ViewController: UIViewController{
             
             dataSource = makeDataSource()
         
-            if UserDefaults.standard.value(forKey: "jwt") == nil {
-                pushAgreeView.isHidden = false
-                tabBarController?.tabBar.isHidden = true
-            }
+//            if UserDefaults.standard.value(forKey: "jwt") == nil {
+//                pushAgreeView.isHidden = false
+//                tabBarController?.tabBar.isHidden = true
+//            }
 
         
             

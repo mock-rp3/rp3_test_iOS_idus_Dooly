@@ -30,6 +30,11 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     
     func loadJson(){
         if let path = Bundle.main.path(forResource: "productName", ofType:"json"){
@@ -95,7 +100,6 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
 //
 //        }
 //
-//
 //    }
 //
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -112,8 +116,6 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
 //        currentIndex = Int(scrollView.contentOffset.x / addCollectionView.frame.size.width)
 //
 //    }
-//
-//
 //}
 
 extension TodayViewController: UITableViewDelegate, UITableViewDataSource {

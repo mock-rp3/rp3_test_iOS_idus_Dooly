@@ -200,6 +200,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F008C78626D21CF10089B36F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F066ABD626CB9DB800503ADA /* SignInRequest.swift */,
+				F03392C826CF5990002CA926 /* JoinRequest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F02BF47A26CE5AD6000B3D74 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,10 +303,9 @@
 		F066ABC726CAFB3200503ADA /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				F008C78626D21CF10089B36F /* Models */,
 				F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */,
-				F066ABD626CB9DB800503ADA /* SignInRequest.swift */,
 				F02BF47426CE3CE0000B3D74 /* GetItemDetailReq.swift */,
-				F03392C826CF5990002CA926 /* JoinRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
