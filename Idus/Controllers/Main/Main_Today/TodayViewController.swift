@@ -124,38 +124,25 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
         else if(section == 1) {
             return 1
         }
-        else {
+        else if(section == 2) {
+//            return productData?.response!.count ?? 0
             return 2
+        }
+        else {
+            return 1
         }
         
     }
     
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
-
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print(section)
-////        if (section)
-//        return 2
-////        return productData?.response!.count ?? 0
-////        return 3
-//    }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AdTableViewCell") as? AdTableViewCell else {return UITableViewCell()}
-            return cell
-        }
-        
-        else if indexPath.section == 2 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell") as? ProductTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.produts = productData?.response?[indexPath.row]
             return cell
         }
         else if indexPath.section == 1 {
@@ -164,7 +151,20 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         }
-        
+        else if indexPath.section == 2 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell") as? ProductTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.produts = productData?.response?[indexPath.row]
+            return cell
+        }
+        else if indexPath.section == 3 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "Product2TableViewCell") as? Product2TableViewCell else {
+                return UITableViewCell()
+            }
+            cell.produts = productData?.response?[2]
+            return cell
+        }
         else {
             return UITableViewCell()
         }
@@ -176,13 +176,11 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
             case 0 :
                 return tableView.frame.height * 0.25
             case 2 :
-                if (indexPath.row == 0 ) {
-                    return tableView.frame.height * 0.45
-                }else {
-                    return tableView.frame.height
-                }
+                return tableView.frame.height * 0.45
             case 1 :
                 return tableView.frame.height * 0.1
+            case 3 :
+                return tableView.frame.height * 1.2
 
             default :
                 return tableView.frame.height * 0.25

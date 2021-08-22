@@ -32,6 +32,8 @@
 		F066ABD126CAFF8200503ADA /* GetUserLoginReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */; };
 		F066ABD526CAFFC800503ADA /* GetUserLoginRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */; };
 		F066ABD726CB9DB800503ADA /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD626CB9DB800503ADA /* SignInRequest.swift */; };
+		F08BDB9F26D1FD4900FDD24E /* Product2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08BDB9E26D1FD4900FDD24E /* Product2CollectionViewCell.swift */; };
+		F08BDBA126D1FD5F00FDD24E /* Product2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08BDBA026D1FD5F00FDD24E /* Product2TableViewCell.swift */; };
 		F0A26D9F26CD52B60085806E /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A26D9E26CD52B60085806E /* ItemListViewController.swift */; };
 		F0A26DA126CD53280085806E /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A26DA026CD53280085806E /* ItemDetailViewController.swift */; };
 		F0CADD5426D186610038E2FB /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CADD5326D186610038E2FB /* AdTableViewCell.swift */; };
@@ -110,6 +112,8 @@
 		F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLoginReq.swift; sourceTree = "<group>"; };
 		F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLoginRes.swift; sourceTree = "<group>"; };
 		F066ABD626CB9DB800503ADA /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
+		F08BDB9E26D1FD4900FDD24E /* Product2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product2CollectionViewCell.swift; sourceTree = "<group>"; };
+		F08BDBA026D1FD5F00FDD24E /* Product2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product2TableViewCell.swift; sourceTree = "<group>"; };
 		F0A26D9E26CD52B60085806E /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		F0A26DA026CD53280085806E /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		F0CADD5326D186610038E2FB /* AdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdTableViewCell.swift; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 		F03392D126CF97A5002CA926 /* Main_Today */ = {
 			isa = PBXGroup;
 			children = (
+				F08BDB9D26D1FD2000FDD24E /* ProductSection2 */,
 				F0E6C3F926C93255007B7272 /* DetailCollectionViewCell.swift */,
 				F0E6843C26D1AB040015CA5D /* ProductSection1 */,
 				F0E6843B26D1A25E0015CA5D /* CategorySliderCell */,
@@ -295,6 +300,15 @@
 				F03392C826CF5990002CA926 /* JoinRequest.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		F08BDB9D26D1FD2000FDD24E /* ProductSection2 */ = {
+			isa = PBXGroup;
+			children = (
+				F08BDB9E26D1FD4900FDD24E /* Product2CollectionViewCell.swift */,
+				F08BDBA026D1FD5F00FDD24E /* Product2TableViewCell.swift */,
+			);
+			path = ProductSection2;
 			sourceTree = "<group>";
 		};
 		F0A26D9A26CC60530085806E /* Controllers */ = {
@@ -718,6 +732,7 @@
 				F0A26D9F26CD52B60085806E /* ItemListViewController.swift in Sources */,
 				F0E6C3F626C88B0D007B7272 /* CategoryViewController.swift in Sources */,
 				F032B0B526C9A6C20029A414 /* ProductsModel.swift in Sources */,
+				F08BDB9F26D1FD4900FDD24E /* Product2CollectionViewCell.swift in Sources */,
 				F0E6C3EF26C86FC9007B7272 /* SwipingController.swift in Sources */,
 				F03392F026D0BE38002CA926 /* ItemOpSetTableViewCell.swift in Sources */,
 				F0E6C3DF26C8459E007B7272 /* NewViewController.swift in Sources */,
@@ -727,6 +742,7 @@
 				F0E6C3F826C88B1A007B7272 /* MyPageViewController.swift in Sources */,
 				F032B0B326C9A4C60029A414 /* ProductTableViewCell.swift in Sources */,
 				F03392C726CF5423002CA926 /* GetUserJoinRes.swift in Sources */,
+				F08BDBA126D1FD5F00FDD24E /* Product2TableViewCell.swift in Sources */,
 				F0E6C3DB26C84572007B7272 /* TodayViewController.swift in Sources */,
 				F0E6C3B226C7ED94007B7272 /* Idus.xcdatamodeld in Sources */,
 				F0E6C3DD26C84594007B7272 /* CurrentViewController.swift in Sources */,
