@@ -51,6 +51,9 @@
 		F088F69A26D425DC00EB7C6B /* ClassOfflineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F69926D425DC00EB7C6B /* ClassOfflineTableViewCell.swift */; };
 		F088F69E26D426F100EB7C6B /* ClassOnlineCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F69D26D426F100EB7C6B /* ClassOnlineCategoryTableViewCell.swift */; };
 		F088F6A026D4270500EB7C6B /* ClassOnlineCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F69F26D4270500EB7C6B /* ClassOnlineCategoryCollectionViewCell.swift */; };
+		F088F6A526D4396300EB7C6B /* UserBuyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F6A426D4396300EB7C6B /* UserBuyDetailViewController.swift */; };
+		F088F6A826D43BA600EB7C6B /* UserBuyDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F6A626D43BA600EB7C6B /* UserBuyDetailTableViewCell.swift */; };
+		F088F6A926D43BA600EB7C6B /* UserBuyDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F088F6A726D43BA600EB7C6B /* UserBuyDetailTableViewCell.xib */; };
 		F08BDB9F26D1FD4900FDD24E /* Product2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08BDB9E26D1FD4900FDD24E /* Product2CollectionViewCell.swift */; };
 		F08BDBA126D1FD5F00FDD24E /* Product2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08BDBA026D1FD5F00FDD24E /* Product2TableViewCell.swift */; };
 		F0A26D9F26CD52B60085806E /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A26D9E26CD52B60085806E /* ItemListViewController.swift */; };
@@ -149,6 +152,9 @@
 		F088F69926D425DC00EB7C6B /* ClassOfflineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassOfflineTableViewCell.swift; sourceTree = "<group>"; };
 		F088F69D26D426F100EB7C6B /* ClassOnlineCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassOnlineCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		F088F69F26D4270500EB7C6B /* ClassOnlineCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassOnlineCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		F088F6A426D4396300EB7C6B /* UserBuyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBuyDetailViewController.swift; sourceTree = "<group>"; };
+		F088F6A626D43BA600EB7C6B /* UserBuyDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBuyDetailTableViewCell.swift; sourceTree = "<group>"; };
+		F088F6A726D43BA600EB7C6B /* UserBuyDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserBuyDetailTableViewCell.xib; sourceTree = "<group>"; };
 		F08BDB9E26D1FD4900FDD24E /* Product2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product2CollectionViewCell.swift; sourceTree = "<group>"; };
 		F08BDBA026D1FD5F00FDD24E /* Product2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product2TableViewCell.swift; sourceTree = "<group>"; };
 		F0A26D9E26CD52B60085806E /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
@@ -388,6 +394,16 @@
 			path = Offline;
 			sourceTree = "<group>";
 		};
+		F088F6A326D4391900EB7C6B /* UserBuyDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F088F6A426D4396300EB7C6B /* UserBuyDetailViewController.swift */,
+				F088F6A626D43BA600EB7C6B /* UserBuyDetailTableViewCell.swift */,
+				F088F6A726D43BA600EB7C6B /* UserBuyDetailTableViewCell.xib */,
+			);
+			path = UserBuyDetail;
+			sourceTree = "<group>";
+		};
 		F08BDB9D26D1FD2000FDD24E /* ProductSection2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +424,7 @@
 				F03392D226CF98F9002CA926 /* MyPage */,
 				F0CADD5226D16E360038E2FB /* ItemList */,
 				F0449C7526CD68740030A34B /* ItemDetail */,
+				F088F6A326D4391900EB7C6B /* UserBuyDetail */,
 				F0A26D9B26CC605D0085806E /* Auth */,
 			);
 			path = Controllers;
@@ -683,6 +700,7 @@
 				F0E6C3B726C7ED95007B7272 /* LaunchScreen.storyboard in Resources */,
 				F088F69226D3F5C700EB7C6B /* categoryName.json in Resources */,
 				F0E6C3B426C7ED95007B7272 /* Assets.xcassets in Resources */,
+				F088F6A926D43BA600EB7C6B /* UserBuyDetailTableViewCell.xib in Resources */,
 				F0E6C3EB26C852F2007B7272 /* MenuCell.xib in Resources */,
 				F0E6C3ED26C853C1007B7272 /* FocusView.xib in Resources */,
 				F0E6C3AF26C7ED94007B7272 /* Main.storyboard in Resources */,
@@ -827,7 +845,9 @@
 				F03392CF26CF94FB002CA926 /* ClassOfflineViewController.swift in Sources */,
 				F0E6C3A826C7ED94007B7272 /* AppDelegate.swift in Sources */,
 				F03392C926CF5990002CA926 /* JoinRequest.swift in Sources */,
+				F088F6A826D43BA600EB7C6B /* UserBuyDetailTableViewCell.swift in Sources */,
 				F088F68E26D3F1D800EB7C6B /* CategoryModel.swift in Sources */,
+				F088F6A526D4396300EB7C6B /* UserBuyDetailViewController.swift in Sources */,
 				F088F69426D4192000EB7C6B /* ClassOnlineTableViewCell.swift in Sources */,
 				F02BF47526CE3CE0000B3D74 /* GetItemDetailReq.swift in Sources */,
 				F088F68A26D3EF5800EB7C6B /* CategoryWorkTableViewCell.swift in Sources */,
