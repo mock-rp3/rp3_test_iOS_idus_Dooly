@@ -10,7 +10,6 @@ import UIKit
 class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
 
 
-
     var productData: ProductModel?
 
     @IBOutlet var tableView: UITableView!
@@ -71,52 +70,7 @@ class TodayViewController: UIViewController, UIGestureRecognizerDelegate {
         
 
 }
-//
-//extension TodayViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//
-//        if collectionView == addCollectionView{
-//            return addArr.count
-//        }else {
-//            return suvCategoryArr.count
-//
-//        }
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        if collectionView == addCollectionView{
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdCollectionViewCell", for: indexPath) as! AdCollectionViewCell
-//
-//            cell.adImage.image = addArr[indexPath.row]
-//            return cell
-//
-//        }else {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCollectionViewCell", for: indexPath) as! DetailCollectionViewCell
-//
-//            cell.imgImage.image = suvCategoryArr[indexPath.row]
-//            return cell
-//
-//        }
-//
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        if collectionView == addCollectionView{
-//            print(addCollectionView.frame)
-//            return CGSize(width: addCollectionView.frame.width, height: addCollectionView.frame.height)
-//        }else{
-//            return CGSize(width: subCategoryCollectionView.frame.width, height: subCategoryCollectionView.frame.height)
-//
-//        }
-//    }
-//
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        currentIndex = Int(scrollView.contentOffset.x / addCollectionView.frame.size.width)
-//
-//    }
-//}
+
 
 extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
