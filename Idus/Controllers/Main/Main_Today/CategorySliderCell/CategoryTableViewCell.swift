@@ -12,7 +12,6 @@ class CategoryTableViewCell: UITableViewCell {
     @IBOutlet var CategoryCollectionView: UICollectionView!
     
     var suvCategoryArr = [UIImage(named: "sub_category1"), UIImage(named: "sub_category2"),UIImage(named: "sub_category3"),UIImage(named: "sub_category4"),UIImage(named: "sub_category5"),UIImage(named: "sub_category1"), UIImage(named: "sub_category2"),UIImage(named: "sub_category3"),UIImage(named: "sub_category4"),UIImage(named: "sub_category5")]
-//    var suvCategoryStringArr = ["반값줍줍", "BEST 선물", "1일 1픽", "지금 할인중", "취미클래스","제로웨이스트","비건","남성잇템","친구초대쿠폰","아무거나"]
 
     override func awakeFromNib() {
         super.awakeFromNib()

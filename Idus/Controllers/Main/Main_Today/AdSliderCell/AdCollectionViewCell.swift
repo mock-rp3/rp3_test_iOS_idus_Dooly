@@ -10,7 +10,6 @@ import UIKit
 class AdCollectionViewCell: UICollectionViewCell {
     
     
-    @IBOutlet var adImage: UIImageView!
     @IBOutlet var image: UIImageView!
     
     var imageview: UIImage!{
