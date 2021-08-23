@@ -21,25 +21,25 @@ class CurrentViewController: UIViewController {
         ItemTableView.delegate = self
         ItemTableView.dataSource = self
 
+        func loadJson(){
+            if let path = Bundle.main.path(forResource: "productName", ofType:"json"){
+                do{
+                    let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                    let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                    let jsonData = try JSONSerialization.data(withJSONObject: jsonResult, options: .prettyPrinted)
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                    
+                    productData = try jsonDecoder.decode(ProductModel.self, from: jsonData)
+                }catch{
+                    print(error)
+                }
+            }
+            
+            
+        }
     }
     
-    func loadJson(){
-        if let path = Bundle.main.path(forResource: "productName", ofType:"json"){
-            do{
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                let jsonData = try JSONSerialization.data(withJSONObject: jsonResult, options: .prettyPrinted)
-                let jsonDecoder = JSONDecoder()
-                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                
-                productData = try jsonDecoder.decode(ProductModel.self, from: jsonData)
-            }catch{
-                print(error)
-            }
-        }
-        
-        
-    }
     
 }
 

@@ -34,6 +34,8 @@
 		F066ABD726CB9DB800503ADA /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F066ABD626CB9DB800503ADA /* SignInRequest.swift */; };
 		F088F67626D315F100EB7C6B /* CurrentItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67526D315F100EB7C6B /* CurrentItemTableViewCell.swift */; };
 		F088F67826D3161800EB7C6B /* CurrentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67726D3161800EB7C6B /* CurrentItemCollectionViewCell.swift */; };
+		F088F67A26D320B100EB7C6B /* NewItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */; };
+		F088F67C26D320F400EB7C6B /* NewItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67B26D320F400EB7C6B /* NewItemTableViewCell.swift */; };
 		F08BDB9F26D1FD4900FDD24E /* Product2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08BDB9E26D1FD4900FDD24E /* Product2CollectionViewCell.swift */; };
 		F08BDBA126D1FD5F00FDD24E /* Product2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08BDBA026D1FD5F00FDD24E /* Product2TableViewCell.swift */; };
 		F0A26D9F26CD52B60085806E /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A26D9E26CD52B60085806E /* ItemListViewController.swift */; };
@@ -115,6 +117,8 @@
 		F066ABD626CB9DB800503ADA /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		F088F67526D315F100EB7C6B /* CurrentItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentItemTableViewCell.swift; sourceTree = "<group>"; };
 		F088F67726D3161800EB7C6B /* CurrentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		F088F67B26D320F400EB7C6B /* NewItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemTableViewCell.swift; sourceTree = "<group>"; };
 		F08BDB9E26D1FD4900FDD24E /* Product2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product2CollectionViewCell.swift; sourceTree = "<group>"; };
 		F08BDBA026D1FD5F00FDD24E /* Product2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product2TableViewCell.swift; sourceTree = "<group>"; };
 		F0A26D9E26CD52B60085806E /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
@@ -369,6 +373,8 @@
 			isa = PBXGroup;
 			children = (
 				F0E6C3DE26C8459E007B7272 /* NewViewController.swift */,
+				F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */,
+				F088F67B26D320F400EB7C6B /* NewItemTableViewCell.swift */,
 			);
 			path = Main_new;
 			sourceTree = "<group>";
@@ -744,6 +750,7 @@
 				F0A26D9F26CD52B60085806E /* ItemListViewController.swift in Sources */,
 				F0E6C3F626C88B0D007B7272 /* CategoryViewController.swift in Sources */,
 				F032B0B526C9A6C20029A414 /* ProductsModel.swift in Sources */,
+				F088F67C26D320F400EB7C6B /* NewItemTableViewCell.swift in Sources */,
 				F08BDB9F26D1FD4900FDD24E /* Product2CollectionViewCell.swift in Sources */,
 				F0E6C3EF26C86FC9007B7272 /* SwipingController.swift in Sources */,
 				F03392F026D0BE38002CA926 /* ItemOpSetTableViewCell.swift in Sources */,
@@ -755,6 +762,7 @@
 				F03392C726CF5423002CA926 /* GetUserJoinRes.swift in Sources */,
 				F08BDBA126D1FD5F00FDD24E /* Product2TableViewCell.swift in Sources */,
 				F0E6C3DB26C84572007B7272 /* TodayViewController.swift in Sources */,
+				F088F67A26D320B100EB7C6B /* NewItemCollectionViewCell.swift in Sources */,
 				F0E6C3B226C7ED94007B7272 /* Idus.xcdatamodeld in Sources */,
 				F0E6C3DD26C84594007B7272 /* CurrentViewController.swift in Sources */,
 				F03392D926D022CE002CA926 /* ItemDetailThirdTableViewCell.swift in Sources */,
