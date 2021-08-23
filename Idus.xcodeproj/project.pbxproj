@@ -36,6 +36,9 @@
 		F088F67826D3161800EB7C6B /* CurrentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67726D3161800EB7C6B /* CurrentItemCollectionViewCell.swift */; };
 		F088F67A26D320B100EB7C6B /* NewItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */; };
 		F088F67C26D320F400EB7C6B /* NewItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67B26D320F400EB7C6B /* NewItemTableViewCell.swift */; };
+		F088F67E26D3C5DE00EB7C6B /* PostItemDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67D26D3C5DE00EB7C6B /* PostItemDetails.swift */; };
+		F088F68026D3C6F200EB7C6B /* PostBuyItemRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67F26D3C6F200EB7C6B /* PostBuyItemRes.swift */; };
+		F088F68426D3C7BA00EB7C6B /* PostItemRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F68326D3C7BA00EB7C6B /* PostItemRequest.swift */; };
 		F08BDB9F26D1FD4900FDD24E /* Product2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08BDB9E26D1FD4900FDD24E /* Product2CollectionViewCell.swift */; };
 		F08BDBA126D1FD5F00FDD24E /* Product2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08BDBA026D1FD5F00FDD24E /* Product2TableViewCell.swift */; };
 		F0A26D9F26CD52B60085806E /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A26D9E26CD52B60085806E /* ItemListViewController.swift */; };
@@ -119,6 +122,9 @@
 		F088F67726D3161800EB7C6B /* CurrentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F088F67B26D320F400EB7C6B /* NewItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemTableViewCell.swift; sourceTree = "<group>"; };
+		F088F67D26D3C5DE00EB7C6B /* PostItemDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemDetails.swift; sourceTree = "<group>"; };
+		F088F67F26D3C6F200EB7C6B /* PostBuyItemRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBuyItemRes.swift; sourceTree = "<group>"; };
+		F088F68326D3C7BA00EB7C6B /* PostItemRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemRequest.swift; sourceTree = "<group>"; };
 		F08BDB9E26D1FD4900FDD24E /* Product2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product2CollectionViewCell.swift; sourceTree = "<group>"; };
 		F08BDBA026D1FD5F00FDD24E /* Product2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product2TableViewCell.swift; sourceTree = "<group>"; };
 		F0A26D9E26CD52B60085806E /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +217,7 @@
 			children = (
 				F066ABD626CB9DB800503ADA /* SignInRequest.swift */,
 				F03392C826CF5990002CA926 /* JoinRequest.swift */,
+				F088F68326D3C7BA00EB7C6B /* PostItemRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,6 +309,7 @@
 				F066ABD426CAFFC800503ADA /* GetUserLoginRes.swift */,
 				F02BF47226CE3A27000B3D74 /* GetItemDetailRes.swift */,
 				F03392C626CF5423002CA926 /* GetUserJoinRes.swift */,
+				F088F67F26D3C6F200EB7C6B /* PostBuyItemRes.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -312,6 +320,7 @@
 				F008C78626D21CF10089B36F /* Models */,
 				F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */,
 				F02BF47426CE3CE0000B3D74 /* GetItemDetailReq.swift */,
+				F088F67D26D3C5DE00EB7C6B /* PostItemDetails.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -749,6 +758,8 @@
 				F02BF47526CE3CE0000B3D74 /* GetItemDetailReq.swift in Sources */,
 				F0A26D9F26CD52B60085806E /* ItemListViewController.swift in Sources */,
 				F0E6C3F626C88B0D007B7272 /* CategoryViewController.swift in Sources */,
+				F088F68026D3C6F200EB7C6B /* PostBuyItemRes.swift in Sources */,
+				F088F67E26D3C5DE00EB7C6B /* PostItemDetails.swift in Sources */,
 				F032B0B526C9A6C20029A414 /* ProductsModel.swift in Sources */,
 				F088F67C26D320F400EB7C6B /* NewItemTableViewCell.swift in Sources */,
 				F08BDB9F26D1FD4900FDD24E /* Product2CollectionViewCell.swift in Sources */,
@@ -758,6 +769,7 @@
 				F066ABD726CB9DB800503ADA /* SignInRequest.swift in Sources */,
 				F02BF47326CE3A27000B3D74 /* GetItemDetailRes.swift in Sources */,
 				F0E6C3F826C88B1A007B7272 /* MyPageViewController.swift in Sources */,
+				F088F68426D3C7BA00EB7C6B /* PostItemRequest.swift in Sources */,
 				F032B0B326C9A4C60029A414 /* ProductTableViewCell.swift in Sources */,
 				F03392C726CF5423002CA926 /* GetUserJoinRes.swift in Sources */,
 				F08BDBA126D1FD5F00FDD24E /* Product2TableViewCell.swift in Sources */,

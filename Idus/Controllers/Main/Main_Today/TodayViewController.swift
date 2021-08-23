@@ -136,7 +136,7 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
             case 1 :
                 return tableView.frame.height * 0.1
             case 3 :
-                return tableView.frame.height * 1.2
+                return tableView.frame.height * 1.3
 
             default :
                 return tableView.frame.height * 0.25

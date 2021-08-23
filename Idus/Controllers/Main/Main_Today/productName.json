@@ -7,26 +7,79 @@
                "name":"동물농장 쉐이커 키링&그립 스마트톡",
                "image_name":"item_thumb1",
                "price":"10000",
-               "description":"sdfsdfsdfsdfsdffffffff"
+               "description":"sdfsdfsdfsdfsdffffffff",
+               "star": "1",
+               "thumb_review" : "배송이 조금 오래걸리긴 했지만 정말 좋아요",
+               "review_count" : "10"
             },
             {
                "name":"(신상할인)파스텔 곰돌이 쉐이커 스마트톡/키링",
                "image_name":"item_thumb2",
                "price":"10000",
-               "description":"sdfsdfsdfsdfsdffffffff"
+               "description":"sdfsdfsdfsdfsdffffffff",
+               "star": "5",
+               "thumb_review" : "넘 마음에 들어서 재구매합니다",
+               "review_count" : "122"
+
             },
             {
                "name":"인기 !! 고양이 궤이커 키링 그립 스마트 톡",
                "image_name":"item_thumb3",
                "price":"10000",
-               "description":"sdfsdfsdfsdfsdffffffff"
+               "description":"sdfsdfsdfsdfsdffffffff",
+               "star": "3",
+               "thumb_review" : "큰 접시가 필요해서 주문했어요",
+               "review_count" : "110"
+
             },
             {
                "name":"빅사이즈 클레이 무광집게핀",
-               "image_name":"item_thumb1",
+               "image_name":"item_thumb4",
                "price":"10000",
-               "description":"sdfsdfsdfsdfsdffffffff"
-            }
+               "description":"sdfsdfsdfsdfsdffffffff",
+               "star": "5",
+               "thumb_review" : "색깔이 너무 예뻐요 ! 또 구매하고 싶습니다",
+               "review_count" : "3"
+
+            },
+            {
+               "name":"동물농장 쉐이커 키링&그립 스마트톡",
+               "image_name":"item_thumb5",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff",
+               "star": "1",
+               "thumb_review" : "배송이 조금 오래걸리긴 했지만 정말 좋아요",
+               "review_count" : "10"
+            },
+            {
+               "name":"(신상할인)파스텔 곰돌이 쉐이커 스마트톡/키링",
+               "image_name":"item_thumb6",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff",
+               "star": "5",
+               "thumb_review" : "넘 마음에 들어서 재구매합니다",
+               "review_count" : "122"
+
+            },
+            {
+               "name":"인기 !! 고양이 궤이커 키링 그립 스마트 톡",
+               "image_name":"item_thumb7",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff",
+               "star": "3",
+               "thumb_review" : "큰 접시가 필요해서 주문했어요",
+               "review_count" : "110"
+
+            },
+            {
+               "name":"빅사이즈 클레이 무광집게핀",
+               "image_name":"item_thumb8",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff",
+               "star": "5",
+               "thumb_review" : "색깔이 너무 예뻐요 ! 또 구매하고 싶습니다",
+               "review_count" : "3"
+            },
          ]
       },
       {

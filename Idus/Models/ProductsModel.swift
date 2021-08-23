@@ -21,5 +21,8 @@ struct ProductDetails : Codable {
     var imageName : String?
     var price : String?
     var description : String?
+    var star : String?
+    var thumbReview : String?
+    var reviewCount : String?
 }
 

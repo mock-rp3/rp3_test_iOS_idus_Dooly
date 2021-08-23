@@ -12,6 +12,7 @@ class Product2TableViewCell: UITableViewCell {
     @IBOutlet var Product2CollectionView: UICollectionView!
     
     @IBOutlet var categoryName: UILabel!
+    
     let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 
     
@@ -33,6 +34,11 @@ class Product2TableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 80, left: 0, bottom: 0, right: 0))
     }
 
 }

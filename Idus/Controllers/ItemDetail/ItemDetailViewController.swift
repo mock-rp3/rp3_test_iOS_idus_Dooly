@@ -200,8 +200,14 @@ class ItemDetailViewController: UIViewController  {
     func simpleArraySum(ar: [Int]) -> Int {
         return ar.reduce(0,+)
     }
+    
+    
 
-
+    @IBAction func buy(_ sender: Any) {
+//        GetItemDetailReq().getItemData(self, itemIdx: 1)
+        PostItemDetails().postItemOptions(self)
+    }
+    
     
 }
 
@@ -270,9 +276,18 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
             
             if (indexPath.row == 0){
                 cell.textLabel?.text = "\(ItemDetailData.result?.option[indexPath.section].title ?? "")"
+//                cell.textLabel?.text = "디테일"
                 cell.backgroundColor = .systemGray
                 
-            }else {
+            }
+//            else if (indexPath.row == 0){
+//                cell.textLabel?.text = "\(ItemDetailData.result?.option[indexPath.section].title ?? "")"
+////                cell.textLabel?.text = "디테일"
+//                cell.backgroundColor = .systemGray
+//
+//                        }
+            else
+            {
                 cell.textLabel?.text = "\(ItemDetailData.result?.detail![indexPath.row-1].title ?? "")"
             }
             return cell
@@ -421,7 +436,16 @@ extension ItemDetailViewController {
                      
     }
 
-    
+    func didBuySuccess(_ response: PostBuyItemRes) {
+        
+        let alert = UIAlertController(title: "", message: "구매가 완료되었습니다", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        
+        buyView.isHidden = true
+
+    }
 }
 
 extension CALayer {

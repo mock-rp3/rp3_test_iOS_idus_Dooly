@@ -25,7 +25,7 @@ class ProductTableViewCell: UITableViewCell {
         
         itemCollectionView.delegate = self
         itemCollectionView.dataSource = self
-        
+                
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,7 +35,14 @@ class ProductTableViewCell: UITableViewCell {
     @IBAction func onClickSeeMore(_ sender: Any) {
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 80, left: 0, bottom: 0, right: 0))
+    }
+    
 }
+
 
 
 extension ProductTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
