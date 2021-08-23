@@ -1,0 +1,156 @@
+{
+  "response": [
+    {
+      "category": [
+        {
+          "category_work_name": "디저트, 베이커리, 떡",
+          "category_image": "category_work1"
+        },
+        {
+          "category_work_name": "음료 (커피, 차 등)",
+          "category_image": "main_tab_category_2"
+        },
+        {
+          "category_work_name": "전통주",
+          "category_image": "main_tab_category_3"
+        },
+        {
+          "category_work_name": "수제 반찬",
+          "category_image": "main_tab_category_4"
+        },
+        {
+          "category_work_name": "그 외 수제먹거리",
+          "category_image": "main_tab_category_5"
+        },
+        {
+          "category_work_name": "농축수산물",
+          "category_image": "main_tab_category_6"
+        },
+        {
+          "category_work_name": "의류, 홈웨어",
+          "category_image": "main_tab_category_7"
+        },
+        {
+          "category_work_name": "패션잡화",
+          "category_image": "main_tab_category_8"
+        },
+        {
+          "category_work_name": "지갑 (지폐,카드,동전,명함)",
+          "category_image": "main_tab_category_9"
+        },
+        {
+          "category_work_name": "가방, 파우치",
+          "category_image": "main_tab_category_10"
+        },
+        {
+          "category_work_name": "시계",
+          "category_image": "main_tab_category_11"
+        },
+        {
+          "category_work_name": "섬유, 퀼트",
+          "category_image": "main_tab_category_12"
+        },
+        {
+          "category_work_name": "남성 수제화",
+          "category_image": "main_tab_category_13"
+        },
+        {
+          "category_work_name": "여성 수제화",
+          "category_image": "main_tab_category_14"
+        },
+        {
+          "category_work_name": "육아, 아동",
+          "category_image": "main_tab_category_15"
+        },
+        {
+          "category_work_name": "반지",
+          "category_image": "main_tab_category_16"
+        },
+        {
+          "category_work_name": "귀걸이",
+          "category_image": "main_tab_category_17"
+        },
+        {
+          "category_work_name": "목걸이",
+          "category_image": "main_tab_category_18"
+        },
+        {
+          "category_work_name": "팔찌",
+          "category_image": "main_tab_category_19"
+        },
+        {
+          "category_work_name": "그 외 액세서리",
+          "category_image": "main_tab_category_20"
+        },
+        {
+          "category_work_name": "꽃 (생화, 드라이, 다육 등)",
+          "category_image": "main_tab_category_21"
+        },
+        {
+          "category_work_name": "캔들, 디퓨저, 방향제",
+          "category_image": "main_tab_category_22"
+        },
+        {
+          "category_work_name": "인테리어 소품",
+          "category_image": "main_tab_category_23"
+        },
+        {
+          "category_work_name": "도자기",
+          "category_image": "main_tab_category_24"
+        },
+        {
+          "category_work_name": "주방, 생활",
+          "category_image": "main_tab_category_25"
+        },
+        {
+          "category_work_name": "가구",
+          "category_image": "main_tab_category_26"
+        },
+        {
+          "category_work_name": "인형, 장난감",
+          "category_image": "main_tab_category_27"
+        },
+        {
+          "category_work_name": "반려동물 용품",
+          "category_image": "main_tab_category_28"
+        },
+        {
+          "category_work_name": "파인아트",
+          "category_image": "main_tab_category_29"
+        },
+        {
+          "category_work_name": "공예",
+          "category_image": "main_tab_category_30"
+        },
+        {
+          "category_work_name": "휴대폰 케이스",
+          "category_image": "main_tab_category_31"
+        },
+        {
+          "category_work_name": "전자기기 관련",
+          "category_image": "main_tab_category_32"
+        },
+        {
+          "category_work_name": "문구, 팬시",
+          "category_image": "main_tab_category_33"
+        },
+        {
+          "category_work_name": "페인팅, 캐리커쳐, 캘리",
+          "category_image": "main_tab_category_34"
+        },
+        {
+          "category_work_name": "향수, 화장품, 뷰티",
+          "category_image": "main_tab_category_35"
+        },
+        {
+          "category_work_name": "비누, 천연비누",
+          "category_image": "main_tab_category_36"
+        },
+        {
+          "category_work_name": "기타",
+          "category_image": "main_tab_category_37"
+        }
+      ]
+    }
+  ]
+}
