@@ -205,7 +205,26 @@ class ItemDetailViewController: UIViewController  {
 
     @IBAction func buy(_ sender: Any) {
 //        GetItemDetailReq().getItemData(self, itemIdx: 1)
-        PostItemDetails().postItemOptions(self)
+//        PostItemDetails().postItemOptions(self)
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "UserBuyDetailViewController") as! UserBuyDetailViewController
+
+        let navigationController = self.navigationController
+
+
+        //          vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: vc, action: #selector(vc.closeView))
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<-", style: .plain, target: vc, action: #selector(vc.closeView))
+
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.moveIn
+        transition.subtype = CATransitionSubtype.fromTop
+        navigationController?.view.layer.add(transition, forKey: nil)
+        navigationController?.pushViewController(vc, animated: false)
+        
+        
     }
     
     

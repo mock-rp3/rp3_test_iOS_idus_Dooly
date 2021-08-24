@@ -31,7 +31,15 @@ class UserBuyDetailViewController: UIViewController {
         navigationController?.view.layer.add(transition, forKey: nil)
         _ = navigationController?.popViewController(animated: false)
     }
+    
+    
+    @IBAction func goPayView(_ sender: Any) {
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PayDetailViewController") as? PayDetailViewController
+        navigationController?.pushViewController(vc!, animated: true)
 
+    }
+    
 }
 
 

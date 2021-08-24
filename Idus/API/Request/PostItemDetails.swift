@@ -13,7 +13,7 @@ import UIKit
 class PostItemDetails{
     
     
-    func postItemOptions(_ itemDetailViewController: ItemDetailViewController ){
+    func postItemOptions(_ PayDetailViewController: PayDetailViewController ){
         
         
         let url = "http://dhlcutpdus.site:9000/buy"
@@ -49,7 +49,7 @@ class PostItemDetails{
                     if response.isSuccess!, let result = response.result {
                         print("DEBUG>> USER API GET Response \(result) ")
                         
-                        itemDetailViewController.didBuySuccess(response)
+                        PayDetailViewController.didBuySuccess(response)
                     }
                     // 실패했을 때
 //                    else {
