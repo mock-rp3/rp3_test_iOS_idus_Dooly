@@ -85,6 +85,11 @@
                                     <constraint firstItem="dmF-J4-Sqy" firstAttribute="top" secondItem="ToT-gc-9eW" secondAttribute="top" id="iRd-Sg-Qpq"/>
                                     <constraint firstItem="GDe-HX-uVD" firstAttribute="leading" secondItem="ToT-gc-9eW" secondAttribute="leading" id="ruB-hU-X5h"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="dmF-J4-Sqy"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -100,6 +105,7 @@
                     <navigationItem key="navigationItem" id="AOe-cJ-gq3"/>
                     <connections>
                         <outlet property="pushAgreeView" destination="ToT-gc-9eW" id="cQn-NR-Hdv"/>
+                        <outlet property="searchBar" destination="2Ba-L5-zgB" id="aiv-3e-l9X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -2531,14 +2537,40 @@
                     <view key="view" contentMode="scaleToFill" id="yfd-AL-yZ2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_img" translatesAutoresizingMaskIntoConstraints="NO" id="0rm-IV-0RB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AI2-GI-tTB">
+                                <rect key="frame" x="12" y="53" width="43" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="arrow.left" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="o6j-Rk-nCx" eventType="touchUpInside" id="ynj-jb-dQ4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="JxO-M0-L5Q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0rm-IV-0RB" secondAttribute="bottom" id="3S0-cr-pL0"/>
+                            <constraint firstItem="JxO-M0-L5Q" firstAttribute="trailing" secondItem="0rm-IV-0RB" secondAttribute="trailing" id="axc-VU-rWh"/>
+                            <constraint firstItem="0rm-IV-0RB" firstAttribute="leading" secondItem="JxO-M0-L5Q" secondAttribute="leading" id="fjv-sg-Q89"/>
+                            <constraint firstItem="0rm-IV-0RB" firstAttribute="leading" secondItem="JxO-M0-L5Q" secondAttribute="leading" id="kIO-3O-X4A"/>
+                            <constraint firstItem="0rm-IV-0RB" firstAttribute="top" secondItem="JxO-M0-L5Q" secondAttribute="top" id="vYp-cj-yBH"/>
+                            <constraint firstItem="0rm-IV-0RB" firstAttribute="trailing" secondItem="JxO-M0-L5Q" secondAttribute="trailing" id="xbL-cC-KHp"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="검색" image="main_tab_search_0" id="LBP-Qq-a0c"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUR-qP-WCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2452" y="-201"/>
+            <point key="canvasLocation" x="2450.7246376811595" y="-201.5625"/>
         </scene>
         <!--카테고리-->
         <scene sceneID="FQp-k5-5Ee">
@@ -3106,6 +3138,7 @@
     <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>
         <image name="ad1" width="760" height="380"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="bottom_tap_btn_buy" width="518" height="72"/>
         <image name="bottom_tap_btn_heart" width="52" height="50"/>
         <image name="bottom_tap_btn_present" width="70" height="70"/>
@@ -3147,6 +3180,7 @@
         <image name="minus.square.fill" catalog="system" width="128" height="114"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <image name="push_agreement" width="664" height="1422"/>
+        <image name="search_img" width="926" height="1928"/>
         <image name="searchbar" width="726" height="72"/>
         <image name="searchbar2" width="692" height="68"/>
         <image name="select_option" width="694" height="76"/>
