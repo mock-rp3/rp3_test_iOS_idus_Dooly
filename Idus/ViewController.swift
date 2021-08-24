@@ -99,12 +99,12 @@ class ViewController: UIViewController{
 
         let navigationController = self.navigationController
 
+        tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.tintColor = .orange
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem( image: UIImage(systemName: "arrow.left"), style: .plain ,target: vc, action: #selector(vc.closeView))
 
-        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<-", style: .plain, target: vc, action: #selector(vc.closeView))
-        
         navigationController?.isNavigationBarHidden = false
-
-
+        
         let transition = CATransition()
         transition.duration = 0.4
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)

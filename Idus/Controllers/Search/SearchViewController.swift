@@ -27,17 +27,11 @@ class SearchViewController: UIViewController {
         transition.subtype = CATransitionSubtype.fromBottom
         navigationController?.view.layer.add(transition, forKey: nil)
         _ = navigationController?.popViewController(animated: false)
-    
+
     }
     
     @IBAction func goBack(_ sender: Any) {
-        let transition = CATransition()
-        transition.duration = 0.5
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.reveal
-        transition.subtype = CATransitionSubtype.fromBottom
-        navigationController?.view.layer.add(transition, forKey: nil)
-        _ = navigationController?.popViewController(animated: false)
-
+        tabBarController!.selectedIndex = 1
+        tabBarController?.tabBar.isHidden = false
     }
 }
