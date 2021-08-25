@@ -33,6 +33,7 @@ class PostItemDetails{
         
         let params = PostItemRequest(itemIdx: 1, userIdx: 11, vip: "Y", ask: "ddd", addressIdx: 1, totalPrice: 4000, delieveryPrice: 0, detailIdx: [2], IODIdx: [2], buyDetailAmount: [1])
         
+        print("!!!!!!")
         AF.request(url,
                    method: .post,
                    parameters: params,
@@ -51,29 +52,6 @@ class PostItemDetails{
                         
                         PayDetailViewController.didBuySuccess(response)
                     }
-                    // 실패했을 때
-//                    else {
-//                        switch response.code {
-//                            case 2022:
-//                                loginViewController.didFailure("탈퇴한 유저입니다.")
-//                            case 2023:
-//                                loginViewController.didFailure("정지된 유저입니다.")
-//                            case 2024:
-//                                loginViewController.didFailure("이메일을 입력해주세요.")
-//                            case 2025:
-//                                loginViewController.didFailure("비밀번호를 입력해주세요")
-//                            case 4012:
-//                                loginViewController.didFailure("비밀번호 복호화에 실패하였습니다")
-//                            case 3014:
-//                                loginViewController.didFailure("없는 아이디거나 비밀번호가 틀렸습니다")
-//                            case 2021:
-//                                loginViewController.didFailure("비밀번호를 입력해주세요")
-//                            case 4000:
-//                                loginViewController.didFailure("데이터베이스 연결에 실패하였습니")
-//                            default :
-//                                loginViewController.didFailure("탈퇴한 유저입니다.")
-//                        }
-//                    }
 
                 case .failure(let error):
                     print("서버점검중입니다")

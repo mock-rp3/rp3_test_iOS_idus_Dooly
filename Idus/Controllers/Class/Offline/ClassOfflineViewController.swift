@@ -24,7 +24,7 @@ class ClassOfflineViewController: UIViewController {
 
 extension ClassOfflineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 1
+       return 2
     }
     
 
@@ -34,15 +34,26 @@ extension ClassOfflineViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ClassOfflineTableViewCell") as? ClassOfflineTableViewCell else {return UITableViewCell()}
-        return cell
+        if (indexPath.row == 0){
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ClassOfflineTableViewCell") as? ClassOfflineTableViewCell else {return UITableViewCell()}
+            return cell
+        }
+        else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ClassOfflineCategoryTableViewCell") as? ClassOfflineCategoryTableViewCell else {return UITableViewCell()}
+            return cell
+        }
 
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
                     
-        return ClassOfflineTableView.frame.height * 0.4
+        if (indexPath.row == 0){
+            return ClassOfflineTableView.frame.height * 0.53
+        }
+        else {
+            return ClassOfflineTableView.frame.height * 0.4
+        }
             
     }
     

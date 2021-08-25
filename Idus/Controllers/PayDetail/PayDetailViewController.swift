@@ -42,6 +42,7 @@ class PayDetailViewController: UIViewController {
  
     @IBAction func buyFinal(_ sender: Any) {
         
+        print("!!")
         PostItemDetails().postItemOptions(self)
 
     }
@@ -123,10 +124,6 @@ extension PayDetailViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return ""
-    }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.section == 0 || indexPath.section == 2) {
@@ -150,7 +147,10 @@ extension PayDetailViewController: UITableViewDelegate, UITableViewDataSource {
 
     }
  
- 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return ""
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if (section == 0) {
             return 0
