@@ -29,7 +29,9 @@ class MyPageViewController: UIViewController {
         let MyPageTableViewCell = UINib(nibName: "MyPageTableViewCell", bundle: nil)
         self.mypageTableView.register(MyPageTableViewCell, forCellReuseIdentifier: "MyPageTableViewCell")
 
-        
+        let MyPageNoUserTableViewCell = UINib(nibName: "MyPageNoUserTableViewCell", bundle: nil)
+        self.mypageTableView.register(MyPageNoUserTableViewCell, forCellReuseIdentifier: "MyPageNoUserTableViewCell")
+
 
         mypageTableView.dataSource = self
         mypageTableView.delegate = self
@@ -129,9 +131,22 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageTableViewCell", for: indexPath) as? MyPageTableViewCell else { return UITableViewCell()}
-                        
-            return cell
+            
+            if UserDefaults.standard.value(forKey: "jwt") != nil{
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageTableViewCell", for: indexPath) as? MyPageTableViewCell else { return UITableViewCell()}
+                
+                return cell
+
+            }
+            else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageNoUserTableViewCell", for: indexPath) as? MyPageNoUserTableViewCell else { return UITableViewCell()}
+                
+//                cell.gotoLogin(<#T##sender: Any##Any#>)
+                
+                cell.cellDelegate = self
+                return cell
+            }
+            
         }
         else if (indexPath.section == 1) {
             if (indexPath.row == 0) {
@@ -175,7 +190,16 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if (indexPath.section == 0) {
-            return tableView.frame.height * 0.38
+        
+            if UserDefaults.standard.value(forKey: "jwt") != nil{
+                
+                return tableView.frame.height * 0.38
+
+            }
+            else {
+                return tableView.frame.height * 0.5
+            }
+        
         }
         
         else if (indexPath.section == 2) {
@@ -203,3 +227,14 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource{
     
 }
 
+
+extension MyPageViewController: MyCellDelegate{
+    
+    func clickLogin() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController
+
+        navigationController?.pushViewController(vc!, animated: true)
+
+    }
+    
+}
