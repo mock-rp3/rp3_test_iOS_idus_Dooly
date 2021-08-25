@@ -35,7 +35,6 @@ class PayDetailViewController: UIViewController {
         self.tableView.register(SectionPriceTableViewCell, forCellReuseIdentifier: "SectionPriceTableViewCell")
 
         let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
-
         tableView.tableFooterView = footer
     }
     
