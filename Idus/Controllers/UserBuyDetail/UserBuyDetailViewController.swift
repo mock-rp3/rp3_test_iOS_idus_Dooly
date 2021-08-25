@@ -10,6 +10,14 @@ import UIKit
 class UserBuyDetailViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var totalPrice: UILabel!
+    
+    var price = 0
+    var count = 1
+    var itemTitle = ""
+    var writer = ""
+    var option = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +28,7 @@ class UserBuyDetailViewController: UIViewController {
         let UserBuyDetailTableViewCell = UINib(nibName: "UserBuyDetailTableViewCell", bundle: nil)
         self.tableView.register(UserBuyDetailTableViewCell, forCellReuseIdentifier: "UserBuyDetailTableViewCell")
         // Do any additional setup after loading the view.
+        totalPrice.text = "\(price)원"
     }
     
     @objc func closeView() {
@@ -37,7 +46,7 @@ class UserBuyDetailViewController: UIViewController {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "PayDetailViewController") as? PayDetailViewController
         navigationController?.pushViewController(vc!, animated: true)
-
+        vc!.totalPrice = price
     }
     
 }
@@ -59,8 +68,14 @@ extension UserBuyDetailViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserBuyDetailTableViewCell", for: indexPath) as? UserBuyDetailTableViewCell else { return UITableViewCell()}
-        return cell
         
+        cell.price.text = "\(price)원"
+        cell.price2.text = "\(price)원"
+        cell.title.text = itemTitle
+        cell.type.text = option
+        cell.writer.text = writer
+    
+        return cell
         
     }
     

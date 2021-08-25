@@ -267,6 +267,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="price" destination="PKn-0E-4uj" id="ili-Vz-VTb"/>
+                <outlet property="price2" destination="i91-Fj-rhU" id="lke-Rb-OAj"/>
+                <outlet property="title" destination="3oN-3u-90C" id="6v8-im-tdo"/>
+                <outlet property="type" destination="jXP-UZ-LMV" id="GSP-Rx-tiO"/>
+                <outlet property="writer" destination="ODN-s5-Sem" id="Edi-S1-ajj"/>
+            </connections>
             <point key="canvasLocation" x="192.75362318840581" y="229.35267857142856"/>
         </tableViewCell>
     </objects>

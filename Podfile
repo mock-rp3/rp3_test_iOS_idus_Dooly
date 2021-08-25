@@ -11,6 +11,8 @@ target 'Idus' do
   pod 'KakaoSDKUser'
   pod 'naveridlogin-sdk-ios'
   pod 'BulletinBoard'
+  pod 'ExpyTableView'
+
   # Pods for Idus
 
   target 'IdusTests' do

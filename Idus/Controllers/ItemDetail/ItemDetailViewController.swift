@@ -6,6 +6,14 @@
 //
 
 import UIKit
+import ExpyTableView
+
+struct cellData {
+    var opened = Bool()
+    var title = String()
+    var sectionData = [Any]()
+    var clickedOption = Int()
+}
 
 class ItemDetailViewController: UIViewController  {
     
@@ -46,7 +54,9 @@ class ItemDetailViewController: UIViewController  {
     var tempOp = ""
     var step = 0
     var tempPrice = 0
-
+    
+    var TableViewData = [cellData]()
+    
     @IBOutlet var totalCount: UILabel!
     
     
@@ -55,7 +65,8 @@ class ItemDetailViewController: UIViewController  {
         
         buyMainView.layer.cornerRadius = 8
         
-        GetItemDetailReq().getItemData(self, itemIdx: 1)
+        GetItemDetailReq().getItemData(self, itemIdx: 4)
+                
         
         tabBarController?.tabBar.isHidden = true
         navigationController?.isNavigationBarHidden = false
@@ -207,9 +218,22 @@ class ItemDetailViewController: UIViewController  {
 //        GetItemDetailReq().getItemData(self, itemIdx: 1)
 //        PostItemDetails().postItemOptions(self)
         
+        
+        
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "UserBuyDetailViewController") as! UserBuyDetailViewController
 
+        vc.price = simpleArraySum(ar: priceArr)
+        vc.count = countArr[0]
+        vc.itemTitle = ItemDetailData.result!.title
+            
+        if let a = ItemDetailData.result?.writer {
+            vc.writer = a
+        }
+        
+        vc.option = buySetArr[0]
+
+        
         let navigationController = self.navigationController
 
 
@@ -229,16 +253,17 @@ class ItemDetailViewController: UIViewController  {
     
     
 }
-
 extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if tableView.tag == 1 {
             return ItemDetailData.result?.option.count ?? 0
         }
-        else {
+        if ( tableView.tag == 2){
             return 1
-
+        }
+        else {
+            return TableViewData.count
         }
     }
     
@@ -248,12 +273,18 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
             return 3
         }
         if tableView.tag == 1 {
-            if ( test[section] == true){
-                return (ItemDetailData.result?.detail!.count)! + 1
+            if TableViewData[section].opened == true {
+                return TableViewData[section].sectionData.count + 1
             }else{
                 return 1
             }
-//            return ItemDetailData.result?.detail?.count ?? 0
+            
+            
+//            if ( test[section] == true){
+//                   return (ItemDetailData.result?.detail!.count)! + 1
+//               }else{
+//              return 1
+//          }
         }
         else {
             return buySetArr.count
@@ -291,25 +322,30 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
         
         else if tableView.tag == 1 {
 
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cells", for: indexPath)
+
             if (indexPath.row == 0){
-                cell.textLabel?.text = "\(ItemDetailData.result?.option[indexPath.section].title ?? "")"
-//                cell.textLabel?.text = "디테일"
-                cell.backgroundColor = .systemGray
-                
-            }
-//            else if (indexPath.row == 0){
 //                cell.textLabel?.text = "\(ItemDetailData.result?.option[indexPath.section].title ?? "")"
-////                cell.textLabel?.text = "디테일"
-//                cell.backgroundColor = .systemGray
-//
-//                        }
-            else
-            {
-                cell.textLabel?.text = "\(ItemDetailData.result?.detail![indexPath.row-1].title ?? "")"
+                cell.textLabel?.text = TableViewData[indexPath.section].title
+                cell.backgroundColor = .systemGray
+                return cell
+                
+            }else{
+                let x = TableViewData[indexPath.section].sectionData[indexPath.row - 1]
+
+                var x2 = ""
+                switch x {
+                    case let x as Detail:
+                        x2 = x.title!
+                    case let x as Option:
+                        x2 = x.title!
+                    default: break
+                }
+                
+                cell.textLabel?.text = x2
+                return cell
+               
             }
-            return cell
 
         }
         
@@ -326,10 +362,7 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
 
 
             return cell
-
-            
         }
-         
     }
     
     
@@ -363,72 +396,133 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let totalcount = ItemDetailData.result?.option.count
 
         if ( tableView.tag == 0 || tableView.tag == 2){
         }
         else {
-         
-            if (selectedCount == 0 ){
-                tableView.deselectRow(at: indexPath, animated: true)
-                test[indexPath.section] = !test[indexPath.section]
-            
-                tableView.reloadSections([indexPath.section], with: .none)
-                selectedCount += 1
-            }
-            if ( selectedCount == 1 ) {
-
-                print(indexPath)
-                let cell = tableView.cellForRow(at: indexPath)
-
-                if(indexPath.row == 0){
-
-                }else{
-                    buyString = (cell?.textLabel?.text!)!
-                    print(buyString)
-                    print("!!")
-                    tableView.deselectRow(at: indexPath, animated: true)
-                    test[indexPath.section] = !test[indexPath.section]
-                    tableView.reloadSections([indexPath.section], with: .none)
-                    tempOp +=  (ItemDetailData.result?.option[indexPath.row - 1].title)! + ":" + buyString + "/"
-                    tempPrice += (ItemDetailData.result?.option[indexPath.row - 1].price)!
-                    print(tempOp)
-                    print(tempPrice)
-                    step += 1
-                    selectedCount = 0
-                }
-            }
-            if (step == totalcount ){
-                    buyString = tempOp
-                    buyPrice = tempPrice
+        
+            if TableViewData[indexPath.section].opened == true {
                 
-                    self.buySetArr.insert(buyString, at: 0)
-                    self.priceArr.insert(buyPrice, at: 0)
-                    self.countArr.insert(1, at: 0)
-    
+                TableViewData[indexPath.section].opened = false
+                let sections = IndexSet.init(integer: indexPath.section)
+                tableView.reloadSections(sections, with: .none)
+                
+                if ( indexPath.row != 0 ) {
+                    
+                    let x = TableViewData[indexPath.section].sectionData[indexPath.row - 1]
+
+                    let x1 = TableViewData[indexPath.section].title
+                    var x2 = ""
+                    var x3 = 0
+                    switch x {
+                        case let x as Detail:
+                            x2 = x.title!
+                            x3 = x.price!
+                        case let x as Option:
+                            x2 = x.title!
+                            x3 = x.price!
+                        default: break
+                    }
+                    
+                    buyString = x2
+
+//                    tableView.deselectRow(at: indexPath, animated: true)
+                    tableView.reloadSections([indexPath.section], with: .none)
+
+                    tempOp +=  x1 + ":" + x2 + " / "
+                    tempPrice += x3
+                    
+                    step += 1
+
+                }
+                if (step == 2 ){
+                        
+                        buyString = tempOp
+                        buyPrice = tempPrice
+
+                        self.buySetArr.insert(buyString, at: 0)
+                        self.priceArr.insert(buyPrice + ItemDetailData.result!.finalPrice, at: 0)
+                        self.countArr.insert(1, at: 0)
+                        
+                        step  += 1
+                }
+                if (step == 3) {
+                    selectTV1.isHidden = true
+                    optionCloseView.isHidden = true
+                    
+                    
+                    
                     buyOptionSetTV.beginUpdates()
                     buyOptionSetTV.insertRows(at: [IndexPath(row: 0, section: 0)], with: .none)
                     buyOptionSetTV.endUpdates()
-                    
+
                     totalCount.text = "\(simpleArraySum(ar: priceArr))"
-                
-                    
-                    selectTV1.isHidden = true
-                    optionCloseView.isHidden = true
-    
-                    buyCartbutton.layer.backgroundColor = UIColor.white.cgColor
-                    buyNowbutton.layer.borderColor = UIColor.orange.cgColor
-                    
+
                     tempOp = ""
                     tempPrice = 0
                     step = 0
+                }
+                                
+            }else{
+                TableViewData[indexPath.section].opened = true
+                let sections = IndexSet.init(integer: indexPath.section)
+                tableView.reloadSections(sections, with: .none)
+                
+
             }
 
-        }
+            
+
+//            if (TableViewData[0].cli == true && TableViewData[1].clicked == true) {
+//
+//            }
+            
+//            if (selectedCount == 0 ){
+//                tableView.deselectRow(at: indexPath, animated: true)
+//                test[indexPath.section] = !test[indexPath.section]
+//
+//                tableView.reloadSections([indexPath.section], with: .none)
+//                selectedCount += 1
+//            }
+//            if ( selectedCount == 1 ) {
+//
+//                if TableViewData[indexPath.section].opened == true {
+//                    TableViewData[indexPath.section].opened = false
+//                    let sections = IndexSet.init(integer: indexPath.section)
+//                    tableView.reloadSections(sections, with: .none)
+//                }else{
+//                    TableViewData[indexPath.section].opened = true
+//                    let sections = IndexSet.init(integer: indexPath.section)
+//                    tableView.reloadSections(sections, with: .none)
+//                }
+//
+//            }
+            
+//                print(indexPath)
+//                let cell = tableView.cellForRow(at: indexPath)
+//
+//                if(indexPath.row == 0){
+//
+//                }else{
+//                    buyString = (cell?.textLabel?.text!)!
+//                    print(buyString)
+//                    print("!!")
+//                    tableView.deselectRow(at: indexPath, animated: true)
+//                    test[indexPath.section] = !test[indexPath.section]
+//                    tableView.reloadSections([indexPath.section], with: .none)
+//                    tempOp +=  (ItemDetailData.result?.option[indexPath.row - 1].title)! + ":" + buyString + "/"
+//                    tempPrice += (ItemDetailData.result?.option[indexPath.row - 1].price)!
+//                    print(tempOp)
+//                    print(tempPrice)
+//                    step += 1
+//                    selectedCount = 0
+//                }
+            }
+
+        
     }
     
 }
-
 
 
 extension ItemDetailViewController {
@@ -440,9 +534,20 @@ extension ItemDetailViewController {
         for _ in ItemDetailData.result!.option {
             test.append(false)
         }
+            
+        TableViewData.append(cellData(opened: false, title:"디테일", sectionData: ItemDetailData.result!.detail! , clickedOption: 100 ))
+               
+        if let a = ItemDetailData.result{
+
+
+            TableViewData.append(cellData(opened: false, title: a.option_name ?? "", sectionData: ItemDetailData.result!.option , clickedOption:100))
+        }
+        
+        
         tableView.reloadData()
         selectTV1.reloadData()
         buyOptionSetTV.reloadData()
+        
         
     }
     
@@ -462,8 +567,6 @@ extension ItemDetailViewController {
 
         let navigationController = self.navigationController
 
-
-        //          vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: vc, action: #selector(vc.closeView))
         vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<-", style: .plain, target: vc, action: #selector(vc.closeView))
 
         let transition = CATransition()
@@ -475,13 +578,6 @@ extension ItemDetailViewController {
         navigationController?.pushViewController(vc, animated: false)
 
     
-//        let alert = UIAlertController(title: "", message: "구매가 완료되었습니다", preferredStyle: .alert)
-//        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-//        alert.addAction(action)
-//        present(alert, animated: true, completion: nil)
-//
-//        buyView.isHidden = true
-
     }
 
 }

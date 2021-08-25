@@ -11,6 +11,8 @@ class PayDetailViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
+    var totalPrice = 0
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -100,6 +102,10 @@ extension PayDetailViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SectionPriceTableViewCell") as? SectionPriceTableViewCell else {
                 return UITableViewCell()
             }
+            
+            cell.price.text = "\(totalPrice)원"
+            cell.totalPrice.text = "\(totalPrice + 2500)원"
+
             return cell
 
         }

@@ -31,7 +31,7 @@ class GetItemDetailReq {
         
                 case .success(let response):
                     // 성공
-                    if response.isSuccess!, let result = response.result {
+                    if response.isSuccess! {
 //                        print("DEBUG>> USER API GET Response \(result) ")
                         itemDetailViewController.didSuccess(response)
                     }

@@ -8,7 +8,14 @@
 import UIKit
 
 class UserBuyDetailTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet var title: UILabel!
+    @IBOutlet var type: UILabel!
+    
+    @IBOutlet var price: UILabel!
+    @IBOutlet var price2: UILabel!
+    
+    @IBOutlet var writer: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

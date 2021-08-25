@@ -9,6 +9,9 @@ import UIKit
 
 class SectionPriceTableViewCell: UITableViewCell {
 
+    @IBOutlet var totalPrice: UILabel!
+    @IBOutlet var price: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

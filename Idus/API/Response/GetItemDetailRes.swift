@@ -29,7 +29,7 @@ struct ItemData: Decodable{
     var intro : String?
     var imageAddress : [String]?
     var detail: [Detail]?
-    var optionName : String?
+    var option_name : String?
     var option : [Option]
     var star : Float?
     var buy : Int?

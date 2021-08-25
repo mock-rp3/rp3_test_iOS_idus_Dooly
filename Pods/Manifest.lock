@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
   - BulletinBoard (5.0.0)
+  - ExpyTableView (1.2.1)
   - KakaoSDK (2.6.0):
     - KakaoSDKAuth (= 2.6.0)
     - KakaoSDKCommon (= 2.6.0)
@@ -39,6 +40,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - BulletinBoard
+  - ExpyTableView
   - KakaoSDK
   - KakaoSDKUser
   - naveridlogin-sdk-ios
@@ -48,6 +50,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - BulletinBoard
+    - ExpyTableView
     - KakaoSDK
     - KakaoSDKAuth
     - KakaoSDKCommon
@@ -63,6 +66,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   BulletinBoard: dba77053c2a7b64953f63073f7534165af2edd21
+  ExpyTableView: 19cf224c2ff04b1ec215ec52bc4ba6f81fa809ed
   KakaoSDK: fa00ea44415f172721d7469388c04db8912330cd
   KakaoSDKAuth: 037e6260f4468cbc3bde89a802864d6b58c5271c
   KakaoSDKCommon: 38154188336a1118f1b757f0fec54ff989365ddc
@@ -75,6 +79,6 @@ SPEC CHECKSUMS:
   naveridlogin-sdk-ios: b9d7c20677981177ed994ecb1c8c2b49f223277d
   PagingKit: 366cc22d74f4de7768bb31d8fcd49182f53e3ce7
 
-PODFILE CHECKSUM: a044a7da32ada630b9e485a504917e3321f026a6
+PODFILE CHECKSUM: dae67f50544b8817bbd3511ba161312a6e9d82d9
 
 COCOAPODS: 1.10.2
