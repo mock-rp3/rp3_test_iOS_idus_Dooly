@@ -1,5 +1,5 @@
 //
-//  MyPageTableViewCell.swift
+//  MyInfoTableViewCell.swift
 //  Idus
 //
 //  Created by 김희진 on 2021/08/26.
@@ -7,17 +7,8 @@
 
 import UIKit
 
-protocol GoDelegate {
-    func clickUserInfo()
-}
+class MyInfoTableViewCell: UITableViewCell {
 
-class MyPageTableViewCell: UITableViewCell {
-
-    var cellDelegate2: GoDelegate?
-    
-    @IBOutlet var userName: UILabel!
-    
-    @IBOutlet var userLevel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,8 +19,5 @@ class MyPageTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    @IBAction func goUserInfo(_ sender: UIButton) {
-        cellDelegate2!.clickUserInfo()
-    }
+
 }

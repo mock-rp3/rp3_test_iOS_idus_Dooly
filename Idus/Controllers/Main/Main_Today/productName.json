@@ -147,6 +147,84 @@
             }
            
          ]
+      },
+      {
+         "category_name":"내가 클릭한 작품",
+         "products":[
+            {
+               "name":"컷팅 실반지 레이어드 은반지",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"[입점할인] 경성 소불고기, 배달 APP 맛집랭킹 1위!",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"초상화 단독! 수중한 반려동물 초상화 제작",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"컷팅 실반지 레이어드 은반지",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"[입점할인] 경성 소불고기, 배달 APP 맛집랭킹 1위!",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"초상화 단독! 수중한 반려동물 초상화 제작",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"컷팅 실반지 레이어드 은반지",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"[입점할인] 경성 소불고기, 배달 APP 맛집랭킹 1위!",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"초상화 단독! 수중한 반려동물 초상화 제작",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"컷팅 실반지 레이어드 은반지",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"[입점할인] 경성 소불고기, 배달 APP 맛집랭킹 1위!",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            },
+            {
+               "name":"초상화 단독! 수중한 반려동물 초상화 제작",
+               "image_name":"item_thumb1",
+               "price":"10000",
+               "description":"sdfsdfsdfsdfsdffffffff"
+            }
+           
+         ]
       }
       
    ]

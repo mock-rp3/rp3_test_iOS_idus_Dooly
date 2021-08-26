@@ -135,14 +135,13 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource{
             if UserDefaults.standard.value(forKey: "jwt") != nil{
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageTableViewCell", for: indexPath) as? MyPageTableViewCell else { return UITableViewCell()}
                 
+                cell.cellDelegate2 = self
                 return cell
 
             }
             else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageNoUserTableViewCell", for: indexPath) as? MyPageNoUserTableViewCell else { return UITableViewCell()}
-                
-//                cell.gotoLogin(<#T##sender: Any##Any#>)
-                
+                                
                 cell.cellDelegate = self
                 return cell
             }
@@ -236,5 +235,17 @@ extension MyPageViewController: MyCellDelegate{
         navigationController?.pushViewController(vc!, animated: true)
 
     }
+}
+
+extension MyPageViewController: GoDelegate{
     
+    func clickUserInfo() {
+        
+        print("~~~")
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MyInfoViewController") as? MyInfoViewController
+
+        navigationController?.pushViewController(vc!, animated: true)
+
+    }
+
 }

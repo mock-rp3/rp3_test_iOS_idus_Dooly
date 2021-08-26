@@ -8,26 +8,68 @@
 import UIKit
 
 class ItemListViewController: UIViewController {
+    
+    var productData: ProductModel?
 
+    @IBOutlet var ItemListTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
+        
         navigationController?.isNavigationBarHidden = false
+        loadJson()
+        ItemListTableView.delegate = self
+        ItemListTableView.dataSource = self
+
+        func loadJson(){
+            if let path = Bundle.main.path(forResource: "productName", ofType:"json"){
+                do{
+                    let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                    let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                    let jsonData = try JSONSerialization.data(withJSONObject: jsonResult, options: .prettyPrinted)
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                    
+                    productData = try jsonDecoder.decode(ProductModel.self, from: jsonData)
+                }catch{
+                    print(error)
+                }
+            }
+        }
+    }
+    
+}
+
+
+extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return 1
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemListTableViewCell") as? ItemListTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.produts = productData?.response?[3]
+        return cell
+    
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return ItemListTableView.frame.height * 1.5
+    }
+ 
+    
 }
+

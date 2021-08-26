@@ -120,18 +120,23 @@
                         </constraints>
                         <state key="normal" title="Button" image="myPage_tap4"/>
                     </button>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_settings" translatesAutoresizingMaskIntoConstraints="NO" id="eMp-2g-udI">
-                        <rect key="frame" x="362.5" y="57.5" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="ogc-v9-BDT"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPo-VG-ARe">
                         <rect key="frame" x="365" y="151" width="11" height="18"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" systemColor="systemOrangeColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1s-DL-Vx0">
+                        <rect key="frame" x="366.5" y="61.5" width="26" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="QAP-BK-BkL"/>
+                            <constraint firstAttribute="width" constant="26" id="mvW-zE-0FG"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="user_settings"/>
+                        <connections>
+                            <action selector="goUserInfo:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4b2-Jz-BW8"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="DPV-pc-Hwi" firstAttribute="leading" secondItem="YjM-53-Zq3" secondAttribute="trailing" constant="16" id="0RD-WQ-Bb2"/>
@@ -140,17 +145,16 @@
                     <constraint firstItem="DPV-pc-Hwi" firstAttribute="centerY" secondItem="e1p-qA-z9G" secondAttribute="centerY" id="7jT-Kg-bqd"/>
                     <constraint firstItem="j44-bk-SZy" firstAttribute="bottom" secondItem="z2q-Zs-eaA" secondAttribute="bottom" id="8fV-76-552"/>
                     <constraint firstItem="Pdf-oK-zgI" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.25" id="9tW-7c-dX9"/>
-                    <constraint firstItem="eMp-2g-udI" firstAttribute="trailing" secondItem="5ei-Rq-vzU" secondAttribute="trailing" id="AIx-UB-aJ7"/>
                     <constraint firstItem="CZc-21-nTY" firstAttribute="top" secondItem="N21-Di-Lok" secondAttribute="bottom" constant="8" symbolic="YES" id="BWF-8O-lnT"/>
+                    <constraint firstItem="d1s-DL-Vx0" firstAttribute="trailing" secondItem="5ei-Rq-vzU" secondAttribute="trailing" id="EyK-MV-9Ii"/>
                     <constraint firstItem="Pdf-oK-zgI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="FvE-i7-V28"/>
                     <constraint firstItem="my4-lA-UEh" firstAttribute="bottom" secondItem="j44-bk-SZy" secondAttribute="bottom" id="INJ-xO-d38"/>
                     <constraint firstItem="xls-L4-3QL" firstAttribute="centerY" secondItem="N21-Di-Lok" secondAttribute="centerY" id="LC4-mf-TzR"/>
-                    <constraint firstItem="eMp-2g-udI" firstAttribute="centerY" secondItem="CZc-21-nTY" secondAttribute="centerY" id="NP7-1J-lNJ"/>
                     <constraint firstItem="i0e-ay-SHL" firstAttribute="leading" secondItem="e1p-qA-z9G" secondAttribute="trailing" constant="117" id="NfJ-aH-JFc"/>
+                    <constraint firstItem="d1s-DL-Vx0" firstAttribute="centerY" secondItem="CZc-21-nTY" secondAttribute="centerY" id="OZA-Zo-L0g"/>
                     <constraint firstItem="5ei-Rq-vzU" firstAttribute="top" secondItem="Pdf-oK-zgI" secondAttribute="bottom" constant="12" id="Qli-fB-b1K"/>
                     <constraint firstItem="M80-mH-KU7" firstAttribute="top" secondItem="CZc-21-nTY" secondAttribute="bottom" constant="5" id="RGS-Ao-hfc"/>
                     <constraint firstItem="Pdf-oK-zgI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="Rly-7E-HrO"/>
-                    <constraint firstItem="eMp-2g-udI" firstAttribute="width" secondItem="eMp-2g-udI" secondAttribute="height" id="RxA-8T-Mtp"/>
                     <constraint firstItem="z2q-Zs-eaA" firstAttribute="leading" secondItem="Pdf-oK-zgI" secondAttribute="leading" id="Y0y-6Y-naw"/>
                     <constraint firstItem="vS7-FX-Jh7" firstAttribute="width" secondItem="vS7-FX-Jh7" secondAttribute="height" multiplier="1.1:1" id="YDo-Kk-Xfp"/>
                     <constraint firstItem="CZc-21-nTY" firstAttribute="leading" secondItem="N21-Di-Lok" secondAttribute="leading" id="YcR-mR-N94"/>
@@ -180,6 +184,10 @@
                 </variation>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="userLevel" destination="xls-L4-3QL" id="C2I-ag-2sV"/>
+                <outlet property="userName" destination="CZc-21-nTY" id="uVy-G2-YcE"/>
+            </connections>
             <point key="canvasLocation" x="69.565217391304358" y="149.66517857142856"/>
         </tableViewCell>
     </objects>

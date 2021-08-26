@@ -43,6 +43,12 @@
 		F06F5CD426D6E29C005ADFD7 /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CD326D6E29C005ADFD7 /* ClassModel.swift */; };
 		F06F5CDB26D7022A005ADFD7 /* MyPageNoUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CD926D7022A005ADFD7 /* MyPageNoUserTableViewCell.swift */; };
 		F06F5CDC26D7022A005ADFD7 /* MyPageNoUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F06F5CDA26D7022A005ADFD7 /* MyPageNoUserTableViewCell.xib */; };
+		F06F5CDE26D711F9005ADFD7 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CDD26D711F9005ADFD7 /* ItemListTableViewCell.swift */; };
+		F06F5CE026D7120D005ADFD7 /* ItemListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CDF26D7120D005ADFD7 /* ItemListCollectionViewCell.swift */; };
+		F06F5CE426D75137005ADFD7 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CE326D75137005ADFD7 /* MyInfoViewController.swift */; };
+		F06F5CE626D756FA005ADFD7 /* GetMyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CE526D756FA005ADFD7 /* GetMyInfo.swift */; };
+		F06F5CE826D75A73005ADFD7 /* GetUserInfoRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CE726D75A73005ADFD7 /* GetUserInfoRes.swift */; };
+		F06F5CEA26D76702005ADFD7 /* MyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CE926D76702005ADFD7 /* MyInfoTableViewCell.swift */; };
 		F088F67626D315F100EB7C6B /* CurrentItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67526D315F100EB7C6B /* CurrentItemTableViewCell.swift */; };
 		F088F67826D3161800EB7C6B /* CurrentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67726D3161800EB7C6B /* CurrentItemCollectionViewCell.swift */; };
 		F088F67A26D320B100EB7C6B /* NewItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */; };
@@ -166,6 +172,12 @@
 		F06F5CD326D6E29C005ADFD7 /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
 		F06F5CD926D7022A005ADFD7 /* MyPageNoUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageNoUserTableViewCell.swift; sourceTree = "<group>"; };
 		F06F5CDA26D7022A005ADFD7 /* MyPageNoUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageNoUserTableViewCell.xib; sourceTree = "<group>"; };
+		F06F5CDD26D711F9005ADFD7 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
+		F06F5CDF26D7120D005ADFD7 /* ItemListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListCollectionViewCell.swift; sourceTree = "<group>"; };
+		F06F5CE326D75137005ADFD7 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
+		F06F5CE526D756FA005ADFD7 /* GetMyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyInfo.swift; sourceTree = "<group>"; };
+		F06F5CE726D75A73005ADFD7 /* GetUserInfoRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfoRes.swift; sourceTree = "<group>"; };
+		F06F5CE926D76702005ADFD7 /* MyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		F088F67526D315F100EB7C6B /* CurrentItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentItemTableViewCell.swift; sourceTree = "<group>"; };
 		F088F67726D3161800EB7C6B /* CurrentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -393,6 +405,7 @@
 				F02BF47226CE3A27000B3D74 /* GetItemDetailRes.swift */,
 				F03392C626CF5423002CA926 /* GetUserJoinRes.swift */,
 				F088F67F26D3C6F200EB7C6B /* PostBuyItemRes.swift */,
+				F06F5CE726D75A73005ADFD7 /* GetUserInfoRes.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -403,6 +416,7 @@
 				F008C78626D21CF10089B36F /* Models */,
 				F066ABD026CAFF8200503ADA /* GetUserLoginReq.swift */,
 				F02BF47426CE3CE0000B3D74 /* GetItemDetailReq.swift */,
+				F06F5CE526D756FA005ADFD7 /* GetMyInfo.swift */,
 				F088F67D26D3C5DE00EB7C6B /* PostItemDetails.swift */,
 			);
 			path = Request;
@@ -415,6 +429,15 @@
 				F06F5CCF26D6D680005ADFD7 /* ClassOnlineReviewCollectionViewCell.swift */,
 			);
 			path = ReviewCell;
+			sourceTree = "<group>";
+		};
+		F06F5CE226D75117005ADFD7 /* MyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				F06F5CE326D75137005ADFD7 /* MyInfoViewController.swift */,
+				F06F5CE926D76702005ADFD7 /* MyInfoTableViewCell.swift */,
+			);
+			path = MyInfo;
 			sourceTree = "<group>";
 		};
 		F088F69B26D4269000EB7C6B /* AdSliderCell */ = {
@@ -502,6 +525,7 @@
 				F0CADD5026D16D960038E2FB /* Search */,
 				F0CADD5126D16DAA0038E2FB /* Category */,
 				F03392D226CF98F9002CA926 /* MyPage */,
+				F06F5CE226D75117005ADFD7 /* MyInfo */,
 				F0CADD5226D16E360038E2FB /* ItemList */,
 				F0449C7526CD68740030A34B /* ItemDetail */,
 				F088F6A326D4391900EB7C6B /* UserBuyDetail */,
@@ -574,6 +598,8 @@
 			isa = PBXGroup;
 			children = (
 				F0A26D9E26CD52B60085806E /* ItemListViewController.swift */,
+				F06F5CDD26D711F9005ADFD7 /* ItemListTableViewCell.swift */,
+				F06F5CDF26D7120D005ADFD7 /* ItemListCollectionViewCell.swift */,
 			);
 			path = ItemList;
 			sourceTree = "<group>";
@@ -932,7 +958,9 @@
 				F088F67826D3161800EB7C6B /* CurrentItemCollectionViewCell.swift in Sources */,
 				F02BF46E26CE1F4A000B3D74 /* ItemDetailFirstTableViewCell.swift in Sources */,
 				F03392CF26CF94FB002CA926 /* ClassOfflineViewController.swift in Sources */,
+				F06F5CE426D75137005ADFD7 /* MyInfoViewController.swift in Sources */,
 				F0E6C3A826C7ED94007B7272 /* AppDelegate.swift in Sources */,
+				F06F5CE826D75A73005ADFD7 /* GetUserInfoRes.swift in Sources */,
 				F03392C926CF5990002CA926 /* JoinRequest.swift in Sources */,
 				F088F6B126D4AE2100EB7C6B /* SectionAddressPayDetailTableViewCell.swift in Sources */,
 				F088F6A826D43BA600EB7C6B /* UserBuyDetailTableViewCell.swift in Sources */,
@@ -953,6 +981,7 @@
 				F088F67C26D320F400EB7C6B /* NewItemTableViewCell.swift in Sources */,
 				F088F69A26D425DC00EB7C6B /* ClassOfflineTableViewCell.swift in Sources */,
 				F08BDB9F26D1FD4900FDD24E /* Product2CollectionViewCell.swift in Sources */,
+				F06F5CE626D756FA005ADFD7 /* GetMyInfo.swift in Sources */,
 				F0E6C3EF26C86FC9007B7272 /* SwipingController.swift in Sources */,
 				F03392F026D0BE38002CA926 /* ItemOpSetTableViewCell.swift in Sources */,
 				F06F5CC926D6C12F005ADFD7 /* MyPageAdCollectionViewCell.swift in Sources */,
@@ -962,12 +991,15 @@
 				F02BF47326CE3A27000B3D74 /* GetItemDetailRes.swift in Sources */,
 				F088F6AE26D4A48800EB7C6B /* PayDetailTableViewCell.swift in Sources */,
 				F06F5CD426D6E29C005ADFD7 /* ClassModel.swift in Sources */,
+				F06F5CE026D7120D005ADFD7 /* ItemListCollectionViewCell.swift in Sources */,
 				F06F5CCB26D6C72A005ADFD7 /* ClassOfflineCategoryTableViewCell.swift in Sources */,
 				F0E6C3F826C88B1A007B7272 /* MyPageViewController.swift in Sources */,
 				F088F68426D3C7BA00EB7C6B /* PostItemRequest.swift in Sources */,
+				F06F5CEA26D76702005ADFD7 /* MyInfoTableViewCell.swift in Sources */,
 				F032B0B326C9A4C60029A414 /* ProductTableViewCell.swift in Sources */,
 				F03392C726CF5423002CA926 /* GetUserJoinRes.swift in Sources */,
 				F08BDBA126D1FD5F00FDD24E /* Product2TableViewCell.swift in Sources */,
+				F06F5CDE26D711F9005ADFD7 /* ItemListTableViewCell.swift in Sources */,
 				F088F6B926D4DCFA00EB7C6B /* SectionBuyWayTableViewCell.swift in Sources */,
 				F088F6A026D4270500EB7C6B /* ClassOnlineCategoryCollectionViewCell.swift in Sources */,
 				F0E6C3DB26C84572007B7272 /* TodayViewController.swift in Sources */,
