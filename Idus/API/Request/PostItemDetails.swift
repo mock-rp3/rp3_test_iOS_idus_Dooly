@@ -31,9 +31,21 @@ class PostItemDetails{
 //            "buyDetailAmount" : [1]
 //        }
         
-        let params = PostItemRequest(itemIdx: 1, userIdx: 11, vip: "Y", ask: "ddd", addressIdx: 1, totalPrice: 4000, delieveryPrice: 0, detailIdx: [2], IODIdx: [2], buyDetailAmount: [1])
+//        {
+//            "itemIdx":"4",
+//            "userIdx":"11",
+//            "vip":"N",
+//            "ask":"ddd",
+//            "addressIdx":"1",
+//            "totalPrice":"3800",
+//            "delieveryPrice":"3000",
+//            "detailIdx":[11],
+//            "IODIdx":[6],
+//            "buyDetailAmount":[1]
+//        }
         
-        print("!!!!!!")
+        let params = PostItemRequest(itemIdx: 4, userIdx: 11, vip: "N", ask: "ddd", addressIdx: 1, totalPrice: 3800, delieveryPrice: 3000, detailIdx: [11], IODIdx: [6], buyDetailAmount: [1])
+        
         AF.request(url,
                    method: .post,
                    parameters: params,

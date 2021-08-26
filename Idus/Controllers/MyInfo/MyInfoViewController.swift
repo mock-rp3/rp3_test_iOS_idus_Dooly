@@ -21,15 +21,20 @@ class MyInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.isNavigationBarHidden = false
 
 //        GetMyInfo().getUserInfo(self, token: "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4Ijo0MSwiaWF0IjoxNjI5OTU0NDEzLCJleHAiOjE2MzE0MjU2NDJ9.x9-TUhf4L8khpXs-hi40PkqaYyG1UgnpXPfazFeglPo", userIdx : UserDefaults.standard.value(forKey: "userIdx"))
-
         
 //        GetMyInfo().getUserInfo(self, token: UserDefaults.standard.value(forKey: "jwt") as! String, userIdx :  UserDefaults.standard.value(forKey: "userIdx")! as! Int)
 
         MyInfoTableView.dataSource = self
         MyInfoTableView.delegate = self
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let index = IndexPath(row: 0, section: 0)
+        MyInfoTableView.reloadRows(at: [index], with: .automatic)
     }
 
 }

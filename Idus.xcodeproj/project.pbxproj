@@ -52,6 +52,9 @@
 		F06F5CEC26D76C66005ADFD7 /* MyInfoDefualtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CEB26D76C66005ADFD7 /* MyInfoDefualtTableViewCell.swift */; };
 		F06F5CEF26D76FE7005ADFD7 /* MyInfoMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CEE26D76FE7005ADFD7 /* MyInfoMyInfoViewController.swift */; };
 		F06F5CF126D77102005ADFD7 /* ChangeInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CF026D77102005ADFD7 /* ChangeInfoTableViewCell.swift */; };
+		F06F5CF326D7D127005ADFD7 /* PatchUserInfoReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CF226D7D127005ADFD7 /* PatchUserInfoReq.swift */; };
+		F06F5CF526D7D370005ADFD7 /* GetUserInfoUpdateRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CF426D7D370005ADFD7 /* GetUserInfoUpdateRes.swift */; };
+		F06F5CF726D7DA60005ADFD7 /* PatchUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CF626D7DA60005ADFD7 /* PatchUserInfo.swift */; };
 		F088F67626D315F100EB7C6B /* CurrentItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67526D315F100EB7C6B /* CurrentItemTableViewCell.swift */; };
 		F088F67826D3161800EB7C6B /* CurrentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67726D3161800EB7C6B /* CurrentItemCollectionViewCell.swift */; };
 		F088F67A26D320B100EB7C6B /* NewItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */; };
@@ -184,6 +187,9 @@
 		F06F5CEB26D76C66005ADFD7 /* MyInfoDefualtTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDefualtTableViewCell.swift; sourceTree = "<group>"; };
 		F06F5CEE26D76FE7005ADFD7 /* MyInfoMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoMyInfoViewController.swift; sourceTree = "<group>"; };
 		F06F5CF026D77102005ADFD7 /* ChangeInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInfoTableViewCell.swift; sourceTree = "<group>"; };
+		F06F5CF226D7D127005ADFD7 /* PatchUserInfoReq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchUserInfoReq.swift; sourceTree = "<group>"; };
+		F06F5CF426D7D370005ADFD7 /* GetUserInfoUpdateRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfoUpdateRes.swift; sourceTree = "<group>"; };
+		F06F5CF626D7DA60005ADFD7 /* PatchUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchUserInfo.swift; sourceTree = "<group>"; };
 		F088F67526D315F100EB7C6B /* CurrentItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentItemTableViewCell.swift; sourceTree = "<group>"; };
 		F088F67726D3161800EB7C6B /* CurrentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -309,6 +315,7 @@
 				F066ABD626CB9DB800503ADA /* SignInRequest.swift */,
 				F03392C826CF5990002CA926 /* JoinRequest.swift */,
 				F088F68326D3C7BA00EB7C6B /* PostItemRequest.swift */,
+				F06F5CF626D7DA60005ADFD7 /* PatchUserInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -412,6 +419,7 @@
 				F03392C626CF5423002CA926 /* GetUserJoinRes.swift */,
 				F088F67F26D3C6F200EB7C6B /* PostBuyItemRes.swift */,
 				F06F5CE726D75A73005ADFD7 /* GetUserInfoRes.swift */,
+				F06F5CF426D7D370005ADFD7 /* GetUserInfoUpdateRes.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -424,6 +432,7 @@
 				F02BF47426CE3CE0000B3D74 /* GetItemDetailReq.swift */,
 				F06F5CE526D756FA005ADFD7 /* GetMyInfo.swift */,
 				F088F67D26D3C5DE00EB7C6B /* PostItemDetails.swift */,
+				F06F5CF226D7D127005ADFD7 /* PatchUserInfoReq.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -967,6 +976,7 @@
 				F088F68626D3EB4400EB7C6B /* CategoryWorkViewController.swift in Sources */,
 				F0E6C3F426C88B01007B7272 /* SearchViewController.swift in Sources */,
 				F088F6BD26D524E000EB7C6B /* SectionPriceTableViewCell.swift in Sources */,
+				F06F5CF726D7DA60005ADFD7 /* PatchUserInfo.swift in Sources */,
 				F0A26DA126CD53280085806E /* ItemDetailViewController.swift in Sources */,
 				F0E6844026D1ABA40015CA5D /* CategoryCollectionViewCell.swift in Sources */,
 				F066ABD526CAFFC800503ADA /* GetUserLoginRes.swift in Sources */,
@@ -994,6 +1004,7 @@
 				F0E6C3F626C88B0D007B7272 /* CategoryViewController.swift in Sources */,
 				F088F68026D3C6F200EB7C6B /* PostBuyItemRes.swift in Sources */,
 				F088F69626D4194B00EB7C6B /* ClassOnlineCollectionViewCell.swift in Sources */,
+				F06F5CF526D7D370005ADFD7 /* GetUserInfoUpdateRes.swift in Sources */,
 				F088F67E26D3C5DE00EB7C6B /* PostItemDetails.swift in Sources */,
 				F032B0B526C9A6C20029A414 /* ProductsModel.swift in Sources */,
 				F088F67C26D320F400EB7C6B /* NewItemTableViewCell.swift in Sources */,
@@ -1013,6 +1024,7 @@
 				F06F5CE026D7120D005ADFD7 /* ItemListCollectionViewCell.swift in Sources */,
 				F06F5CCB26D6C72A005ADFD7 /* ClassOfflineCategoryTableViewCell.swift in Sources */,
 				F0E6C3F826C88B1A007B7272 /* MyPageViewController.swift in Sources */,
+				F06F5CF326D7D127005ADFD7 /* PatchUserInfoReq.swift in Sources */,
 				F088F68426D3C7BA00EB7C6B /* PostItemRequest.swift in Sources */,
 				F06F5CEA26D76702005ADFD7 /* MyInfoTableViewCell.swift in Sources */,
 				F032B0B326C9A4C60029A414 /* ProductTableViewCell.swift in Sources */,

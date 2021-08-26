@@ -22,16 +22,18 @@ class MyPageViewController: UIViewController {
     @IBOutlet var email: UILabel!
     @IBOutlet var name: UILabel!
     @IBOutlet var password: UILabel!
-    @IBOutlet var button: UIButton!
     @IBOutlet var topView: UIView!
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        GetMyInfo().getUserInfo(self, token: UserDefaults.standard.value(forKey: "jwt") as! String, userIdx :  UserDefaults.standard.value(forKey: "userIdx")! as! Int)
 
+        if UserDefaults.standard.value(forKey: "jwt") != nil{
+            GetMyInfo().getUserInfo(self, token: UserDefaults.standard.value(forKey: "jwt") as! String, userIdx :  UserDefaults.standard.value(forKey: "userIdx")! as! Int)
+
+        }
+        
         
         let MyPageTableViewCell = UINib(nibName: "MyPageTableViewCell", bundle: nil)
         self.mypageTableView.register(MyPageTableViewCell, forCellReuseIdentifier: "MyPageTableViewCell")
@@ -43,21 +45,27 @@ class MyPageViewController: UIViewController {
         mypageTableView.dataSource = self
         mypageTableView.delegate = self
 
-        if UserDefaults.standard.value(forKey: "email") != nil  && UserDefaults.standard.value(forKey: "password") != nil {
-            email.text = (UserDefaults.standard.value(forKey: "email") as! String)
-            password.text = (UserDefaults.standard.value(forKey: "password") as! String)
-            platform.text = (UserDefaults.standard.value(forKey: "platform") as! String)
-            print((UserDefaults.standard.value(forKey: "jwt") as! String))
-           
-        }else {
-            button.setTitle("로그인하러가기", for: .normal)
-        }
+//        if UserDefaults.standard.value(forKey: "email") != nil  && UserDefaults.standard.value(forKey: "password") != nil {
+//            email.text = (UserDefaults.standard.value(forKey: "email") as! String)
+//            password.text = (UserDefaults.standard.value(forKey: "password") as! String)
+//            platform.text = (UserDefaults.standard.value(forKey: "platform") as! String)
+//            print((UserDefaults.standard.value(forKey: "jwt") as! String))
+//
+//        }else {
+//            button.setTitle("로그인하러가기", for: .normal)
+//        }
         
         let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
         mypageTableView.tableFooterView = footer
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let index = IndexPath(row: 0, section: 0)
+        mypageTableView.reloadRows(at: [index], with: .automatic)
 
     }
+    
     
     @IBAction func btnLogout(_ sender: Any) {        
         
@@ -143,6 +151,7 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource{
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageTableViewCell", for: indexPath) as? MyPageTableViewCell else { return UITableViewCell()}
                 
                 cell.cellDelegate2 = self
+                cell.userName.text = UserDefaults.standard.value(forKey: "name") as? String
                 return cell
 
             }

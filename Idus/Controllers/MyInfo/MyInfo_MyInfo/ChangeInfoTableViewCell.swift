@@ -8,7 +8,12 @@
 import UIKit
 
 class ChangeInfoTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet var name: UILabel!
+    @IBOutlet var phoneNumber: UILabel!
+    @IBOutlet var email: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
