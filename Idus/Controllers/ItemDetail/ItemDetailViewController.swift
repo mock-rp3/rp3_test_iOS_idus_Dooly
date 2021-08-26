@@ -35,12 +35,9 @@ class ItemDetailViewController: UIViewController  {
     @IBOutlet var optionCloseView: UIButton!
     @IBOutlet var buyCartbutton: UIButton!
     @IBOutlet var buyNowbutton: UIButton!
-        
     
     var ItemDetailData = GetItemDetailRes()
     
-    let ary = ["빨간색", "노란색", "파란색","초록색"]
-   
     var countArr = [Int]()
     var buySetArr = [String]()
     var priceArr = [Int]()
@@ -56,7 +53,9 @@ class ItemDetailViewController: UIViewController  {
     var tempPrice = 0
     
     var TableViewData = [cellData]()
-    
+
+    var imageArr = [UIImage(named: "item1_thumb"), UIImage(named: "item1_thumb-1"),UIImage(named: "item1_thumb-2"),UIImage(named: "item1_thumb-3")]
+
     @IBOutlet var totalCount: UILabel!
     
     
@@ -127,15 +126,6 @@ class ItemDetailViewController: UIViewController  {
         let tapClosing = UITapGestureRecognizer(target: self, action: #selector(self.tapClose(_:)))
         buyCloseView.isUserInteractionEnabled = true
         buyCloseView.addGestureRecognizer(tapClosing)
-//
-//        let tapCountPlus = UITapGestureRecognizer(target: self, action: #selector(self.tapPlus(_:)))
-//        btn_plus.isUserInteractionEnabled = true
-//        btn_plus.addGestureRecognizer(tapCountPlus)
-//
-//        let tapCountMinus = UITapGestureRecognizer(target: self, action: #selector(self.tapMinus(_:)))
-//        btn_minus.isUserInteractionEnabled = true
-//        btn_minus.addGestureRecognizer(tapCountMinus)
-
    
     }
     
@@ -189,12 +179,15 @@ class ItemDetailViewController: UIViewController  {
     }
    
     @IBAction func minusCount(_ sender: UIButton) {
-//        let point = sender.convert(CGPoint.zero, to: buyOptionSetTV)
-//        let indexpath = buyOptionSetTV.indexPathForRow(at: point)
-//        print(indexpath!.row)
-//        countArr[indexPath!.row] = countArr[indexPath.row] - 1
-//        buyOptionSetTV.reloadData()
+        let point = sender.convert(CGPoint.zero, to: buyOptionSetTV)
+        let indexpath = buyOptionSetTV.indexPathForRow(at: point)
+
+        countArr[indexpath!.row] = countArr[indexpath!.row] - 1
         
+        totalCount.text = "\( Int(totalCount.text!)! - priceArr[indexpath!.row] )"
+        
+        buyOptionSetTV.reloadData()
+
     }
     
     @IBAction func plusCount(_ sender: UIButton) {
@@ -215,15 +208,14 @@ class ItemDetailViewController: UIViewController  {
     
 
     @IBAction func buy(_ sender: Any) {
-//        GetItemDetailReq().getItemData(self, itemIdx: 1)
-//        PostItemDetails().postItemOptions(self)
-        
-        
-        
+
+        buyView.isHidden = true
+
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "UserBuyDetailViewController") as! UserBuyDetailViewController
 
-        vc.price = simpleArraySum(ar: priceArr)
+//        vc.price = simpleArraySum(ar: priceArr)
+        vc.price = simpleArraySum(ar: priceArr) * countArr[0]
         vc.count = countArr[0]
         vc.itemTitle = ItemDetailData.result!.title
             
@@ -238,7 +230,8 @@ class ItemDetailViewController: UIViewController  {
 
 
         //          vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: vc, action: #selector(vc.closeView))
-        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<-", style: .plain, target: vc, action: #selector(vc.closeView))
+        
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: vc, action: #selector(vc.closeView))
 
         let transition = CATransition()
         transition.duration = 0.4
@@ -251,11 +244,13 @@ class ItemDetailViewController: UIViewController  {
         
     }
     
-    
 }
 extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        if tableView.tag == 0 {
+            return 1
+        }
         if tableView.tag == 1 {
             return ItemDetailData.result?.option.count ?? 0
         }
@@ -278,13 +273,6 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
             }else{
                 return 1
             }
-            
-            
-//            if ( test[section] == true){
-//                   return (ItemDetailData.result?.detail!.count)! + 1
-//               }else{
-//              return 1
-//          }
         }
         else {
             return buySetArr.count
@@ -306,13 +294,25 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
                     if let a = ItemDetailData.result?.reviewCount {
                         cell.reviewCount.text = "\(a)"}
                     
+                    cell.sellerName.text = ItemDetailData.result?.writer
+                    
+                    cell.thumbIma.image = imageArr[0]
+                    
+                    
+                    cell.stackViewImage1.image = imageArr[0]
+                    cell.stackViewImage2.image = imageArr[1]
+                    cell.stackViewImage3.image = imageArr[2]
+                    cell.stackViewImage4.image = imageArr[3]
+                    
                     return cell
                 } else if (indexPath.row == 1) {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailSecondTableViewCell", for: indexPath) as? ItemDetailSecondTableViewCell else { return UITableViewCell()}
+
                     return cell
                                                                                                     
                 } else if (indexPath.row == 2) {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemDetailThirdTableViewCell", for: indexPath) as? ItemDetailThirdTableViewCell else { return UITableViewCell()}
+                    
                     return cell
                 }
                 else {
@@ -327,7 +327,6 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
             if (indexPath.row == 0){
 //                cell.textLabel?.text = "\(ItemDetailData.result?.option[indexPath.section].title ?? "")"
                 cell.textLabel?.text = TableViewData[indexPath.section].title
-                cell.backgroundColor = .systemGray
                 return cell
                 
             }else{
@@ -387,10 +386,10 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
             }
         }
         else if (tableView.tag == 1) {
-            return 40
+            return 30
         }
         else {
-            return 70
+            return 80
         }
  
     }
@@ -402,7 +401,7 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
         else {
         
             if TableViewData[indexPath.section].opened == true {
-                
+                                
                 TableViewData[indexPath.section].opened = false
                 let sections = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(sections, with: .none)
@@ -464,62 +463,15 @@ extension ItemDetailViewController: UITableViewDelegate, UITableViewDataSource{
                 }
                                 
             }else{
+//                openCloseBtn.setImage(UIImage(systemName: "chevron.up"), for: .normal)
                 TableViewData[indexPath.section].opened = true
                 let sections = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(sections, with: .none)
-                
 
             }
 
-            
+        }
 
-//            if (TableViewData[0].cli == true && TableViewData[1].clicked == true) {
-//
-//            }
-            
-//            if (selectedCount == 0 ){
-//                tableView.deselectRow(at: indexPath, animated: true)
-//                test[indexPath.section] = !test[indexPath.section]
-//
-//                tableView.reloadSections([indexPath.section], with: .none)
-//                selectedCount += 1
-//            }
-//            if ( selectedCount == 1 ) {
-//
-//                if TableViewData[indexPath.section].opened == true {
-//                    TableViewData[indexPath.section].opened = false
-//                    let sections = IndexSet.init(integer: indexPath.section)
-//                    tableView.reloadSections(sections, with: .none)
-//                }else{
-//                    TableViewData[indexPath.section].opened = true
-//                    let sections = IndexSet.init(integer: indexPath.section)
-//                    tableView.reloadSections(sections, with: .none)
-//                }
-//
-//            }
-            
-//                print(indexPath)
-//                let cell = tableView.cellForRow(at: indexPath)
-//
-//                if(indexPath.row == 0){
-//
-//                }else{
-//                    buyString = (cell?.textLabel?.text!)!
-//                    print(buyString)
-//                    print("!!")
-//                    tableView.deselectRow(at: indexPath, animated: true)
-//                    test[indexPath.section] = !test[indexPath.section]
-//                    tableView.reloadSections([indexPath.section], with: .none)
-//                    tempOp +=  (ItemDetailData.result?.option[indexPath.row - 1].title)! + ":" + buyString + "/"
-//                    tempPrice += (ItemDetailData.result?.option[indexPath.row - 1].price)!
-//                    print(tempOp)
-//                    print(tempPrice)
-//                    step += 1
-//                    selectedCount = 0
-//                }
-            }
-
-        
     }
     
 }
@@ -560,25 +512,25 @@ extension ItemDetailViewController {
                      
     }
 
-    func didBuySuccess(_ response: PostBuyItemRes) {
-        
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "UserBuyDetailViewController") as! UserBuyDetailViewController
-
-        let navigationController = self.navigationController
-
-        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<-", style: .plain, target: vc, action: #selector(vc.closeView))
-
-        let transition = CATransition()
-        transition.duration = 0.4
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.moveIn
-        transition.subtype = CATransitionSubtype.fromTop
-        navigationController?.view.layer.add(transition, forKey: nil)
-        navigationController?.pushViewController(vc, animated: false)
-
-    
-    }
+//    func didBuySuccess(_ response: PostBuyItemRes) {
+//
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyBoard.instantiateViewController(withIdentifier: "UserBuyDetailViewController") as! UserBuyDetailViewController
+//
+//        let navigationController = self.navigationController
+//
+//        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<-", style: .plain, target: vc, action: #selector(vc.closeView))
+//
+//        let transition = CATransition()
+//        transition.duration = 0.4
+//        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+//        transition.type = CATransitionType.moveIn
+//        transition.subtype = CATransitionSubtype.fromTop
+//        navigationController?.view.layer.add(transition, forKey: nil)
+//        navigationController?.pushViewController(vc, animated: false)
+//
+//
+//    }
 
 }
 

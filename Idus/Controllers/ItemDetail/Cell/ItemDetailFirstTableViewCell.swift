@@ -20,47 +20,23 @@ class ItemDetailFirstTableViewCell: UITableViewCell {
     @IBOutlet var reviewCount: UILabel!
     
     
-    var imageArr = [UIImage(named: "itemDetailImage1"), UIImage(named: "itemDetailImage1"),UIImage(named: "itemDetailImage1"),UIImage(named: "item_thumb1"),UIImage(named: "item_thumb1"),UIImage(named: "sub_category1"), UIImage(named: "item_thumb1"), UIImage(named: "item_thumb1"), UIImage(named: "white")]
-    
+    var imageArr = [UIImage(named: "item1_thumb"), UIImage(named: "item1_thumb-1"),UIImage(named: "item1_thumb-2"),UIImage(named: "item1_thumb-3")]
+
     @IBOutlet var stackViewImage1: UIImageView!
     @IBOutlet var stackViewImage2: UIImageView!
     @IBOutlet var stackViewImage3: UIImageView!
     @IBOutlet var stackViewImage4: UIImageView!
-    @IBOutlet var stackViewImage5: UIStackView!
-    @IBOutlet var stackVIewImage6: UIImageView!
-    @IBOutlet var stackViewImage7: UIImageView!
-    @IBOutlet var stackViewImage8: UIImageView!
-    @IBOutlet var stackViewImage9: UIImageView!
+//    @IBOutlet var stackViewImage5: UIButton!
+//    @IBOutlet var stackVIewImage6: UIImageView!
+//    @IBOutlet var stackViewImage7: UIImageView!
+//    @IBOutlet var stackViewImage8: UIImageView!
+//    @IBOutlet var stackViewImage9: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUpImage()
             
     }
     
-    func setUpImage(){
-
-        stackViewImage1.image = imageArr[0]
-        stackViewImage1.image = imageArr[1]
-        stackViewImage1.image = imageArr[2]
-        stackViewImage1.image = imageArr[3]
-        stackViewImage1.image = imageArr[4]
-        stackViewImage1.image = imageArr[5]
-        stackViewImage1.image = imageArr[6]
-        stackViewImage1.image = imageArr[7]
-        stackViewImage1.image = imageArr[8]
-        stackViewImage1.image = imageArr[8]
-
-//        for i in 0...8 {
-//            if ( i < imageArr.count) {
-//                stackView[i].image = imageArr[i]
-//                stackViewImage1.image = imageArr[i]
-//            } else {
-//                stackViewImage1.image = UIImage(named: "white")
-//            }
-//        }
-        
-    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -13,7 +13,7 @@ import UIKit
 class PostItemDetails{
     
     
-    func postItemOptions(_ PayDetailViewController: PayDetailViewController ){
+    func postItemOptions(_ PayDetailViewController: PayDetailViewController, userIdx: Int){
         
         
         let url = "http://dhlcutpdus.site:9000/buy"
@@ -44,7 +44,7 @@ class PostItemDetails{
 //            "buyDetailAmount":[1]
 //        }
         
-        let params = PostItemRequest(itemIdx: 4, userIdx: 11, vip: "N", ask: "ddd", addressIdx: 1, totalPrice: 3800, delieveryPrice: 3000, detailIdx: [11], IODIdx: [6], buyDetailAmount: [1])
+        let params = PostItemRequest(itemIdx: 4, userIdx: userIdx, vip: "N", ask: "ddd", addressIdx: 1, totalPrice: 3800, delieveryPrice: 3000, detailIdx: [11], IODIdx: [6], buyDetailAmount: [1])
         
         AF.request(url,
                    method: .post,

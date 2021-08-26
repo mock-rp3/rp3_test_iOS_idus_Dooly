@@ -13,7 +13,7 @@ class UserBuyDetailViewController: UIViewController {
     @IBOutlet var totalPrice: UILabel!
     
     var price = 0
-    var count = 1
+    var count = 0
     var itemTitle = ""
     var writer = ""
     var option = ""
@@ -28,7 +28,7 @@ class UserBuyDetailViewController: UIViewController {
         let UserBuyDetailTableViewCell = UINib(nibName: "UserBuyDetailTableViewCell", bundle: nil)
         self.tableView.register(UserBuyDetailTableViewCell, forCellReuseIdentifier: "UserBuyDetailTableViewCell")
         // Do any additional setup after loading the view.
-        totalPrice.text = "\(price)원"
+        totalPrice.text = "\(price + 2500)원"
     }
     
     @objc func closeView() {
@@ -47,6 +47,7 @@ class UserBuyDetailViewController: UIViewController {
         let vc = storyboard?.instantiateViewController(withIdentifier: "PayDetailViewController") as? PayDetailViewController
         navigationController?.pushViewController(vc!, animated: true)
         vc!.totalPrice = price
+        vc!.itemName = itemTitle
     }
     
 }
@@ -74,6 +75,7 @@ extension UserBuyDetailViewController: UITableViewDelegate, UITableViewDataSourc
         cell.title.text = itemTitle
         cell.type.text = option
         cell.writer.text = writer
+        cell.count.text = "\(count)"
     
         return cell
         

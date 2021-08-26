@@ -15,6 +15,8 @@ class UserBuyDetailTableViewCell: UITableViewCell {
     @IBOutlet var price: UILabel!
     @IBOutlet var price2: UILabel!
     
+    @IBOutlet var count: UILabel!
+    
     @IBOutlet var writer: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

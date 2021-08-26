@@ -9,6 +9,7 @@ import UIKit
 
 class PayDetailTableViewCell: UITableViewCell {
 
+    @IBOutlet var itemName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

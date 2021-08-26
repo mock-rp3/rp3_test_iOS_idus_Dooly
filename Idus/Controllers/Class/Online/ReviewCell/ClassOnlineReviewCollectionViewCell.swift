@@ -18,5 +18,7 @@ class ClassOnlineReviewCollectionViewCell: UICollectionViewCell {
     @IBOutlet var classImage: UIImageView!
 
     @IBOutlet var classDisc: UILabel!
+   
+    @IBOutlet var view: UIView!
     
 }

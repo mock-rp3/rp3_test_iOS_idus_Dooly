@@ -11,7 +11,12 @@ class PayDetailViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var priceShowView: UILabel!
+    
+    @IBOutlet var priceFloatView: UIView!
+    
     var totalPrice = 0
+    var itemName = ""
     
     override func viewDidLoad() {
         
@@ -36,13 +41,15 @@ class PayDetailViewController: UIViewController {
 
         let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
         tableView.tableFooterView = footer
+        
+        priceShowView.text = "\(totalPrice + 2500)원 간편하게 카드결제"
+        priceFloatView.layer.cornerRadius = 3
     }
     
  
     @IBAction func buyFinal(_ sender: Any) {
         
-        print("!!")
-        PostItemDetails().postItemOptions(self)
+        PostItemDetails().postItemOptions(self, userIdx: UserDefaults.standard.value(forKey: "userIdx")! as! Int)
 
     }
     
@@ -81,6 +88,7 @@ extension PayDetailViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PayDetailTableViewCell2") as? PayDetailTableViewCell else {
                 return UITableViewCell()
             }
+            cell.itemName.text = itemName
             return cell
 
         }
@@ -166,9 +174,25 @@ extension PayDetailViewController {
     func didBuySuccess(_ response: PostBuyItemRes) {
         
             let alert = UIAlertController(title: "", message: "구매가 완료되었습니다", preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let action = UIAlertAction(title: "OK", style: .default){(action) in
+
+                
+            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+                    self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+                
+            
+
+//                let vc = self.storyboard?.instantiateViewController(withIdentifier: "ItemDetailViewController") as? ItemDetailViewController
+//
+//                self.navigationController?.pushViewController(vc!, animated: true)
+               
+                
+                
+            }
+        
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
+    
     
     }
 

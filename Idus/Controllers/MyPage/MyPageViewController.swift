@@ -30,8 +30,10 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
 
         if UserDefaults.standard.value(forKey: "jwt") != nil{
-            GetMyInfo().getUserInfo(self, token: UserDefaults.standard.value(forKey: "jwt") as! String, userIdx :  UserDefaults.standard.value(forKey: "userIdx")! as! Int)
+            if (UserDefaults.standard.value(forKey: "platform") as! String == "local"){
+                GetMyInfo().getUserInfo(self, token: UserDefaults.standard.value(forKey: "jwt") as! String, userIdx :  UserDefaults.standard.value(forKey: "userIdx")! as! Int)
 
+            }
         }
         
         

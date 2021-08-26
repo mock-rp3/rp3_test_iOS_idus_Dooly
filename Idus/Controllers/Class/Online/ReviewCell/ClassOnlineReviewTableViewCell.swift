@@ -48,6 +48,11 @@ extension ClassOnlineReviewTableViewCell: UICollectionViewDelegate, UICollection
         cell.review.text = classes?.reviews![indexPath.row].description
         cell.classDisc.text = classes?.reviews![indexPath.row].classDiscrip
 
+        cell.view.layer.borderWidth = 1
+        cell.view.layer.borderColor = UIColor.lightGray.cgColor
+        cell.image.layer.cornerRadius = 10
+        cell.view.layer.cornerRadius = 10
+        cell.classImage.layer.cornerRadius = 10
         return cell
     }
 

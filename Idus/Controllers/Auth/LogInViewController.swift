@@ -535,7 +535,7 @@ extension LogInViewController {
     
     func didSuccessJoin(_ response: GetUserJoinRes) {
        
-        let alert = UIAlertController(title: "회원가입 성공했습니다. 로그인해주세요!", message: "회원가입 성공했습니다. 로그인해주세요!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: "회원가입 성공했습니다. 로그인해주세요!", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
