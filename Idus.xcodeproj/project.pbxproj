@@ -49,6 +49,9 @@
 		F06F5CE626D756FA005ADFD7 /* GetMyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CE526D756FA005ADFD7 /* GetMyInfo.swift */; };
 		F06F5CE826D75A73005ADFD7 /* GetUserInfoRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CE726D75A73005ADFD7 /* GetUserInfoRes.swift */; };
 		F06F5CEA26D76702005ADFD7 /* MyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CE926D76702005ADFD7 /* MyInfoTableViewCell.swift */; };
+		F06F5CEC26D76C66005ADFD7 /* MyInfoDefualtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CEB26D76C66005ADFD7 /* MyInfoDefualtTableViewCell.swift */; };
+		F06F5CEF26D76FE7005ADFD7 /* MyInfoMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CEE26D76FE7005ADFD7 /* MyInfoMyInfoViewController.swift */; };
+		F06F5CF126D77102005ADFD7 /* ChangeInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CF026D77102005ADFD7 /* ChangeInfoTableViewCell.swift */; };
 		F088F67626D315F100EB7C6B /* CurrentItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67526D315F100EB7C6B /* CurrentItemTableViewCell.swift */; };
 		F088F67826D3161800EB7C6B /* CurrentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67726D3161800EB7C6B /* CurrentItemCollectionViewCell.swift */; };
 		F088F67A26D320B100EB7C6B /* NewItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */; };
@@ -178,6 +181,9 @@
 		F06F5CE526D756FA005ADFD7 /* GetMyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyInfo.swift; sourceTree = "<group>"; };
 		F06F5CE726D75A73005ADFD7 /* GetUserInfoRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInfoRes.swift; sourceTree = "<group>"; };
 		F06F5CE926D76702005ADFD7 /* MyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewCell.swift; sourceTree = "<group>"; };
+		F06F5CEB26D76C66005ADFD7 /* MyInfoDefualtTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDefualtTableViewCell.swift; sourceTree = "<group>"; };
+		F06F5CEE26D76FE7005ADFD7 /* MyInfoMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoMyInfoViewController.swift; sourceTree = "<group>"; };
+		F06F5CF026D77102005ADFD7 /* ChangeInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInfoTableViewCell.swift; sourceTree = "<group>"; };
 		F088F67526D315F100EB7C6B /* CurrentItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentItemTableViewCell.swift; sourceTree = "<group>"; };
 		F088F67726D3161800EB7C6B /* CurrentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -434,10 +440,21 @@
 		F06F5CE226D75117005ADFD7 /* MyInfo */ = {
 			isa = PBXGroup;
 			children = (
+				F06F5CED26D76FB8005ADFD7 /* MyInfo_MyInfo */,
 				F06F5CE326D75137005ADFD7 /* MyInfoViewController.swift */,
 				F06F5CE926D76702005ADFD7 /* MyInfoTableViewCell.swift */,
+				F06F5CEB26D76C66005ADFD7 /* MyInfoDefualtTableViewCell.swift */,
 			);
 			path = MyInfo;
+			sourceTree = "<group>";
+		};
+		F06F5CED26D76FB8005ADFD7 /* MyInfo_MyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				F06F5CEE26D76FE7005ADFD7 /* MyInfoMyInfoViewController.swift */,
+				F06F5CF026D77102005ADFD7 /* ChangeInfoTableViewCell.swift */,
+			);
+			path = MyInfo_MyInfo;
 			sourceTree = "<group>";
 		};
 		F088F69B26D4269000EB7C6B /* AdSliderCell */ = {
@@ -954,6 +971,7 @@
 				F0E6844026D1ABA40015CA5D /* CategoryCollectionViewCell.swift in Sources */,
 				F066ABD526CAFFC800503ADA /* GetUserLoginRes.swift in Sources */,
 				F06F5CDB26D7022A005ADFD7 /* MyPageNoUserTableViewCell.swift in Sources */,
+				F06F5CEC26D76C66005ADFD7 /* MyInfoDefualtTableViewCell.swift in Sources */,
 				F0E6C3F226C88AF3007B7272 /* ClassViewController.swift in Sources */,
 				F088F67826D3161800EB7C6B /* CurrentItemCollectionViewCell.swift in Sources */,
 				F02BF46E26CE1F4A000B3D74 /* ItemDetailFirstTableViewCell.swift in Sources */,
@@ -982,6 +1000,7 @@
 				F088F69A26D425DC00EB7C6B /* ClassOfflineTableViewCell.swift in Sources */,
 				F08BDB9F26D1FD4900FDD24E /* Product2CollectionViewCell.swift in Sources */,
 				F06F5CE626D756FA005ADFD7 /* GetMyInfo.swift in Sources */,
+				F06F5CEF26D76FE7005ADFD7 /* MyInfoMyInfoViewController.swift in Sources */,
 				F0E6C3EF26C86FC9007B7272 /* SwipingController.swift in Sources */,
 				F03392F026D0BE38002CA926 /* ItemOpSetTableViewCell.swift in Sources */,
 				F06F5CC926D6C12F005ADFD7 /* MyPageAdCollectionViewCell.swift in Sources */,
@@ -1001,6 +1020,7 @@
 				F08BDBA126D1FD5F00FDD24E /* Product2TableViewCell.swift in Sources */,
 				F06F5CDE26D711F9005ADFD7 /* ItemListTableViewCell.swift in Sources */,
 				F088F6B926D4DCFA00EB7C6B /* SectionBuyWayTableViewCell.swift in Sources */,
+				F06F5CF126D77102005ADFD7 /* ChangeInfoTableViewCell.swift in Sources */,
 				F088F6A026D4270500EB7C6B /* ClassOnlineCategoryCollectionViewCell.swift in Sources */,
 				F0E6C3DB26C84572007B7272 /* TodayViewController.swift in Sources */,
 				F088F67A26D320B100EB7C6B /* NewItemCollectionViewCell.swift in Sources */,

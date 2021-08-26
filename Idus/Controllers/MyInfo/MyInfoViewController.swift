@@ -35,7 +35,7 @@ extension MyInfoViewController {
     func didSuccess(_ response: GetUserInfoRes) {
         
         userInfo = response
-        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MyInfoMyInfoViewController") as? MyInfoMyInfoViewController
     }
     
     func didFailure(_ message: String) {
@@ -60,7 +60,7 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (section == 0) {
-            return 1
+            return 4
         }
         else if (section == 1) {
             return 2
@@ -79,10 +79,35 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoTableViewCell") as? MyInfoTableViewCell else {
-                return UITableViewCell()
+            
+            if (indexPath.row == 0 ) {
+                
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoTableViewCell") as? MyInfoTableViewCell else {
+                    return UITableViewCell()
+                }
+                return cell
             }
-            return cell
+            if (indexPath.row == 1) {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoDefualtTableViewCell0") as? MyInfoDefualtTableViewCell else {
+                    return UITableViewCell()
+                }
+                return cell
+            }
+            
+            if (indexPath.row == 2) {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoDefualtTableViewCell1") as? MyInfoDefualtTableViewCell else {
+                    return UITableViewCell()
+                }
+                return cell
+            }
+            else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoDefualtTableViewCell2") as? MyInfoDefualtTableViewCell else {
+                    return UITableViewCell()
+                }
+                
+                return cell
+            }
+            
         }
         else{
             return UITableViewCell()
@@ -93,8 +118,11 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if (indexPath.section == 0) {
-    
-        return tableView.frame.height * 0.45
+            if(indexPath.row == 0 ){
+                return tableView.frame.height * 0.23
+            }else {
+                return 60
+            }
         }
         else {
             return 60
