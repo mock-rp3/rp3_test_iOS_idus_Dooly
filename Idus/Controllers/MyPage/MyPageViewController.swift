@@ -15,16 +15,23 @@ class MyPageViewController: UIViewController {
     @IBOutlet var mypageTableView: UITableView!
     let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
 
+    var userInfo : GetUserInfoRes? = nil
+
 
     @IBOutlet var platform: UILabel!
     @IBOutlet var email: UILabel!
     @IBOutlet var name: UILabel!
     @IBOutlet var password: UILabel!
     @IBOutlet var button: UIButton!
+    @IBOutlet var topView: UIView!
+    
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
+        GetMyInfo().getUserInfo(self, token: UserDefaults.standard.value(forKey: "jwt") as! String, userIdx :  UserDefaults.standard.value(forKey: "userIdx")! as! Int)
+
         
         let MyPageTableViewCell = UINib(nibName: "MyPageTableViewCell", bundle: nil)
         self.mypageTableView.register(MyPageTableViewCell, forCellReuseIdentifier: "MyPageTableViewCell")
@@ -38,7 +45,6 @@ class MyPageViewController: UIViewController {
 
         if UserDefaults.standard.value(forKey: "email") != nil  && UserDefaults.standard.value(forKey: "password") != nil {
             email.text = (UserDefaults.standard.value(forKey: "email") as! String)
-            name.text = (UserDefaults.standard.value(forKey: "name") as! String)
             password.text = (UserDefaults.standard.value(forKey: "password") as! String)
             platform.text = (UserDefaults.standard.value(forKey: "platform") as! String)
             print((UserDefaults.standard.value(forKey: "jwt") as! String))
@@ -92,6 +98,7 @@ class MyPageViewController: UIViewController {
             UserDefaults.standard.removeObject(forKey: "name")
             UserDefaults.standard.removeObject(forKey: "platform")
             UserDefaults.standard.removeObject(forKey: "jwt")
+            UserDefaults.standard.removeObject(forKey: "userIdx")
             
             let vc = storyboard?.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController
 
@@ -241,11 +248,36 @@ extension MyPageViewController: GoDelegate{
     
     func clickUserInfo() {
         
-        print("~~~")
         let vc = storyboard?.instantiateViewController(withIdentifier: "MyInfoViewController") as? MyInfoViewController
 
         navigationController?.pushViewController(vc!, animated: true)
 
+    }
+
+}
+
+
+extension MyPageViewController {
+    
+    func didSuccess(_ response: GetUserInfoRes) {
+        
+        userInfo = response
+
+        UserDefaults.standard.set(response.result?.name , forKey: "name")
+        UserDefaults.standard.set(response.result?.email , forKey: "email")
+        UserDefaults.standard.set(response.result?.phoneNumber , forKey: "phoneNumber")
+        UserDefaults.standard.set(response.result?.birth , forKey: "birth")
+        UserDefaults.standard.set(response.result?.rank , forKey: "rank")
+        UserDefaults.standard.set(response.result?.gender , forKey: "gender")
+
+    }
+    
+    func didFailure(_ message: String) {
+
+        let alert = UIAlertController(title: "등록되지 않은 유저입니다", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 
 }

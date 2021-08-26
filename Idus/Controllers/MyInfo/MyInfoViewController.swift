@@ -4,12 +4,15 @@
 //
 //  Created by 김희진 on 2021/08/26.
 //
-
 import UIKit
+import NaverThirdPartyLogin
+import KakaoSDKAuth
+import KakaoSDKUser
 
 class MyInfoViewController: UIViewController {
 
-    
+    let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+
     var userInfo : GetUserInfoRes? = nil
     
     @IBOutlet var MyInfoTableView: UITableView!
@@ -18,10 +21,12 @@ class MyInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 이거 이 전페이지에서 한담에 배열을넘길수있도록 하셈
-        // 유저 인덱스도 가지고 있다가 같이 쏴줘야함
-            GetMyInfo().getUserInfo(self, token: "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4Ijo0MSwiaWF0IjoxNjI5OTU0NDEzLCJleHAiOjE2MzE0MjU2NDJ9.x9-TUhf4L8khpXs-hi40PkqaYyG1UgnpXPfazFeglPo")
+
+//        GetMyInfo().getUserInfo(self, token: "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4Ijo0MSwiaWF0IjoxNjI5OTU0NDEzLCJleHAiOjE2MzE0MjU2NDJ9.x9-TUhf4L8khpXs-hi40PkqaYyG1UgnpXPfazFeglPo", userIdx : UserDefaults.standard.value(forKey: "userIdx"))
+
         
+//        GetMyInfo().getUserInfo(self, token: UserDefaults.standard.value(forKey: "jwt") as! String, userIdx :  UserDefaults.standard.value(forKey: "userIdx")! as! Int)
+
         MyInfoTableView.dataSource = self
         MyInfoTableView.delegate = self
 
@@ -35,7 +40,6 @@ extension MyInfoViewController {
     func didSuccess(_ response: GetUserInfoRes) {
         
         userInfo = response
-        let vc = storyboard?.instantiateViewController(withIdentifier: "MyInfoMyInfoViewController") as? MyInfoMyInfoViewController
     }
     
     func didFailure(_ message: String) {
@@ -65,11 +69,14 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource{
         else if (section == 1) {
             return 2
         }
-        else if (section == 3) {
+        else if (section == 2) {
             return 1
         }
-        else if (section == 4) {
+        else if (section == 3) {
             return 3
+        }
+        else if (section == 4) {
+            return 1
         }
         else {
             return 1
@@ -84,10 +91,14 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource{
                 
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoTableViewCell") as? MyInfoTableViewCell else {
                     return UITableViewCell()
+                    
                 }
+                cell.username.text = (UserDefaults.standard.value(forKey: "name") as! String)
+                cell.userPasswird.text = (UserDefaults.standard.value(forKey: "email") as! String)
+                
                 return cell
             }
-            if (indexPath.row == 1) {
+            else if (indexPath.row == 1) {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoDefualtTableViewCell0") as? MyInfoDefualtTableViewCell else {
                     return UITableViewCell()
                 }
@@ -109,9 +120,61 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource{
             }
             
         }
+        else if (indexPath.section == 1) {
+            
+            if (indexPath.row == 0) {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoDefualtTableViewCell3") as? MyInfoDefualtTableViewCell else {
+                    return UITableViewCell()
+                }
+                return cell
+            }
+            
+            if (indexPath.row == 1) {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoDefualtTableViewCell4") as? MyInfoDefualtTableViewCell else {
+                    return UITableViewCell()
+                }
+                return cell
+            }
+        }
+        else if (indexPath.section == 2) {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoDefualtTableViewCell5") as? MyInfoDefualtTableViewCell else {
+                    return UITableViewCell()
+                }
+                return cell
+        }
+        else if (indexPath.section == 3) {
+            
+            if (indexPath.row == 0) {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoDefualtTableViewCell6") as? MyInfoDefualtTableViewCell else {
+                    return UITableViewCell()
+                }
+                return cell
+            }
+            
+            if (indexPath.row == 1) {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoDefualtTableViewCell7") as? MyInfoDefualtTableViewCell else {
+                    return UITableViewCell()
+                }
+                return cell
+            }
+            if (indexPath.row == 2) {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoDefualtTableViewCell8") as? MyInfoDefualtTableViewCell else {
+                    return UITableViewCell()
+                }
+                return cell
+            }
+        }
+        else if (indexPath.section == 4) {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyInfoDefualtTableViewCell9") as? MyInfoDefualtTableViewCell else {
+                    return UITableViewCell()
+                }
+                return cell
+        }
+ 
         else{
             return UITableViewCell()
         }
+        return UITableViewCell()
     }
     
     
@@ -142,6 +205,77 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource{
             return 10
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        if(indexPath.section == 4){
+            
+            
+            let actionSheet = UIAlertController(title: nil , message: "로그아웃 하시겠습니까?", preferredStyle: .actionSheet)
+            
+            
+            let agree = UIAlertAction(title: "예", style: .default ) { (action) in
+                
+                
+                if UserDefaults.standard.value(forKey: "jwt") != nil{
+                    
+                    if((UserDefaults.standard.value(forKey: "platform") as! String) == "local") {
+                        print("local User logout")
+                    }
+                    else if ((UserDefaults.standard.value(forKey: "platform") as! String) == "naver") {
+                        self.loginInstance?.requestDeleteToken()
+                        print("Naver User log out")
+                    }
+                    else if ((UserDefaults.standard.value(forKey: "platform") as! String) == "kakao") {
+                        //로그아웃
+                        UserApi.shared.logout {(error) in
+                            if let error = error {
+                                print(error)
+                            }
+                            else {
+                                print("logout() success.")
+                            }
+                        }
+                        //연결해제
+                        // UserApi.shared.unlink {(error) in
+                        // if let error = error {
+                        //     print(error)
+                        // }
+                        // else {
+                        //   print("unlink() success.")
+                        // }
+                        // }
+                        print("Kakao User log out")
 
+                    }
+                    
+                    UserDefaults.standard.removeObject(forKey: "email")
+                    UserDefaults.standard.removeObject(forKey: "password")
+                    UserDefaults.standard.removeObject(forKey: "name")
+                    UserDefaults.standard.removeObject(forKey: "platform")
+                    UserDefaults.standard.removeObject(forKey: "jwt")
+                    UserDefaults.standard.removeObject(forKey: "userIdx")
+                    
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController
+
+                    self.navigationController?.pushViewController(vc!, animated: true)
+
+                }else {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController
+
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                }
+                
+            }
+            
+            let cancel = UIAlertAction(title: "아니오", style: .cancel, handler: nil)
+            
+            actionSheet.addAction(agree)
+            actionSheet.addAction(cancel)
+            
+            present(actionSheet, animated: true, completion: nil)
+            
+        }
+    }
     
 }

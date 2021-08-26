@@ -19,9 +19,9 @@ import UIKit
 
 class GetMyInfo {
     
-    func getUserInfo(_ myInfoViewController: MyInfoViewController, token : String) {
+    func getUserInfo(_ myPageViewController: MyPageViewController, token : String, userIdx : Int) {
 
-        let url = "http://dhlcutpdus.site:9000/users/info/41"
+        let url = "http://dhlcutpdus.site:9000/users/info/\(userIdx)"
 
         let requestHeaders: HTTPHeaders = [
                 "X-ACCESS-TOKEN": token,
@@ -40,7 +40,7 @@ class GetMyInfo {
                 case .success(let response):
                     if response.isSuccess {
                         print("DEBUG>> USER API GET Response \(response) ")
-                        myInfoViewController.didSuccess(response)
+                        myPageViewController.didSuccess(response)
                     }
                     else {
                         switch response.code {

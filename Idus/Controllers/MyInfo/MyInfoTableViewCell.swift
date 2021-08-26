@@ -9,6 +9,11 @@ import UIKit
 
 class MyInfoTableViewCell: UITableViewCell {
 
+    @IBOutlet var username: UILabel!
+    @IBOutlet var userPasswird: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
