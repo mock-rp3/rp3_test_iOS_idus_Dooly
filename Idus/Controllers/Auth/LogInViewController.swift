@@ -94,6 +94,7 @@ class LogInViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
 
         timer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(changeImage), userInfo: nil ,  repeats: true)
 
+        tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
