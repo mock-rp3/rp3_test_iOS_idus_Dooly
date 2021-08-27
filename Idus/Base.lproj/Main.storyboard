@@ -2833,7 +2833,7 @@
                                     <constraint firstItem="Py5-5w-IWU" firstAttribute="centerY" secondItem="P1Q-st-rbU" secondAttribute="centerY" id="vft-Cj-X17"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9xX-OA-pnf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9xX-OA-pnf">
                                 <rect key="frame" x="0.0" y="106" width="414" height="707"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -2906,6 +2906,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="1Be-nn-i7H" kind="show" id="1pD-Ne-K8r"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Section_1_2_MyPageTableViewCell" rowHeight="64" id="JWS-Iy-7kS" customClass="MyPageDefualtTableViewCell" customModule="Idus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="216.5" width="414" height="64"/>
@@ -2998,6 +3001,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="Mo6-J2-BHt" kind="show" id="NuT-Ew-ys6"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyPageAdTableViewCell" focusStyle="custom" rowHeight="152" id="TVg-Eg-hhh" customClass="MyPageAdTableViewCell" customModule="Idus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="344.5" width="414" height="152"/>
@@ -3451,19 +3457,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCM-4z-O5W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4769.5652173913049" y="-202.23214285714286"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="iyG-6o-5LL">
-            <objects>
-                <navigationController id="3zO-Aw-frc" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zhg-l8-FHY">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PGf-ts-DjZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4799" y="-907"/>
         </scene>
         <!--My Info My Info View Controller-->
         <scene sceneID="x3m-VG-5Ss">
@@ -4253,6 +4246,60 @@
             </objects>
             <point key="canvasLocation" x="2951" y="558"/>
         </scene>
+        <!--My Sub ViewVIP View Controller-->
+        <scene sceneID="bdu-y0-aOg">
+            <objects>
+                <viewController storyboardIdentifier="MySubViewVIPViewController" id="1Be-nn-i7H" customClass="MySubViewVIPViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hgm-FX-ITe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="스크린샷 2021-08-27 오전 9.47.10" translatesAutoresizingMaskIntoConstraints="NO" id="zUh-J6-bpa">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Z5M-cb-AfW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zUh-J6-bpa" firstAttribute="top" secondItem="Hgm-FX-ITe" secondAttribute="topMargin" id="C6g-tq-g4e"/>
+                            <constraint firstItem="Z5M-cb-AfW" firstAttribute="bottom" secondItem="zUh-J6-bpa" secondAttribute="bottom" id="M8m-Xx-Ujs"/>
+                            <constraint firstItem="zUh-J6-bpa" firstAttribute="leading" secondItem="Z5M-cb-AfW" secondAttribute="leading" id="WJs-oj-r2K"/>
+                            <constraint firstItem="Z5M-cb-AfW" firstAttribute="trailing" secondItem="zUh-J6-bpa" secondAttribute="trailing" id="l8m-n1-RF8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gmW-iC-NVo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CO8-VL-YgJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4252.1739130434789" y="529.6875"/>
+        </scene>
+        <!--My Sub View Friend View Controller-->
+        <scene sceneID="GXU-0a-nvR">
+            <objects>
+                <viewController restorationIdentifier="MySubViewFriendViewController" storyboardIdentifier="MySubViewFriendViewController" id="Mo6-J2-BHt" customClass="MySubViewFriendViewController" customModule="Idus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y7K-kD-Vh9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="스크린샷 2021-08-27 오전 9.46.47" translatesAutoresizingMaskIntoConstraints="NO" id="sYT-2S-VQ1">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iCV-a9-8O2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sYT-2S-VQ1" firstAttribute="leading" secondItem="iCV-a9-8O2" secondAttribute="leading" id="8wc-yQ-tU1"/>
+                            <constraint firstItem="iCV-a9-8O2" firstAttribute="trailing" secondItem="sYT-2S-VQ1" secondAttribute="trailing" id="Btv-Wf-NF8"/>
+                            <constraint firstItem="sYT-2S-VQ1" firstAttribute="top" secondItem="iCV-a9-8O2" secondAttribute="top" id="Eu5-v3-8mn"/>
+                            <constraint firstItem="iCV-a9-8O2" firstAttribute="bottom" secondItem="sYT-2S-VQ1" secondAttribute="bottom" id="hC2-QD-70D"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="o9p-LV-zb8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lHW-S7-wIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5000" y="536"/>
+        </scene>
         <!--Category Class View Controller-->
         <scene sceneID="oEO-yi-EB8">
             <objects>
@@ -4443,6 +4490,8 @@
         <image name="user_thumb_w_cam" width="220" height="222"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <image name="스크린샷 2021-08-24 오전 4.31.44" width="428" height="300"/>
+        <image name="스크린샷 2021-08-27 오전 9.46.47" width="808" height="1540"/>
+        <image name="스크린샷 2021-08-27 오전 9.47.10" width="812" height="1548"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -242,7 +242,16 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource{
             return 10
         }
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        if(indexPath.section == 1){
+            if(indexPath.row == 1){
+                print("!!")
+            }
+        }
+        
+    }
     
 }
 

@@ -29,6 +29,8 @@ class MyInfoViewController: UIViewController {
 
         MyInfoTableView.dataSource = self
         MyInfoTableView.delegate = self
+        self.navigationController?.navigationBar.isHidden = false
+        
 
     }
     

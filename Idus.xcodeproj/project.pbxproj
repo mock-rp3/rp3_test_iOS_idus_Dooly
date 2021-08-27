@@ -57,6 +57,8 @@
 		F06F5CF726D7DA60005ADFD7 /* PatchUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CF626D7DA60005ADFD7 /* PatchUserInfo.swift */; };
 		F06F5CF926D863B0005ADFD7 /* PostCartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CF826D863B0005ADFD7 /* PostCartRequest.swift */; };
 		F06F5CFB26D865F1005ADFD7 /* PostCartItemRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06F5CFA26D865F1005ADFD7 /* PostCartItemRes.swift */; };
+		F0856B3626D86F7A00A6495A /* MySubViewVIPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0856B3526D86F7A00A6495A /* MySubViewVIPViewController.swift */; };
+		F0856B3826D86F8B00A6495A /* MySubViewFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0856B3726D86F8B00A6495A /* MySubViewFriendViewController.swift */; };
 		F088F67626D315F100EB7C6B /* CurrentItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67526D315F100EB7C6B /* CurrentItemTableViewCell.swift */; };
 		F088F67826D3161800EB7C6B /* CurrentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67726D3161800EB7C6B /* CurrentItemCollectionViewCell.swift */; };
 		F088F67A26D320B100EB7C6B /* NewItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */; };
@@ -194,6 +196,8 @@
 		F06F5CF626D7DA60005ADFD7 /* PatchUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchUserInfo.swift; sourceTree = "<group>"; };
 		F06F5CF826D863B0005ADFD7 /* PostCartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCartRequest.swift; sourceTree = "<group>"; };
 		F06F5CFA26D865F1005ADFD7 /* PostCartItemRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCartItemRes.swift; sourceTree = "<group>"; };
+		F0856B3526D86F7A00A6495A /* MySubViewVIPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySubViewVIPViewController.swift; sourceTree = "<group>"; };
+		F0856B3726D86F8B00A6495A /* MySubViewFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySubViewFriendViewController.swift; sourceTree = "<group>"; };
 		F088F67526D315F100EB7C6B /* CurrentItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentItemTableViewCell.swift; sourceTree = "<group>"; };
 		F088F67726D3161800EB7C6B /* CurrentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F088F67926D320B100EB7C6B /* NewItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -376,6 +380,7 @@
 		F03392D226CF98F9002CA926 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				F0856B3426D86F5400A6495A /* SubPage */,
 				F0E6C3F726C88B1A007B7272 /* MyPageViewController.swift */,
 				F06F5CC426D6ABA6005ADFD7 /* MyPageDefualtTableViewCell.swift */,
 				F06F5CC026D69384005ADFD7 /* MyPageTableViewCell.swift */,
@@ -470,6 +475,15 @@
 				F06F5CF026D77102005ADFD7 /* ChangeInfoTableViewCell.swift */,
 			);
 			path = MyInfo_MyInfo;
+			sourceTree = "<group>";
+		};
+		F0856B3426D86F5400A6495A /* SubPage */ = {
+			isa = PBXGroup;
+			children = (
+				F0856B3526D86F7A00A6495A /* MySubViewVIPViewController.swift */,
+				F0856B3726D86F8B00A6495A /* MySubViewFriendViewController.swift */,
+			);
+			path = SubPage;
 			sourceTree = "<group>";
 		};
 		F088F69B26D4269000EB7C6B /* AdSliderCell */ = {
@@ -1000,6 +1014,7 @@
 				F06F5CF926D863B0005ADFD7 /* PostCartRequest.swift in Sources */,
 				F088F6A826D43BA600EB7C6B /* UserBuyDetailTableViewCell.swift in Sources */,
 				F088F68E26D3F1D800EB7C6B /* CategoryModel.swift in Sources */,
+				F0856B3826D86F8B00A6495A /* MySubViewFriendViewController.swift in Sources */,
 				F088F6A526D4396300EB7C6B /* UserBuyDetailViewController.swift in Sources */,
 				F088F6B526D4D9AF00EB7C6B /* SectionDiscountTableViewCell.swift in Sources */,
 				F088F69426D4192000EB7C6B /* ClassOnlineTableViewCell.swift in Sources */,
@@ -1023,6 +1038,7 @@
 				F0E6C3EF26C86FC9007B7272 /* SwipingController.swift in Sources */,
 				F03392F026D0BE38002CA926 /* ItemOpSetTableViewCell.swift in Sources */,
 				F06F5CC926D6C12F005ADFD7 /* MyPageAdCollectionViewCell.swift in Sources */,
+				F0856B3626D86F7A00A6495A /* MySubViewVIPViewController.swift in Sources */,
 				F0E6C3DF26C8459E007B7272 /* NewViewController.swift in Sources */,
 				F088F68C26D3EF6E00EB7C6B /* CategoryWorkCollectionViewCell.swift in Sources */,
 				F066ABD726CB9DB800503ADA /* SignInRequest.swift in Sources */,
