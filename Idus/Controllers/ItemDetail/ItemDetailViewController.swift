@@ -205,6 +205,10 @@ class ItemDetailViewController: UIViewController  {
         return ar.reduce(0,+)
     }
     
+    @IBAction func cart(_ sender: Any) {
+        
+        PostItemDetails().postCartOptions(self, userIdx: UserDefaults.standard.value(forKey: "userIdx")! as! Int)
+    }
     
 
     @IBAction func buy(_ sender: Any) {
@@ -512,25 +516,16 @@ extension ItemDetailViewController {
                      
     }
 
-//    func didBuySuccess(_ response: PostBuyItemRes) {
-//
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyBoard.instantiateViewController(withIdentifier: "UserBuyDetailViewController") as! UserBuyDetailViewController
-//
-//        let navigationController = self.navigationController
-//
-//        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<-", style: .plain, target: vc, action: #selector(vc.closeView))
-//
-//        let transition = CATransition()
-//        transition.duration = 0.4
-//        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-//        transition.type = CATransitionType.moveIn
-//        transition.subtype = CATransitionSubtype.fromTop
-//        navigationController?.view.layer.add(transition, forKey: nil)
-//        navigationController?.pushViewController(vc, animated: false)
-//
-//
-//    }
+    func didCartSuccess(_ response: PostCartItemRes) {
+
+        let alert = UIAlertController(title: "", message: "카트에 상품이 담겼습니다", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        
+        buyView.isHidden = true
+
+    }
 
 }
 

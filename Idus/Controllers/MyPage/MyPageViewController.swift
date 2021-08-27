@@ -59,12 +59,14 @@ class MyPageViewController: UIViewController {
         
         let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
         mypageTableView.tableFooterView = footer
-
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         let index = IndexPath(row: 0, section: 0)
         mypageTableView.reloadRows(at: [index], with: .automatic)
+        mypageTableView.reloadData()
+        self.navigationController?.navigationBar.isHidden = true
 
     }
     
@@ -220,7 +222,7 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
         else if (indexPath.section == 2) {
-            return tableView.frame.height * 0.105
+            return tableView.frame.height * 0.1
         }
         else {
             return 60
@@ -280,6 +282,8 @@ extension MyPageViewController {
         UserDefaults.standard.set(response.result?.birth , forKey: "birth")
         UserDefaults.standard.set(response.result?.rank , forKey: "rank")
         UserDefaults.standard.set(response.result?.gender , forKey: "gender")
+ 
+        mypageTableView.reloadData()
 
     }
     

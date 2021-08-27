@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 instance?.consumerKey = kConsumerKey // 상수 - client id
                 instance?.consumerSecret = kConsumerSecret // pw
                 instance?.appName = kServiceAppName // app name
-
+        
         return true
     }
     

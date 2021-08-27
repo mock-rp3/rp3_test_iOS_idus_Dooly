@@ -38,7 +38,7 @@ class CurrentItemTableViewCell: UITableViewCell {
 extension CurrentItemTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        produts?.products?.count ?? 0
+        50
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -4,14 +4,24 @@
          "category_name":"내가 본 작품의 연관작품",
          "products":[
             {
-               "name":"동물농장 쉐이커 키링&그립 스마트톡",
-               "image_name":"item_thumb1",
-               "price":"10000",
-               "description":"sdfsdfsdfsdfsdffffffff",
+               "name":"무료각인) 알루미뇸 각인빨대 (유광 20cm)",
+               "image_name":"item1_thumb",
+               "price":"2800",
+               "description":"레트로한 감성이 느껴지는 알루미늄 빨대입니다",
                "star": "1",
                "thumb_review" : "배송이 조금 오래걸리긴 했지만 정말 좋아요",
-               "review_count" : "10"
+               "review_count" : "3"
             },
+            {
+               "name":"무료각인) 알루미뇸 각인빨대 (유광 20cm)",
+               "image_name":"item_thumb1",
+               "price":"2800",
+               "description":"레트로한 감성이 느껴지는 알루미늄 빨대입니다",
+               "star": "1",
+               "thumb_review" : "배송이 조금 오래걸리긴 했지만 정말 좋아요",
+               "review_count" : "3"
+            },
+
             {
                "name":"(신상할인)파스텔 곰돌이 쉐이커 스마트톡/키링",
                "image_name":"item_thumb2",

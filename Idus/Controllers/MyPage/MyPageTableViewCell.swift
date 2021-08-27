@@ -19,6 +19,7 @@ class MyPageTableViewCell: UITableViewCell {
     
     @IBOutlet var userLevel: UILabel!
     override func awakeFromNib() {
+        userName.text = UserDefaults.standard.value(forKey: "name") as? String
         super.awakeFromNib()
         // Initialization code
     }

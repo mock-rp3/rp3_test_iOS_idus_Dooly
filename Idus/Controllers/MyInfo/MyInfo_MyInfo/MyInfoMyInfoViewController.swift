@@ -18,12 +18,12 @@ class MyInfoMyInfoViewController: UIViewController {
 
         changeInfoTableView.delegate = self
         changeInfoTableView.dataSource = self
-        // Do any additional setup after loading the view.
-    
-        navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.isHidden = false
+
     }
 
 }
+
 
 
 extension MyInfoMyInfoViewController: UITableViewDelegate, UITableViewDataSource{
@@ -198,8 +198,16 @@ extension MyInfoMyInfoViewController {
             changeInfoTableView.reloadData()
                         
             let alert = UIAlertController(title: "", message: "유저정보가 변경되었습니다", preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(action)
+            let action = UIAlertAction(title: "OK", style: .default){(action) in
+                
+            }
+                
+                
+//            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+//               self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
+//            }
+
+                alert.addAction(action)
             present(alert, animated: true, completion: nil)
 
         }
